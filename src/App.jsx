@@ -221,7 +221,7 @@ function applyHead(path) {
   const r = routes[path] || routes['/']
   document.title = r.title
   const set = (sel, v) => document.querySelector(sel)?.setAttribute(sel.startsWith('link') ? 'href' : 'content', v)
-  const url = `https://rafaelleweran.com${path === '/' ? '/' : path}`
+  const url = `https://www.rafaelleweran.com${path === '/' ? '/' : path}`
   set('meta[name="description"]', r.description)
   set('meta[property="og:title"]', r.title)
   set('meta[property="og:description"]', r.description)

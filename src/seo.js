@@ -1,6 +1,6 @@
 // Per-route head tags. Used at runtime (App) and at build time (vite.config.js prerenders one HTML file per route,
 // so link previews on LinkedIn, Slack, etc. get the right title without running JavaScript).
-export const SITE_URL = 'https://rafaelleweran.com'
+export const SITE_URL = 'https://www.rafaelleweran.com'
 export const OG_IMAGE = `${SITE_URL}/og.png`
 
 export const routes = {
