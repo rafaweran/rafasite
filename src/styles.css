@@ -543,7 +543,8 @@ button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--iris);
 .md-ba { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: center; gap: clamp(24px, 6vw, 88px); margin-top: 40px; align-items: start; }
 .md-ba-shot figcaption { display: flex; gap: 10px; align-items: baseline; margin-bottom: 14px; font-size: 15px; color: var(--subtle); }
 .md-ba-shot figcaption .label { color: var(--rose); }
-.md-ba-shot img { display: block; width: 100%; border-radius: 14px; border: 1px solid var(--line); }
+.md-ba-phone { overflow: hidden; border: 10px solid #0e0d15; border-radius: 40px; background: #fff; box-shadow: 0 0 0 1px var(--line), 0 30px 60px -20px rgba(0, 0, 0, 0.6); }
+.md-ba-phone img { display: block; width: 100%; }
 .md-ba-list { margin-top: 56px; border-top: 1px solid var(--line); }
 .md-ba-list > div { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .md-ba-list dt { color: var(--text); font-size: 16px; }

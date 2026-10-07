@@ -627,11 +627,11 @@ export default function Medco() {
           <div className="md-ba">
             <Reveal as="figure" className="md-ba-shot">
               <figcaption><span className="label">Before</span>V1 home</figcaption>
-              <img src={`${import.meta.env.BASE_URL}images/medco-home-before.webp`} alt="V1 patient home: search bar, four shortcut icons, and large doctor cards with three actions each" loading="lazy" />
+              <div className="md-ba-phone"><img src={`${import.meta.env.BASE_URL}images/medco-home-before.webp`} alt="V1 patient home: search bar, four shortcut icons, and large doctor cards with three actions each" loading="lazy" /></div>
             </Reveal>
             <Reveal as="figure" className="md-ba-shot">
               <figcaption><span className="label">After</span>V2 home</figcaption>
-              <img src={`${import.meta.env.BASE_URL}images/medco-home-after.webp`} alt="V2 patient home: Falar com um médico agora as the main action, recent appointments, a compact doctors list, and bottom navigation" loading="lazy" />
+              <div className="md-ba-phone"><img src={`${import.meta.env.BASE_URL}images/medco-home-after.webp`} alt="V2 patient home: Falar com um médico agora as the main action, recent appointments, a compact doctors list, and bottom navigation" loading="lazy" /></div>
             </Reveal>
           </div>
           <Reveal as="dl" className="md-ba-list">
