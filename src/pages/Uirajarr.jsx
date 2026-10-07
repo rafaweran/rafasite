@@ -60,10 +60,10 @@ const flow = [
 const requesterNeeds = ['create a new request', 'continue a draft', 'understand the current status', 'see whether a quotation exists', 'follow progress', 'act only when something requires their attention']
 
 const requesterNotes = [
-  'Drafts remain visible and resumable.',
-  'Statuses communicate where each request is in the process.',
-  'Quotation references remain connected to the request.',
-  'Primary actions are limited to what the requester can actually do.',
+  'Three steps: the trip, who travels, and authorization.',
+  'Route and dates sit in one search bar, the first decision the requester makes.',
+  'Travel conditions are set with compact selectors instead of a long form.',
+  'The requesting unit is shown from the start; notes for the agency stay optional.',
 ]
 
 const operatorMonitors = ['active sessions', 'accredited agencies', 'submitted proposals', 'bidding deadlines', 'issuance deadlines', 'pending requests', 'expiring credentials', 'exceptions', 'operational risks']
@@ -208,7 +208,10 @@ export default function Uirajarr() {
             </a>
           ))}
         </Reveal>
-        <Ownership team={['2 developers', 'Business specialist']} impactLabel="Product impact" impact={<p>Reduced process fragmentation by centralizing requests, approvals, bidding, ticket issuance, and auditability in one workflow.</p>} />
+        <Ownership
+          owned={<p>Process mapping, requirements definition, UX/UI design, role-based flows, prototyping, and the translation of complex business rules into a clear digital experience.</p>}
+          decision={<p>Structuring the product around role-based workflows and traceability instead of reproducing the existing fragmented process screen by screen. The goal was to simplify the journey while preserving accountability, approvals, exceptions, and audit history.</p>}
+          team={['2 developers', 'Business specialist']} impactLabel="Product impact" impact={<p>Reduced process fragmentation by centralizing requests, approvals, bidding, ticket issuance, and auditability in one workflow.</p>} />
       </div>
 
       {/* 01 Challenge + current state */}
@@ -336,7 +339,7 @@ export default function Uirajarr() {
             <ul className="cs-ticks">{requesterNeeds.map((r) => <li key={r}>{r}</li>)}</ul>
           </Reveal>
         </div>
-        <Annotated shot={<Shot product="[Insert “Meus pedidos” screen]" ratio="16 / 10" />} notes={requesterNotes} />
+        <Annotated shot={<Shot product="UIRAJARR new travel request, step 1" src={`${import.meta.env.BASE_URL}images/uj-new-request.webp`} ratio="2000 / 1047" />} notes={requesterNotes} demo />
         <Reveal as="p" className="cs-statement">The interface simplifies the institutional process without hiding its progress.</Reveal>
       </Chapter>
 
