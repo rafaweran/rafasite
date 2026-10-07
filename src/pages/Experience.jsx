@@ -33,7 +33,7 @@ export default function Experience() {
         <Reveal as="h1">Where and when I've <em>worked</em>.</Reveal>
         <Reveal className="ex-hero-row">
           <p className="ex-hero-sub">
-            {profile.role} and Senior Product Designer. {profile.location.split(' · ')[0]}.
+            {profile.role} and Design Engineer. {profile.location.split(' · ')[0]}.
           </p>
           <CvLink />
         </Reveal>
@@ -92,7 +92,7 @@ export default function Experience() {
       <section>
         <div className="wrap">
           <Reveal>
-            <p className="label">Education and certification</p>
+            <p className="label">Education</p>
             <ul className="exp-list single">
               {education.map((ed) => (
                 <li key={ed.name + ed.org}>{ed.name} <span className="ex-org">· {ed.org ? `${ed.org}, ` : ''}{ed.year}</span></li>

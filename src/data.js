@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Rafaelle Weran',
-  role: 'Design Engineer',
-  headline: 'Senior Product Designer who takes product decisions all the way to functional interfaces in code.',
+  role: 'Senior Product Designer',
+  headline: 'I take product decisions all the way to functional interfaces in code, working as a Design Engineer when the project calls for it.',
   location: 'Edmonton, Canada · Remote worldwide',
   workEligibility: 'Eligible to work in Canada',
   email: 'rafaelle.rodrigues@gmail.com',
@@ -252,5 +252,4 @@ export const education = [
   { name: 'UX Design', org: 'Design Circuit', year: '2021' },
   { name: 'Management in Information Security Systems / Information Assurance', org: 'UNI7, Centro Universitário 7 de Setembro', year: '2007 to 2008' },
   { name: 'Faculdade de Ciências Tecnológicas de Fortaleza', org: null, year: '2001 to 2004' },
-  { name: 'Global Talent certification', org: 'Deel', year: '2026' },
 ]
