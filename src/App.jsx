@@ -8,7 +8,6 @@ import Medco from './pages/Medco'
 import Uirajarr from './pages/Uirajarr'
 import About from './pages/About'
 import Experience from './pages/Experience'
-import Todo from './components/Todo'
 import { routes } from './seo'
 import { profile, heroCapabilities, facts, cases, principles, process, experience, builds } from './data'
 
@@ -56,7 +55,7 @@ function Hero() {
           ))}
           <div>
             <b className="loc">Edmonton, Canada</b>
-            <span>{profile.workEligibility || <Todo>work eligibility wording</Todo>}</span>
+            <span>{profile.workEligibility}</span>
           </div>
         </Reveal>
       </div>
@@ -231,6 +230,10 @@ function applyHead(path) {
 
 if (window.location.hash.startsWith('#/')) {
   window.history.replaceState(null, '', window.location.hash.slice(1))
+}
+// "/work" is the projects index on the home page.
+if (window.location.pathname.replace(/\/+$/, '') === '/work') {
+  window.history.replaceState(null, '', '/#work')
 }
 
 export default function App() {

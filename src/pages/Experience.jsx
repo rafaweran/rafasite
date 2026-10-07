@@ -1,5 +1,5 @@
 import Reveal from '../components/Reveal'
-import Todo from '../components/Todo'
+import Craft from '../components/Craft'
 import ContactLinks from '../components/ContactLinks'
 import { profile, experience, education, domains, coreCapabilities } from '../data'
 
@@ -8,9 +8,6 @@ const FROM = 2010
 const NOW = 2026.8
 const pct = (y) => `${((y - FROM) / (NOW - FROM)) * 100}%`
 const years = [2010, 2014, 2018, 2022, 2026]
-
-// TODO(Rafaelle): add the real Nextlar screenshot, e.g. 'images/nextlar-property-card.jpg'.
-const NEXTLAR_SHOT = null
 
 const aiFlow = [
   { title: 'Specification', text: 'Product decisions, requirements, interaction rules, and implementation constraints.',
@@ -80,12 +77,11 @@ export default function Experience() {
                       {e.clients.map((c) => (
                         <li key={c.name}>
                           <a href={c.href}>{c.name} →</a>
-                          <span>{c.team || <Todo>team size and composition</Todo>}</span>
+                          {c.team && <span>{c.team}</span>}
                         </li>
                       ))}
                     </ul>
                   )}
-                  {e.todo && <Todo as="p">{e.todo}</Todo>}
                 </div>
               </Reveal>
             ))}
@@ -132,16 +128,22 @@ export default function Experience() {
               </Reveal>
             ))}
           </ol>
-          <Reveal as="figure" className="ex-ai-result">
-            {NEXTLAR_SHOT
-              ? <img src={`${import.meta.env.BASE_URL}${NEXTLAR_SHOT}`} alt="Nextlar property card, final implemented interface" loading="lazy" />
-              : <Todo as="div">Nextlar screenshot of the final property card</Todo>}
-            <figcaption>
-              <span className="label">Nextlar</span>
-              A real example from Nextlar: requirements and interaction rules were translated into a structured
-              implementation brief, then developed and refined through AI-assisted coding and visual QA.
-            </figcaption>
+          <Reveal as="p" className="ex-ai-caption">
+            <span className="label">Nextlar</span>
+            A real example from Nextlar: requirements and interaction rules were translated into a structured
+            implementation brief, then developed and refined through AI-assisted coding and visual QA. AI speeds up the
+            work; product decisions, UX, design quality, and implementation review stay with me.
           </Reveal>
+        </div>
+      </section>
+
+      <section id="craft">
+        <div className="wrap">
+          <Reveal className="ex-craft-head">
+            <p className="label">Interface craft</p>
+            <h2 className="ex-ai-title">Evidence from <em>real products</em>.</h2>
+          </Reveal>
+          <Craft />
         </div>
       </section>
 

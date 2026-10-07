@@ -9,10 +9,15 @@ export const routes = {
     description:
       'Design Engineer and Senior Product Designer in Edmonton, Canada. I take product decisions all the way to functional interfaces in code, across healthcare, SaaS and public-sector products.',
   },
+  '/work': {
+    title: 'Work · Rafaelle Weran, Design Engineer & Senior Product Designer',
+    description:
+      'Selected product design work: MyClinic360, Med.co and UIRAJARR, plus websites designed and built in code.',
+  },
   '/experience': {
     title: 'Experience · Rafaelle Weran, Design Engineer',
     description:
-      'Timeline of roles, teams and clients: Aya Studio, Spieker Point, independent product and UX contracts, and public-sector technology in Brazil. CV download included.',
+      'Timeline of roles, teams and clients: Aya Studio, Spieker Point, independent product and UX contracts, and public-sector technology in Brazil.',
   },
   '/about': {
     title: 'About · Rafaelle Weran, Design Engineer',

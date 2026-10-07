@@ -5,7 +5,7 @@ export const profile = {
   location: 'Edmonton, Canada · Remote worldwide',
   workEligibility: 'Eligible to work in Canada',
   email: 'rafaelle.rodrigues@gmail.com',
-  // TODO(Rafaelle): drop the CV at public/rafaelle-weran-cv.pdf. Experience shows a TODO until the file exists.
+  // CV: drop the PDF at public/rafaelle-weran-cv.pdf and set resumeReady to true.
   resume: '/rafaelle-weran-cv.pdf',
   resumeReady: false,
   linkedin: 'https://www.linkedin.com/in/rafaweran/',
@@ -146,7 +146,7 @@ export const coreCapabilities = [
   'Developer Collaboration',
 ]
 
-// Selected Builds: replace TODO fields with real details. Do not invent tech or URLs.
+// Selected Builds. Do not invent tech or URLs.
 export const builds = [
   {
     name: 'Entre Nós',
@@ -172,7 +172,7 @@ export const builds = [
   },
 ]
 
-// Experience timeline, newest first. Only facts Rafaelle provided; TODO fields render as visible TODO markers.
+// Experience timeline, newest first. Only facts Rafaelle provided.
 export const experience = [
   {
     role: 'Senior Product Designer',

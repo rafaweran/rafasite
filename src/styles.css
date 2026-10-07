@@ -269,7 +269,7 @@ footer a:hover { color: var(--text); }
   .exp, .builds-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  nav ul { display: none; }
+
   .flag-head { grid-template-columns: 1fr; }
   .flag-badge { justify-self: start; grid-row: 1; }
   .facts { grid-template-columns: 1fr 1fr; }
@@ -327,7 +327,7 @@ footer a:hover { color: var(--text); }
   .hero-cycle-wrap { max-width: 520px; margin-top: 8px; }
 }
 
-/* TODO markers (content pending from Rafaelle) */
+/* Pending-content markers (unused in production) */
 .todo { display: inline; font: 400 14px/1.5 var(--mono); color: var(--gold); border: 1px dashed color-mix(in srgb, var(--gold) 55%, transparent); border-radius: 4px; padding: 2px 8px; }
 p.todo, div.todo { display: block; margin-top: 12px; }
 .todo b { font-weight: 500; letter-spacing: .06em; }
@@ -478,3 +478,24 @@ p.todo, div.todo { display: block; margin-top: 12px; }
   .ex-ai-intro, .ex-flow { grid-template-columns: 1fr; }
   .ex-flow li + li::before { content: "↓"; left: 24px; top: -18px; }
 }
+.ex-ai-caption { margin-top: 20px; font-size: 15px; color: var(--muted); max-width: 72ch; }
+.ex-ai-caption .label { color: var(--iris); margin-right: 10px; }
+.ex-craft-head { margin-bottom: 40px; }
+.md-scope-note { margin-top: 16px; font-size: 14px; color: var(--muted); font-style: italic; }
+.craft > *, .cf-anatomy > *, .cf-states > *, .cf-swatches li { min-width: 0; }
+.cf-swatches code, .cf-scale code { overflow-wrap: anywhere; }
+@media (max-width: 560px) { .cf-swatches, .cf-ds { grid-template-columns: 1fr 1fr; } .cf-resp { grid-template-columns: 1fr 72px; } }
+@media (max-width: 960px) {
+  .cf-callouts li { display: block; }
+  .cf-callouts li::before { margin-right: 10px; }
+  .cf-callouts b { margin-right: 8px; }
+}
+
+/* Mobile nav: links stay reachable on a second row instead of disappearing */
+@media (max-width: 720px) {
+  nav .wrap { flex-wrap: wrap; height: auto; padding-top: 14px; padding-bottom: 10px; row-gap: 6px; }
+  .nav-right { display: contents; }
+  nav ul { display: flex !important; order: 3; width: 100%; gap: 24px; }
+  nav ul a { display: inline-block; padding: 10px 0; font-size: 15px; }
+}
+button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--iris); outline-offset: 4px; }

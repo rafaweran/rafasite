@@ -2,7 +2,6 @@ import Reveal from '../components/Reveal'
 import Ownership from '../components/Ownership'
 import { Shot, BrowserMockup } from '../components/CaseStudy'
 
-// Everything in brackets is a placeholder for real material. Do not replace with invented content.
 
 const chapters = [
   { id: 'idea', label: 'The idea' },
@@ -24,7 +23,7 @@ const meta = [
   { label: 'Scope', value: 'Research · Product Strategy · Information Architecture · UX/UI · Usability Testing · Product Management · Product Evolution' },
 ]
 
-const team = ['Senior Product Designer / Project Manager', '2 Developers', 'Pelvic physiotherapy specialist', 'Business stakeholder']
+const team = ['Senior Product Designer (me)', '2 Developers', 'Pelvic physiotherapy specialist', 'Business stakeholder']
 
 const fragments = ['Generic clinic software', 'Paper questionnaires', 'Separate clinical records', "Different parts of the professional's workflow"]
 
@@ -601,16 +600,6 @@ export default function MyClinic360() {
           <p>The product continues to change as new needs emerge and professionals use it in real clinical environments.</p>
         </Reveal>
 
-        <Beat label="User feedback" title="What professionals told us">
-          <div className="cs-feedback">
-            {[1, 2].map((n) => (
-              <Reveal as="figure" key={n}>
-                <blockquote><Ph>“[Insert real anonymized user feedback]”</Ph></blockquote>
-                <figcaption>Pelvic physiotherapist · Anonymous</figcaption>
-              </Reveal>
-            ))}
-          </div>
-        </Beat>
       </Chapter>
 
       {/* 10 Learnings + next */}

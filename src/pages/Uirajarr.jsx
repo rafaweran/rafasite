@@ -2,7 +2,7 @@ import Reveal from '../components/Reveal'
 import Ownership from '../components/Ownership'
 import { Shot } from '../components/CaseStudy'
 
-// Competition prototype. Everything in brackets is a placeholder for real material.
+// Competition prototype.
 // Do not add metrics, savings, adoption, or production claims. Dashboard numbers are demonstration data.
 
 const chapters = [
@@ -474,11 +474,11 @@ export default function Uirajarr() {
             </Reveal>
             <Reveal className="uj-log" aria-label="Illustrative audit entry structure">
               <p className="label">Structure of a history entry</p>
-              <div className="uj-log-row"><span>Who</span><em>[role / user]</em></div>
-              <div className="uj-log-row"><span>When</span><em>[date and time]</em></div>
-              <div className="uj-log-row"><span>Process</span><em>[request reference]</em></div>
-              <div className="uj-log-row"><span>Status</span><em>[from → to]</em></div>
-              <div className="uj-log-row"><span>Justification</span><em>[required for exceptions]</em></div>
+              <div className="uj-log-row"><span>Who</span><em>Role and user</em></div>
+              <div className="uj-log-row"><span>When</span><em>Date and time</em></div>
+              <div className="uj-log-row"><span>Process</span><em>Request reference</em></div>
+              <div className="uj-log-row"><span>Status</span><em>Previous and new status</em></div>
+              <div className="uj-log-row"><span>Justification</span><em>Required for exceptions</em></div>
             </Reveal>
           </div>
           <Reveal className="uj-areas">{auditAreas.map((a) => <span key={a}>{a}</span>)}</Reveal>

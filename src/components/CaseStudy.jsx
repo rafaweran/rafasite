@@ -1,5 +1,4 @@
 import Reveal from './Reveal'
-import Todo from './Todo'
 
 // Placeholder until real screenshots are added. Pass `src` to show an image.
 function Shot({ product, src, ratio = '16 / 10' }) {
@@ -67,10 +66,12 @@ function Meta({ item }) {
       {item.status && (
         <div><dt>Status</dt><dd><span className="status">{item.status}</span></dd></div>
       )}
-      <div>
-        <dt>{item.impactLabel || 'Usage impact'}</dt>
-        <dd>{item.impact || <Todo>adoption, retention, completion, time saved or support reduction</Todo>}</dd>
-      </div>
+      {item.impact && (
+        <div>
+          <dt>{item.impactLabel || 'Usage impact'}</dt>
+          <dd>{item.impact}</dd>
+        </div>
+      )}
     </dl>
   )
 }

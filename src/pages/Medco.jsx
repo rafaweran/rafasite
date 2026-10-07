@@ -1,7 +1,6 @@
 import Reveal from '../components/Reveal'
 import Ownership from '../components/Ownership'
 
-// Everything in brackets is a placeholder for real material. Do not replace with invented content.
 // Privacy: screenshots must use fictional demo data only (no real patients, records, exams, or physician data).
 
 const chapters = [
@@ -25,7 +24,7 @@ const meta = [
   { label: 'Scope', value: 'Product Strategy · UX/UI · Service Design · Conversational AI · Healthcare · Product Evolution', wide: true },
 ]
 
-const team = ['Senior Product Designer / Project Manager (only Product Designer)', '2 physicians / product founders', 'Project / business stakeholder', '4 developers']
+const team = ['Senior Product Designer (me, the only product designer)', '2 physicians / product founders', 'Project / business stakeholder', '4 developers']
 
 const v1Capabilities = [
   'Physician registration and verification',
@@ -86,7 +85,7 @@ const evolution = [
   { label: 'V2', text: 'Patient-initiated journey', key: true },
   { label: 'V2', text: 'AI-assisted intake', key: true },
   { label: 'V2', text: 'Physician matching', key: true },
-  { label: 'Today', text: 'Teleorientation + telemedicine', key: true },
+  { label: 'Direction', text: 'Teleorientation + telemedicine', key: true },
 ]
 
 const roleItems = [
@@ -419,6 +418,7 @@ export default function Medco() {
           <Reveal className="cs-goals">
             <p className="label">The AI-assisted experience collects context before the physician interaction. Its role is to</p>
             <ul className="cs-ticks">{aiRole.map((r) => <li key={r}>{r}</li>)}</ul>
+            <p className="md-scope-note">Designed as part of V2. Some of these capabilities are still being implemented and are not all live yet.</p>
           </Reveal>
           <Reveal className="md-guard">
             <p className="label">Design boundary</p>
@@ -445,13 +445,11 @@ export default function Medco() {
             <Reveal className="md-chat" aria-label="Illustrative AI-assisted intake example">
               <p className="label">Illustrative example</p>
               <div className="md-bubble patient">I have a red eye and I'm experiencing discomfort.</div>
-              <div className="md-bubble ai"><Ph>[Insert real AI follow-up question from the product]</Ph></div>
-              <div className="md-bubble patient"><Ph>[Insert patient answer]</Ph></div>
               <div className="md-match">
                 <span className="md-match-dot" />
                 <div>
                   <p className="md-match-title">Specialty aligned with the reported need</p>
-                  <p><Ph>[Insert matched physician profile card, fictional data]</Ph></p>
+                  <p>The intake organizes the request so it can be matched to a relevant physician profile.</p>
                 </div>
               </div>
             </Reveal>
@@ -609,8 +607,8 @@ export default function Medco() {
             From protecting physicians' personal communication<br />to helping patients reach the <em>right medical care</em>.
           </Reveal>
           <Reveal as="p" className="cs-end-copy">
-            Med.co evolved from a simple post-consultation communication tool into a broader digital health experience
-            connecting patients, physicians, medical information, AI-assisted intake, teleorientation, and telemedicine.
+            Med.co evolved from a simple post-consultation communication tool into a broader digital health experience,
+            and continues evolving toward AI-assisted intake, teleorientation, and telemedicine.
           </Reveal>
         </div>
       </section>

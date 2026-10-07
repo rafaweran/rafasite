@@ -1,26 +1,16 @@
 import Reveal from './Reveal'
-import Todo from './Todo'
 
-// "What was mine" block for each case: ownership, collaborators, one defended decision, and one usage metric.
+// Project summary: ownership, collaborators, one defended decision, and the outcome or product evolution.
 export default function Ownership({ owned, team, decision, impact, impactLabel = 'Usage impact' }) {
+  const cols = [
+    ['I owned', owned],
+    ['I worked with', team && <ul className="cs-plain">{team.map((t) => <li key={t}>{t}</li>)}</ul>],
+    ['A decision I defended', decision],
+    [impactLabel, impact],
+  ].filter(([, v]) => v)
   return (
     <Reveal className="cs-own">
-      <div>
-        <p className="label">I owned</p>
-        {owned || <Todo as="p">what was yours end to end in this project</Todo>}
-      </div>
-      <div>
-        <p className="label">I worked with</p>
-        {team ? <ul className="cs-plain">{team.map((t) => <li key={t}>{t}</li>)}</ul> : <Todo as="p">roles on the team</Todo>}
-      </div>
-      <div>
-        <p className="label">A decision I defended</p>
-        {decision || <Todo as="p">the decision, who disagreed, and why you held it</Todo>}
-      </div>
-      <div>
-        <p className="label">{impactLabel}</p>
-        {impact || <Todo as="p">one usage or business number: adoption, retention, completion, time saved, support reduction</Todo>}
-      </div>
+      {cols.map(([label, v]) => <div key={label}><p className="label">{label}</p>{v}</div>)}
     </Reveal>
   )
 }

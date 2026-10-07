@@ -1,11 +1,11 @@
 import Reveal from './Reveal'
 
-// Interface craft: evidence of how interfaces are structured. The field pattern is rebuilt in code for this page
-// (inspired by MyClinic360 scheduling, with demo data); tokens are this site's real values; screens are real.
+// Interface craft: evidence of how interfaces are structured. The field pattern follows the UIRAJARR accreditation
+// form, rebuilt in code for this page with demo data; tokens come from the Med.co Figma library; screens are real.
 const img = (f) => `${import.meta.env.BASE_URL}images/${f}`
 
-function Field({ state = 'default', label = 'Appointment date', value = 'Oct 14, 2026', help = 'Patients receive a confirmation by email.' }) {
-  const msg = state === 'error' ? 'Choose a date within clinic hours.' : state === 'success' ? 'Slot available.' : help
+function Field({ state = 'default', label = 'CNPJ (company tax ID)', value = '34.567.890/0001-30', help = 'Company data is pre-filled from the federal registry.' }) {
+  const msg = state === 'error' ? 'Check the 14 digits and try again.' : state === 'success' ? 'Company found. Details pre-filled.' : help
   return (
     <div className={`cf-field is-${state}`}>
       <span className="cf-label">{label}</span>
@@ -17,7 +17,7 @@ function Field({ state = 'default', label = 'Appointment date', value = 'Oct 14,
 
 const states = ['default', 'hover', 'focus', 'error', 'disabled', 'success']
 
-// Med.co design system (Figma). Only values visible in the file; radius and spacing pending the exact values.
+// Med.co design system (Figma). Only values visible in the file.
 const themes = [
   { name: 'Patient', value: '#1D4ED8' },
   { name: 'Doctor', value: '#123F37' },
@@ -40,13 +40,13 @@ export default function Craft() {
       <Reveal className="craft-card wide">
         <div className="craft-copy">
           <p className="label">01 · Component anatomy</p>
-          <p className="craft-desc">Reusable components are structured around hierarchy, clarity, and predictable behavior.</p>
-          <p className="craft-note">Field pattern inspired by MyClinic360 scheduling. Rebuilt in code for this page, with demo data.</p>
+          <p className="craft-desc">Reusable components structured around hierarchy, clarity, and predictable behavior.</p>
+          <p className="craft-note">Field pattern from the UIRAJARR accreditation flow, rebuilt in code for this page with demo data.</p>
         </div>
         <div className="cf-anatomy">
           <div className="cf-anatomy-ui">
             <Field state="error" />
-            <span className="cf-btn">Confirm appointment</span>
+            <span className="cf-btn">Continue</span>
           </div>
           <ol className="cf-callouts">
             <li><b>Label</b> always visible, names the data</li>
@@ -68,7 +68,7 @@ export default function Craft() {
           {states.map((s) => (
             <div key={s}>
               <p className="cf-state-name">{s}</p>
-              <Field state={s} help="Clinic hours only." />
+              <Field state={s} help="Pre-filled when available." />
             </div>
           ))}
         </div>
@@ -121,9 +121,9 @@ export default function Craft() {
         <div className="craft-copy">
           <p className="label">05 · Accessibility</p>
           <p className="craft-desc">
-            Accessibility is considered through contrast, readable hierarchy, clear labels, interaction states, and usable
-            touch targets.
+            Accessibility is considered through contrast, hierarchy, labels, focus states, and usable touch targets.
           </p>
+          <p className="craft-note">Values as applied in the code of this portfolio.</p>
         </div>
         <ul className="cf-a11y">
           {a11y.map((a) => <li key={a.title}><b>{a.title}</b><span>{a.text}</span></li>)}

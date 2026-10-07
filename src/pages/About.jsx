@@ -1,7 +1,6 @@
 import Reveal from '../components/Reveal'
 import { profile, coreCapabilities } from '../data'
 import ContactLinks from '../components/ContactLinks'
-import Todo from '../components/Todo'
 
 // Portrait: replace PORTRAIT with a real photo path (e.g. images/rafaelle-portrait.jpg). Never use stock or generated images.
 const PORTRAIT = 'images/rafaelle-portrait.jpg'
@@ -29,28 +28,28 @@ export default function About() {
         <Reveal className="ab-portrait">
           {PORTRAIT
             ? <img src={`${import.meta.env.BASE_URL}${PORTRAIT}`} alt="Portrait of Rafaelle Weran" />
-            : <div className="ab-portrait-empty"><span className="label">Photo</span><span>[Portrait of Rafaelle]</span></div>}
+            : <div className="ab-portrait-empty"><span className="label">Photo</span><span>Portrait</span></div>}
         </Reveal>
         <div className="ab-hero-text">
           <Reveal as="p" className="label ab-eyebrow">About</Reveal>
           <Reveal as="h1">A product designer who takes decisions all the way to <em>working code</em>.</Reveal>
           <Reveal className="cs-prose">
             <p>
-              I'm a Design Engineer: a Senior Product Designer with a background in technology, more than a decade of
-              experience designing digital products, and the habit of building the interfaces I design.
+              I'm a Senior Product Designer with a background in technology and more than a decade of experience designing
+              digital products. When a project calls for it, I also take the design into front-end code, working as a
+              Design Engineer.
             </p>
             <p>
-              My work usually starts before the interface exists. I work across product strategy, research, systems
-              thinking, UX/UI, prototyping, and implementation, helping turn complex problems into clear digital
-              experiences.
+              I've always been curious about how people think, decide, and behave. That curiosity is what drew me to
+              product design: understanding users comes first, and the interface follows.
             </p>
             <p>
-              I've worked across healthcare, SaaS, public-sector systems, real estate, community platforms, and
-              AI-assisted products.
+              I balance that with what the business needs and what is technically feasible, across healthcare, SaaS,
+              public-sector systems, and other complex products.
             </p>
           </Reveal>
           <Reveal as="dl" className="ab-meta">
-            <div><dt>Based in</dt><dd>Edmonton, Canada</dd><dd>{profile.workEligibility || <Todo>work eligibility wording</Todo>}</dd></div>
+            <div><dt>Based in</dt><dd>Edmonton, Canada</dd><dd>{profile.workEligibility}</dd></div>
             <div><dt>Open to</dt><dd>Full-time, in-house roles</dd></div>
             <div><dt>Focus</dt><dd>Complex digital products</dd></div>
           </Reveal>
