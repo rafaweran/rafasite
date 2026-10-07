@@ -499,3 +499,19 @@ p.todo, div.todo { display: block; margin-top: 12px; }
   nav ul a { display: inline-block; padding: 10px 0; font-size: 15px; }
 }
 button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--iris); outline-offset: 4px; }
+
+/* 404 */
+.nf { padding-top: clamp(80px, 12vw, 160px); padding-bottom: clamp(80px, 10vw, 140px); }
+.nf .label { font-family: var(--mono); color: var(--iris); }
+.nf h1 { font: 300 clamp(44px, 7vw, 104px)/1 var(--serif); letter-spacing: -0.035em; margin-top: 16px; max-width: 14ch; }
+.nf h1 em { font-style: italic; color: var(--rose); }
+.nf-sub { margin-top: 24px; color: var(--subtle); font-size: 19px; max-width: 52ch; }
+.nf-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 36px; }
+.nf-link { color: var(--rose); font-weight: 500; }
+.nf-list { list-style: none; margin-top: clamp(56px, 8vw, 96px); }
+.nf-list a { display: grid; grid-template-columns: 1fr 1fr auto; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--line); transition: color .2s; }
+.nf-list li:last-child a { border-bottom: 1px solid var(--line); }
+.nf-list a:hover .nf-name { color: var(--rose); }
+.nf-name { font: 300 clamp(24px, 2.4vw, 32px)/1.2 var(--serif); }
+.nf-cat { color: var(--muted); font-size: 15px; }
+@media (max-width: 720px) { .nf-list a { grid-template-columns: 1fr auto; } .nf-cat { display: none; } }

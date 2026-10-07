@@ -22,6 +22,10 @@ function prerenderHead() {
           .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
           .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(r.title)}`)
           .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(r.description)}`)
+        if (path === '/404') {
+          writeFileSync(resolve('dist/404.html'), html.replace('<head>', '<head>\n    <meta name="robots" content="noindex" />'))
+          continue
+        }
         const dir = resolve('dist', `.${path}`)
         mkdirSync(dir, { recursive: true })
         writeFileSync(resolve(dir, 'index.html'), html)

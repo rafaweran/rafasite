@@ -4,6 +4,10 @@ export const SITE_URL = 'https://www.rafaelleweran.com'
 export const OG_IMAGE = `${SITE_URL}/og.png`
 
 export const routes = {
+  '/404': {
+    title: 'Page not found · Rafaelle Weran',
+    description: 'This page does not exist. Continue to the work, experience, or contact sections.',
+  },
   '/': {
     title: 'Rafaelle Weran · Senior Product Designer & Design Engineer',
     description:

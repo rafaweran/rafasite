@@ -8,6 +8,7 @@ import Medco from './pages/Medco'
 import Uirajarr from './pages/Uirajarr'
 import About from './pages/About'
 import Experience from './pages/Experience'
+import NotFound from './pages/NotFound'
 import { routes } from './seo'
 import { profile, heroCapabilities, facts, cases, principles, process, experience, builds } from './data'
 
@@ -217,7 +218,7 @@ const pages = {
 const currentPath = () => window.location.pathname.replace(/\/+$/, '') || '/'
 
 function applyHead(path) {
-  const r = routes[path] || routes['/']
+  const r = routes[path] || routes['/404']
   document.title = r.title
   const set = (sel, v) => document.querySelector(sel)?.setAttribute(sel.startsWith('link') ? 'href' : 'content', v)
   const url = `https://www.rafaelleweran.com${path === '/' ? '/' : path}`
@@ -238,7 +239,7 @@ if (window.location.pathname.replace(/\/+$/, '') === '/work') {
 
 export default function App() {
   const [path, setPath] = useState(currentPath)
-  const Page = pages[path] || null
+  const Page = pages[path] || (path === '/' ? null : NotFound)
 
   useEffect(() => {
     const sync = () => setPath(currentPath())
@@ -262,7 +263,7 @@ export default function App() {
 
   // After switching views, jump to the anchor (home) or to the top, and update head tags.
   useLayoutEffect(() => {
-    applyHead(Page ? path : '/')
+    applyHead(path)
     const hash = window.location.hash
     const target = hash.length > 1 && document.getElementById(hash.slice(1))
     if (target) target.scrollIntoView()
