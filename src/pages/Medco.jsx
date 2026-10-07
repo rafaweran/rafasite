@@ -509,7 +509,7 @@ export default function Medco() {
         <div className="cs-flows">
           <Reveal className="cs-flowblock">
             <p className="cs-ver v2">Teleorientation</p>
-            <h4>Continuity after an existing consultation</h4>
+            <h3>Continuity after an existing consultation</h3>
             <Chain steps={['Existing physician relationship', 'Consultation already happened', '30-day follow-up window']} variant="accent" />
             <p className="cs-flow-copy">During the window, the patient can:</p>
             <ul className="cs-ticks">
@@ -520,7 +520,7 @@ export default function Medco() {
           </Reveal>
           <Reveal className="cs-flowblock after">
             <p className="cs-ver v2">Telemedicine</p>
-            <h4>A new medical need becomes a new consultation</h4>
+            <h3>A new medical need becomes a new consultation</h3>
             <Chain steps={['New medical need', 'AI-assisted intake', 'Relevant physician match', 'Paid remote consultation']} variant="accent" />
             <p className="cs-flow-copy">
               When the patient needs a new medical consultation rather than follow-up from an existing one, the

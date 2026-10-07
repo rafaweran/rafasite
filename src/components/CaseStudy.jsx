@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 
-// Placeholder until real screenshots are added. Pass `src` to show an image.
+// Screenshot frame. Pass `src` to show an image.
 function Shot({ product, src, ratio = '16 / 10' }) {
   return (
     <div className="shot" style={{ aspectRatio: ratio }}>

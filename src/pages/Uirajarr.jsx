@@ -271,7 +271,7 @@ export default function Uirajarr() {
           {roles.map((r) => (
             <div key={r.name} className={`uj-role ${r.group}`}>
               <p className="label">{r.group === 'internal' ? 'Court' : 'Agency'}</p>
-              <h4>{r.name}</h4>
+              <h3>{r.name}</h3>
               <p>{r.text}</p>
             </div>
           ))}

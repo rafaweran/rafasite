@@ -121,16 +121,12 @@ function Home() {
                   )}
                   <p className="label">{b.type}</p>
                   <h4>{b.name}</h4>
-                  <p className={b.description ? 'build-desc' : 'build-desc pending'}>
-                    {b.description || 'Description to be added.'}
-                  </p>
+                  <p className="build-desc">{b.description}</p>
                   <dl>
                     <div><dt>Role</dt><dd>{b.role}</dd></div>
-                    <div><dt>Scope</dt><dd className={b.scope ? '' : 'pending'}>{b.scope || 'To be added'}</dd></div>
+                    <div><dt>Scope</dt><dd>{b.scope}</dd></div>
                   </dl>
-                  {b.url
-                    ? <a className="build-link" href={b.url} target="_blank" rel="noreferrer">View live website ↗</a>
-                    : <span className="build-link pending">Live link coming soon</span>}
+                  <a className="build-link" href={b.url} target="_blank" rel="noreferrer">View live website ↗</a>
                 </Reveal>
               ))}
             </div>

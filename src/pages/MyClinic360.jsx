@@ -290,7 +290,7 @@ export default function MyClinic360() {
                 {insights.map((it, i) => (
                   <Reveal as="li" key={it.title}>
                     <span className="n">Insight {String(i + 1).padStart(2, '0')}</span>
-                    <h4>{it.title}</h4>
+                    <h3>{it.title}</h3>
                     <p>{it.text}</p>
                   </Reveal>
                 ))}
@@ -450,7 +450,7 @@ export default function MyClinic360() {
           </Reveal>
           <Reveal className="cs-why">
             <p className="label">Why this mattered</p>
-            <h4>The problem was not just navigation.</h4>
+            <h3>The problem was not just navigation.</h3>
             <p>
               If a professional cannot quickly find an assessment, it becomes harder to recover the patient context
               during follow-up care.
