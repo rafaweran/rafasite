@@ -23,7 +23,6 @@ function Nav() {
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <div className="wrap">
-        <a href="/" className="mark" aria-label={profile.name}>Rafaelle <em>Weran</em></a>
         <div className="nav-right">
           <ul>
             <li><a href="/#work">Work</a></li>

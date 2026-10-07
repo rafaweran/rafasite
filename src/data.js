@@ -11,7 +11,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/rafaweran/',
 }
 
-export const heroCapabilities = ['Product Strategy', 'Systems Thinking', 'UX/UI', 'Design Engineering']
+export const heroCapabilities = ['Product Strategy', 'Systems Thinking', 'UX/UI', 'Design for AI', 'Design Engineering']
 
 export const facts = [
   { value: '10+', label: 'years in UX & Product Design' },

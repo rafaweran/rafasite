@@ -53,7 +53,7 @@ nav.scrolled { border-color: var(--line); }
 nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 80px; gap: 24px; }
 nav .mark { font: 300 26px/1 var(--serif); letter-spacing: -0.03em; }
 nav .mark em { font-style: italic; color: var(--rose); }
-.nav-right { display: flex; align-items: center; gap: 40px; }
+.nav-right { display: flex; align-items: center; gap: 40px; margin-left: auto; }
 nav ul { display: flex; gap: 32px; list-style: none; }
 nav ul a { font-size: 16px; font-weight: 500; color: var(--subtle); transition: color .2s; }
 nav ul a:hover { color: var(--text); }
@@ -65,7 +65,7 @@ nav ul a:hover { color: var(--text); }
 .btn:hover { background: #f3d3d1; }
 
 /* Hero */
-.hero { padding-top: clamp(80px, 13vw, 170px); padding-bottom: clamp(64px, 9vw, 120px); }
+.hero { padding-top: clamp(40px, 5.5vw, 80px); padding-bottom: clamp(64px, 9vw, 120px); }
 .hero h1 {
   font: 300 clamp(48px, 8.4vw, 128px)/0.98 var(--serif);
   letter-spacing: -0.035em;
@@ -483,10 +483,10 @@ footer a:hover { color: var(--text); }
 
 /* Mobile nav: links stay reachable on a second row instead of disappearing */
 @media (max-width: 720px) {
-  nav .wrap { flex-wrap: wrap; height: auto; padding-top: 14px; padding-bottom: 10px; row-gap: 6px; }
-  .nav-right { display: contents; }
-  nav ul { display: flex !important; order: 3; width: 100%; gap: 24px; }
-  nav ul a { display: inline-block; padding: 10px 0; font-size: 15px; }
+  nav .wrap { height: 68px; }
+  .nav-right { width: 100%; justify-content: space-between; gap: 10px; }
+  nav ul { display: flex !important; gap: clamp(10px, 3.5vw, 24px); }
+  nav ul a { display: inline-block; padding: 10px 0; font-size: 14px; }
 }
 button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--iris); outline-offset: 4px; }
 
