@@ -11,15 +11,10 @@ const years = [2010, 2014, 2018, 2022, 2026]
 
 // Real example: this portfolio, built with AI-assisted coding from Rafaelle's own briefs (Med.co phase markers).
 const aiFlow = [
-  { title: 'Product decision', text: 'Recruiters must never mistake explored concepts in Med.co for launched features. Delivered and exploratory work need a visible split.' },
-  { title: 'Structured specification', kind: 'brief', excerpt: 'Make the distinction between what was delivered in V1 and what was later explored as product evolution completely clear. Do not make the exploratory section look more finished than the delivered product.' },
-  { title: 'AI-assisted implementation', kind: 'code', excerpt: `const explore =
-  EXPLORATION.includes(id)
-
-{explore && (
-  <em …>Exploration</em>
-)}` },
-  { title: 'Review and refinement', text: 'I review the implementation against the original product intent, checking interaction behavior, responsive layout, accessibility, and visual quality before considering the work complete.' },
+  { title: 'Product decision', text: 'I start by defining the problem, user need, business context, constraints, and what the experience needs to accomplish.' },
+  { title: 'Structured specification', text: 'I translate product decisions into clear flows, interaction rules, states, edge cases, accessibility requirements, and implementation guidance.', kind: 'brief', excerpt: 'Clearly distinguish what exists today from future exploration. Preserve the current user flow while making the new direction visible without implying that it has already shipped.' },
+  { title: 'AI-assisted implementation', text: 'I use AI-assisted development to turn specifications and design decisions into functional interfaces faster, iterate on interactions, and explore implementation possibilities.', kind: 'code', excerpt: 'const explore =\n  EXPLORATION.includes(id)' },
+  { title: 'Review and refinement', text: 'I review the implementation against the original product intent, validating interaction behavior, responsive layout, accessibility, edge cases, and visual quality before considering the work complete.' },
 ]
 
 function CvLink() {
@@ -114,12 +109,13 @@ export default function Experience() {
           <div className="ex-ai-intro">
             <Reveal>
               <p className="label">How I use AI in delivery</p>
-              <h2 className="ex-ai-title">From specification to <em>interface</em>.</h2>
+              <h2 className="ex-ai-title">From product thinking to <em>working interface</em>.</h2>
             </Reveal>
             <Reveal className="ex-ai-copy">
               <p>
-                AI-assisted development is part of how I move from product decisions to working interfaces. It speeds up
-                implementation; product decisions, UX, accessibility, and review stay with me.
+                AI-assisted development is part of my design workflow. I use it to move faster from product decisions and
+                structured specifications to working interfaces, while keeping product thinking, UX, accessibility, and
+                final review under my responsibility.
               </p>
             </Reveal>
           </div>
@@ -143,8 +139,8 @@ export default function Experience() {
             </div>
             <figcaption>
               <span className="label">Result</span>
-              The Med.co page in this portfolio. The decision, the spec, and the review are mine; AI sped up the
-              implementation. <a href="/work/medco" className="ex-ai-live">See it live →</a>
+              A working product experience built from my product decisions, specifications, and design direction, with AI
+              accelerating implementation and iteration. <a href="/work/medco" className="ex-ai-live">See it live →</a>
             </figcaption>
           </Reveal>
         </div>
