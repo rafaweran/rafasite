@@ -538,3 +538,21 @@ button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--iris);
   nav .btn { padding: 9px 14px; font-size: 14px; }
   nav ul { gap: 18px; }
 }
+
+/* Med.co home before / after */
+.md-ba { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: center; gap: clamp(24px, 6vw, 88px); margin-top: 40px; align-items: start; }
+.md-ba-shot figcaption { display: flex; gap: 10px; align-items: baseline; margin-bottom: 14px; font-size: 15px; color: var(--subtle); }
+.md-ba-shot figcaption .label { color: var(--rose); }
+.md-ba-shot img { display: block; width: 100%; border-radius: 14px; border: 1px solid var(--line); }
+.md-ba-list { margin-top: 56px; border-top: 1px solid var(--line); }
+.md-ba-list > div { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.md-ba-list dt { color: var(--text); font-size: 16px; }
+.md-ba-list dd { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; font-size: 15px; line-height: 1.5; color: var(--subtle); }
+.md-ba-list dd p span { display: block; margin-bottom: 4px; font: 400 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted, var(--subtle)); }
+.md-ba-list dd .why { color: var(--text); }
+.md-ba-sum { margin-top: 40px; max-width: 46ch; font: 300 clamp(22px, 2.2vw, 28px)/1.35 var(--serif); color: var(--text); }
+@media (max-width: 720px) {
+  .md-ba { grid-template-columns: 1fr; max-width: 320px; margin-inline: auto; }
+  .md-ba-list > div, .md-ba-list dd { grid-template-columns: 1fr; gap: 10px; }
+  .md-ba-list dd .none { display: none; }
+}

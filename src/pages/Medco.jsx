@@ -101,6 +101,18 @@ const roleItems = [
   'supporting product decisions across V1 and V2',
 ]
 
+// Patient home, V1 vs V2: each row is one decision, not a visual change.
+const homeChanges = [
+  { area: 'Primary action', before: 'Many actions competed for attention.', after: '“Falar com um médico agora” is the main call to action.', why: 'Reduce decision time and put the main patient need first.' },
+  { area: 'Doctors', before: 'Large cards took most of the screen and exposed several actions at once.', after: 'A compact list.', why: 'Lower visual load and make the list easier to scan.' },
+  { area: 'Continuity', before: 'Recent care was not prioritized.', after: 'Recent appointments have their own section.', why: 'Support continuity of care and make previous interactions easy to reach.' },
+  { area: 'Navigation', before: 'Functions spread across shortcut icons.', after: 'Bottom navigation: Home, Buscar, Exames, Conversas.', why: 'Improve findability and predictability.' },
+  { area: 'Search', before: 'Search dominated the top of the home.', after: 'Search lives in the navigation.', why: 'The patient should not have to start by searching for a doctor.' },
+  { area: 'Exams', before: 'Upload Exams was a primary shortcut.', after: 'Exams have their own area.', why: 'Separate secondary tasks from the main care flow.' },
+  { area: 'Account', before: null, after: '“Complete sua conta” progress.', why: 'Make onboarding progress visible without interrupting the main experience.' },
+  { area: 'Privacy', before: null, after: 'A clear privacy message.', why: 'Reinforce trust in a healthcare product.' },
+]
+
 // Chapters after V1 describe product evolution and exploration, not V1 functionality.
 const EXPLORATION = ['expansion', 'shift', 'ai', 'care', 'service', 'evolution']
 
@@ -604,6 +616,41 @@ export default function Medco() {
           </p>
           <p>The product is already beginning to be used while additional parts of the experience continue to evolve.</p>
         </Reveal>
+
+        <Beat label="Before / After" title="The patient home, V1 to V2.">
+          <Reveal className="cs-prose narrow">
+            <p>
+              The redesign moved the home from a feature-heavy dashboard to a task-oriented entry point, built around
+              what the patient most often needs to do next.
+            </p>
+          </Reveal>
+          <div className="md-ba">
+            <Reveal as="figure" className="md-ba-shot">
+              <figcaption><span className="label">Before</span>V1 home</figcaption>
+              <img src={`${import.meta.env.BASE_URL}images/medco-home-before.webp`} alt="V1 patient home: search bar, four shortcut icons, and large doctor cards with three actions each" loading="lazy" />
+            </Reveal>
+            <Reveal as="figure" className="md-ba-shot">
+              <figcaption><span className="label">After</span>V2 home</figcaption>
+              <img src={`${import.meta.env.BASE_URL}images/medco-home-after.webp`} alt="V2 patient home: Falar com um médico agora as the main action, recent appointments, a compact doctors list, and bottom navigation" loading="lazy" />
+            </Reveal>
+          </div>
+          <Reveal as="dl" className="md-ba-list">
+            {homeChanges.map((c) => (
+              <div key={c.area}>
+                <dt>{c.area}</dt>
+                <dd>
+                  {c.before ? <p><span>Before</span>{c.before}</p> : <p className="none" aria-hidden="true" />}
+                  <p><span>After</span>{c.after}</p>
+                  <p className="why"><span>Why</span>{c.why}</p>
+                </dd>
+              </div>
+            ))}
+          </Reveal>
+          <Reveal as="p" className="md-ba-sum">
+            The redesign shifted the home from a feature dashboard to a patient-centered entry point, prioritizing
+            immediate care, continuity, and lower cognitive load.
+          </Reveal>
+        </Beat>
       </Chapter>
 
       {/* 11 Learnings */}
