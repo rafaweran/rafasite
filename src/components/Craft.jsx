@@ -9,7 +9,6 @@ const themes = [
   { name: 'Patient', value: '#1D4ED8' },
   { name: 'Doctor', value: '#123F37' },
 ]
-const dsFacts = [['186', 'tokens'], ['16', 'text styles'], ['5', 'elevations'], ['40', 'icons'], ['22', 'components'], ['2', 'theme modes']]
 
 const a11y = [
   { src: 'craft-uj-a11y-label.webp', title: 'Visible labels', text: 'Labels sit above the field, with a required marker. Never placeholder-only.' },
@@ -43,13 +42,13 @@ export default function Craft() {
         <div className="craft-copy">
           <p className="label">02 · States</p>
           <p className="craft-desc">Every interaction is designed beyond the default state.</p>
-          <p className="craft-note">UIRAJARR accreditation, end of step 1. Demonstration data.</p>
+          <p className="craft-note">Med.co design system in Figma, field component.</p>
         </div>
-        <figure className="cf-shot"><img src={img('craft-uj-states.webp')} alt="UIRAJARR accreditation: data source notice, selected and unselected options, secondary and primary actions" loading="lazy" /></figure>
+        <figure className="cf-shot"><img src={img('craft-medco-field-states.png')} alt="Med.co field component in empty, filled, focus, error and disabled states" loading="lazy" /></figure>
         <ul className="cf-a11y">
-          <li><b>Selected and unselected</b><span>The chosen option gets a filled check, tinted background and stronger border.</span></li>
-          <li><b>Primary and secondary</b><span>One filled primary action; saving for later stays available but quieter.</span></li>
-          <li><b>Data freshness</b><span>A notice shows when registry data was last updated and where it came from.</span></li>
+          <li><b>Empty, filled, focus</b><span>Focus uses a 2px border, so it never depends on color alone.</span></li>
+          <li><b>Error</b><span>Red border plus an icon and a message under the field.</span></li>
+          <li><b>Disabled</b><span>Muted fill and text, clearly not interactive.</span></li>
         </ul>
       </Reveal>
 
@@ -68,9 +67,8 @@ export default function Craft() {
             <li key={t.name}><i style={{ background: t.value }} /><span>{t.name} mode</span><code>{t.value}</code></li>
           ))}
         </ul>
-        <dl className="cf-ds">
-          {dsFacts.map(([v, l]) => <div key={l}><dt>{v}</dt><dd>{l}</dd></div>)}
-        </dl>
+        <figure className="cf-shot"><img src={img('craft-medco-spacing-radius.webp')} alt="Med.co spacing scale in multiples of 4 and radius scale, from the Figma library" loading="lazy" /></figure>
+        <p className="craft-note">Spacing in multiples of 4. A missing step is added to the collection, never typed into one instance.</p>
         <div className="cf-scale">
           <p className="cf-state-name">Type scale</p>
           <code>Display · Heading · Body · Label · Caption 12/16 · Overline 11/14</code>
