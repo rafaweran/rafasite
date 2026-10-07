@@ -104,6 +104,10 @@ function Home() {
                     <a href={b.url} target="_blank" rel="noreferrer" className="build-media" aria-label={`Open ${b.name} live website`}>
                       <video
                         poster={b.poster} autoPlay muted loop playsInline preload="metadata" aria-hidden="true"
+                        // Slower, calmer scroll than the raw recording.
+                        ref={(v) => { if (v) { v.defaultPlaybackRate = 0.6; v.playbackRate = 0.6 } }}
+                        onLoadedMetadata={(e) => { e.currentTarget.playbackRate = 0.6 }}
+                        onPlay={(e) => { e.currentTarget.playbackRate = 0.6 }}
                         onError={(e) => {
                           // Fall back to MP4 if the browser fails to decode the WebM.
                           const v = e.currentTarget
