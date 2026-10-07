@@ -130,13 +130,6 @@ export default function Experience() {
             ))}
           </ol>
           <Reveal as="figure" className="ex-ai-result">
-            <div className="ex-ai-frame">
-              <div className="mock-bar" aria-hidden="true">
-                <span className="mock-dots"><i /><i /><i /></span>
-                <span className="mock-url">rafaelleweran.com/work/medco</span>
-              </div>
-              <img src={`${import.meta.env.BASE_URL}images/ai-result-medco-phase.jpg`} alt="Result in the Med.co project page: a Phase 2 marker, Product evolution / Exploration, and an Exploration tag on the chapter" loading="lazy" />
-            </div>
             <figcaption>
               <span className="label">Result</span>
               A working product experience built from my product decisions, specifications, and design direction, with AI
