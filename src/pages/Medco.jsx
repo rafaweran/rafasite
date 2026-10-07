@@ -1,4 +1,5 @@
 import Reveal from '../components/Reveal'
+import Ownership from '../components/Ownership'
 
 // Everything in brackets is a placeholder for real material. Do not replace with invented content.
 // Privacy: screenshots must use fictional demo data only (no real patients, records, exams, or physician data).
@@ -18,10 +19,10 @@ const chapters = [
 ]
 
 const meta = [
-  { label: 'Role', value: 'Senior Product Designer · Project Manager' },
+  { label: 'Role', value: 'Senior Product Designer' },
   { label: 'Team', value: 'Cross-functional healthcare and engineering team' },
   { label: 'Status', value: 'Currently launching and being expanded' },
-  { label: 'Scope', value: 'Product Strategy · UX/UI · Service Design · AI Experience · Mobile · Product Evolution', wide: true },
+  { label: 'Scope', value: 'Product Strategy · UX/UI · Service Design · Conversational AI · Healthcare · Product Evolution', wide: true },
 ]
 
 const team = ['Senior Product Designer / Project Manager (only Product Designer)', '2 physicians / product founders', 'Project / business stakeholder', '4 developers']
@@ -163,7 +164,7 @@ export default function Medco() {
       {/* Hero */}
       <header className="cs-hero wrap md-hero">
         <div>
-          <Reveal as="a" href="#work" className="cs-back">← Selected work</Reveal>
+          <Reveal as="a" href="/#work" className="cs-back">← Selected work</Reveal>
           <Reveal as="p" className="case-kicker">
             <span className="case-num">02</span>
             <span>Med.co</span>
@@ -201,9 +202,9 @@ export default function Medco() {
           ))}
         </Reveal>
 
-        <Reveal as="div" role="navigation" className="cs-arc" aria-label="Case study chapters">
+        <Reveal as="div" role="navigation" className="cs-arc" aria-label="Project chapters">
           {chapters.map((c, i) => (
-            <a key={c.id} href="#/work/medco" onClick={(e) => {
+            <a key={c.id} href="/work/medco" onClick={(e) => {
               e.preventDefault()
               document.getElementById(`md-${c.id}`)?.scrollIntoView({ behavior: 'smooth' })
             }}>
@@ -211,6 +212,13 @@ export default function Medco() {
             </a>
           ))}
         </Reveal>
+        <Ownership
+          owned={<p>End-to-end product design for Med.co, from problem framing and user flows to information architecture, UX/UI, prototyping, service design, and product evolution.</p>}
+          team={['2 physician founders', 'Project and business stakeholder', '4 developers']}
+          decision={<p>Designing around the relationship between physician and patient, rather than treating Med.co as another messaging app. The experience needed clear boundaries, structured follow-up, and a path to continued care without requiring physicians to share their personal WhatsApp.</p>}
+          impactLabel="Product evolution"
+          impact={<p>What began as a structured post-consultation channel evolved into a broader healthcare service concept, exploring AI-assisted intake, teleorientation, and more structured patient access to physicians.</p>}
+        />
       </div>
 
       {/* 01 Original problem */}
@@ -609,12 +617,12 @@ export default function Medco() {
 
       <section className="cs-nextnav">
         <div className="wrap">
-          <a href="#/work/uirajarr" className="cs-next-link">
+          <a href="/work/uirajarr" className="cs-next-link">
             <span className="label">Next project</span>
             <span className="cs-next-name">UIRAJARR <span aria-hidden="true">→</span></span>
             <span className="cs-next-cat">GovTech · Public Sector</span>
           </a>
-          <a href="#work" className="cs-back">← Back to selected work</a>
+          <a href="/#work" className="cs-back">← Back to selected work</a>
         </div>
       </section>
     </main>

@@ -1,4 +1,5 @@
 import Reveal from '../components/Reveal'
+import Ownership from '../components/Ownership'
 import { Shot } from '../components/CaseStudy'
 
 // Competition prototype. Everything in brackets is a placeholder for real material.
@@ -18,7 +19,7 @@ const chapters = [
 ]
 
 const meta = [
-  { label: 'Role', value: 'Product Designer · Systems Analyst · Business Analyst' },
+  { label: 'Role', value: 'Product Designer' },
   { label: 'Domain', value: 'GovTech · Procurement · Travel Management' },
   { label: 'Status', value: 'Competition in progress' },
   { label: 'Scope', value: 'Process Mapping · Business Analysis · UX/UI · Role-Based Workflows · System Analysis', wide: true },
@@ -155,7 +156,7 @@ export default function Uirajarr() {
     <main className="cs uj">
       {/* Hero */}
       <header className="cs-hero wrap">
-        <Reveal as="a" href="#work" className="cs-back">← Selected work</Reveal>
+        <Reveal as="a" href="/#work" className="cs-back">← Selected work</Reveal>
         <Reveal as="p" className="case-kicker">
           <span className="case-num">TJRR</span>
           <span>UIRAJARR</span>
@@ -197,9 +198,9 @@ export default function Uirajarr() {
           ))}
         </Reveal>
 
-        <Reveal as="div" role="navigation" className="cs-arc" aria-label="Case study chapters">
+        <Reveal as="div" role="navigation" className="cs-arc" aria-label="Project chapters">
           {chapters.map((c, i) => (
-            <a key={c.id} href="#/work/uirajarr" onClick={(e) => {
+            <a key={c.id} href="/work/uirajarr" onClick={(e) => {
               e.preventDefault()
               document.getElementById(`uj-${c.id}`)?.scrollIntoView({ behavior: 'smooth' })
             }}>
@@ -207,6 +208,7 @@ export default function Uirajarr() {
             </a>
           ))}
         </Reveal>
+        <Ownership team={['2 developers', 'Business specialist']} impactLabel="Product impact" impact={<p>Reduced process fragmentation by centralizing requests, approvals, bidding, ticket issuance, and auditability in one workflow.</p>} />
       </div>
 
       {/* 01 Challenge + current state */}
@@ -420,6 +422,47 @@ export default function Uirajarr() {
           </Reveal>
         </div>
 
+        <Beat label="Accreditation, version 1 to version 2" title="From one long form to a guided, pre-filled flow.">
+          <div className="cs-flows">
+            <Reveal className="cs-flowblock">
+              <p className="cs-ver">Version 1</p>
+              <p className="cs-flow-copy">
+                The original flow concentrated identification, contact details, and eight required documents on a single
+                page, with progress tracked in a side panel. Although all information was available, the density made the
+                experience harder to scan and weakened the hierarchy of the tasks.
+              </p>
+              <Shot product="UIRAJARR agency accreditation, version 1" src={`${import.meta.env.BASE_URL}images/uj-accreditation-v1.webp`} ratio="2000 / 1932" />
+              <p className="uj-tradeoffs">High information density · weak task hierarchy · greater cognitive load</p>
+            </Reveal>
+            <Reveal className="cs-flowblock after">
+              <p className="cs-ver v2">Version 2</p>
+              <p className="cs-flow-copy">
+                The redesigned flow was reorganized into three explicit steps with a stepper, clearer hierarchy, and
+                progressive disclosure. Company information is pre-filled from Receita Federal data whenever available,
+                reducing unnecessary input and helping prevent errors.
+              </p>
+              <Shot product="UIRAJARR agency accreditation, version 2" src={`${import.meta.env.BASE_URL}images/uj-accreditation-v2.webp`} ratio="2000 / 1617" />
+              <p className="uj-tradeoffs v2">Progressive disclosure · clearer hierarchy · reduced input · improved accessibility</p>
+            </Reveal>
+          </div>
+          <Reveal className="uj-why">
+            <p className="label">Why the redesign</p>
+            <div className="cs-prose">
+              <p>
+                The first version placed identification, contact information, and eight document requirements on a single
+                screen, creating a dense experience with weak task hierarchy. The redesign broke the journey into three
+                clear steps, reduced unnecessary input through pre-filled company data, clarified progression, and
+                improved the visibility of primary actions.
+              </p>
+              <p>
+                Accessibility was also treated as part of the redesign, with clearer labels, stronger visual hierarchy,
+                more predictable interaction states, and a structure that is easier to scan, understand, and complete.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal as="p" className="cs-canvas-note">Demonstration data.</Reveal>
+        </Beat>
+
         <Beat label="Traceability and audit" title="Every important decision needs a history.">
           <div className="cs-two">
             <Reveal className="cs-goals">
@@ -534,12 +577,12 @@ export default function Uirajarr() {
 
       <section className="cs-nextnav">
         <div className="wrap">
-          <a href="#/work/myclinic360" className="cs-next-link">
+          <a href="/work/myclinic360" className="cs-next-link">
             <span className="label">Next project</span>
             <span className="cs-next-name">MyClinic360 <span aria-hidden="true">→</span></span>
             <span className="cs-next-cat">Healthcare SaaS</span>
           </a>
-          <a href="#work" className="cs-back">← Back to selected work</a>
+          <a href="/#work" className="cs-back">← Back to selected work</a>
         </div>
       </section>
     </main>

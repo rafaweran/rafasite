@@ -1,4 +1,5 @@
 import Reveal from '../components/Reveal'
+import Ownership from '../components/Ownership'
 import { Shot, BrowserMockup } from '../components/CaseStudy'
 
 // Everything in brackets is a placeholder for real material. Do not replace with invented content.
@@ -17,7 +18,7 @@ const chapters = [
 ]
 
 const meta = [
-  { label: 'Role', value: 'Senior Product Designer · Project Manager' },
+  { label: 'Role', value: 'Senior Product Designer' },
   { label: 'Timeline', value: 'February 2025 to Present' },
   { label: 'Team', value: '5-person cross-functional team' },
   { label: 'Scope', value: 'Research · Product Strategy · Information Architecture · UX/UI · Usability Testing · Product Management · Product Evolution' },
@@ -62,7 +63,7 @@ const timeline = [
   { step: 'Product shift' },
   { step: 'MVP definition' },
   { step: 'UX/UI design' },
-  { step: 'Usability testing', note: '4–5 participants' },
+  { step: 'Usability testing', note: '4 to 5 participants' },
   { step: 'Development', note: '~9 months' },
   { step: 'Launch', mark: true },
   { step: 'Real usage', post: true },
@@ -168,7 +169,7 @@ export default function MyClinic360() {
     <main className="cs">
       {/* Hero */}
       <header className="cs-hero wrap">
-        <Reveal as="a" href="#work" className="cs-back">← Selected work</Reveal>
+        <Reveal as="a" href="/#work" className="cs-back">← Selected work</Reveal>
         <Reveal as="p" className="case-kicker">
           <span className="case-num">01</span>
           <span>MyClinic360</span>
@@ -207,9 +208,9 @@ export default function MyClinic360() {
           ))}
         </Reveal>
 
-        <Reveal as="div" role="navigation" className="cs-arc" aria-label="Case study chapters">
+        <Reveal as="div" role="navigation" className="cs-arc" aria-label="Project chapters">
           {chapters.map((c, i) => (
-            <a key={c.id} href="#/work/myclinic360" onClick={(e) => {
+            <a key={c.id} href="/work/myclinic360" onClick={(e) => {
               e.preventDefault()
               document.getElementById(`cs-${c.id}`)?.scrollIntoView({ behavior: 'smooth' })
             }}>
@@ -217,6 +218,12 @@ export default function MyClinic360() {
             </a>
           ))}
         </Reveal>
+        <Ownership
+          owned={<p>End-to-end product design, from research and product definition to flows, information architecture, interface design, prototyping, usability testing, and ongoing product evolution.</p>}
+          team={['2 developers', 'Pelvic physiotherapy specialist', 'Business stakeholder']}
+          decision={<p>Expanding the MVP beyond specialized questionnaires. Research showed that physiotherapists already depended on generic clinic systems, so a questionnaire-only product would not solve the real workflow problem.</p>}
+          impact={<p>Continuous user feedback after launch became a key input for improving navigation, clinical workflows, and feature prioritization.</p>}
+        />
       </div>
 
       {/* 01 The original idea */}
@@ -349,7 +356,7 @@ export default function MyClinic360() {
         <div className="cs-two">
           <Reveal className="cs-prose">
             <p>The MVP was designed, developed, and prepared for launch over approximately nine months.</p>
-            <p>Formal usability testing before launch involved approximately 4–5 participants.</p>
+            <p>Formal usability testing before launch involved approximately 4 to 5 participants.</p>
             <p>
               Once the product was live, real usage, support conversations, and direct feedback became an
               additional source of product discovery.
@@ -659,12 +666,12 @@ export default function MyClinic360() {
 
       <section className="cs-nextnav">
         <div className="wrap">
-          <a href="#/work/medco" className="cs-next-link">
+          <a href="/work/medco" className="cs-next-link">
             <span className="label">Next project</span>
             <span className="cs-next-name">Med.co <span aria-hidden="true">→</span></span>
             <span className="cs-next-cat">Digital Health / Telemedicine</span>
           </a>
-          <a href="#work" className="cs-back">← Back to selected work</a>
+          <a href="/#work" className="cs-back">← Back to selected work</a>
         </div>
       </section>
     </main>

@@ -1,6 +1,7 @@
 import Reveal from '../components/Reveal'
 import { profile, coreCapabilities } from '../data'
 import ContactLinks from '../components/ContactLinks'
+import Todo from '../components/Todo'
 
 // Portrait: replace PORTRAIT with a real photo path (e.g. images/rafaelle-portrait.jpg). Never use stock or generated images.
 const PORTRAIT = 'images/rafaelle-portrait.jpg'
@@ -32,11 +33,11 @@ export default function About() {
         </Reveal>
         <div className="ab-hero-text">
           <Reveal as="p" className="label ab-eyebrow">About</Reveal>
-          <Reveal as="h1">I've always worked somewhere between design, <em>technology</em>, and product.</Reveal>
+          <Reveal as="h1">A product designer who takes decisions all the way to <em>working code</em>.</Reveal>
           <Reveal className="cs-prose">
             <p>
-              I'm a Senior Product Designer and Design Engineer with a background in technology and more than a decade of
-              experience designing digital products.
+              I'm a Design Engineer: a Senior Product Designer with a background in technology, more than a decade of
+              experience designing digital products, and the habit of building the interfaces I design.
             </p>
             <p>
               My work usually starts before the interface exists. I work across product strategy, research, systems
@@ -49,8 +50,8 @@ export default function About() {
             </p>
           </Reveal>
           <Reveal as="dl" className="ab-meta">
-            <div><dt>Based in</dt><dd>Edmonton, Canada</dd></div>
-            <div><dt>Open to</dt><dd>Remote opportunities</dd></div>
+            <div><dt>Based in</dt><dd>Edmonton, Canada</dd><dd>{profile.workEligibility || <Todo>work eligibility wording</Todo>}</dd></div>
+            <div><dt>Open to</dt><dd>Full-time, in-house roles</dd></div>
             <div><dt>Focus</dt><dd>Complex digital products</dd></div>
           </Reveal>
         </div>
@@ -132,9 +133,7 @@ export default function About() {
             <Reveal className="ab-domains">
               <p className="label">Domains</p>
               <ul>{domains.map((d) => <li key={d}>{d}</li>)}</ul>
-              {profile.resume
-                ? <a href={profile.resume} className="ab-link">View resume →</a>
-                : <a href={profile.linkedin} target="_blank" rel="noreferrer" className="ab-link">View LinkedIn profile ↗</a>}
+              <a href="/experience" className="ab-link">Full experience timeline →</a>
             </Reveal>
           </div>
         </div>
@@ -210,8 +209,8 @@ export default function About() {
           </Reveal>
           <Reveal className="cs-prose ab-now-body">
             <p className="ab-lead">
-              I'm based in Edmonton, Canada, and open to Senior Product Design, Design Engineer, and product-focused
-              remote opportunities.
+              I'm based in Edmonton, Canada, and open to full-time, in-house Design Engineer and Senior Product Designer
+              roles.
             </p>
             <p>
               I'm especially interested in teams working on complex digital products where design can influence both the
@@ -219,7 +218,7 @@ export default function About() {
             </p>
             <div className="ab-ctas">
               <a href={`mailto:${profile.email}`} className="btn">Let's talk</a>
-              <a href="#work" className="ab-link">View my work →</a>
+              <a href="/#work" className="ab-link">View my work →</a>
             </div>
           </Reveal>
         </div>

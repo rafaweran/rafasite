@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import Todo from './Todo'
 
 // Placeholder until real screenshots are added. Pass `src` to show an image.
 function Shot({ product, src, ratio = '16 / 10' }) {
@@ -66,6 +67,10 @@ function Meta({ item }) {
       {item.status && (
         <div><dt>Status</dt><dd><span className="status">{item.status}</span></dd></div>
       )}
+      <div>
+        <dt>{item.impactLabel || 'Usage impact'}</dt>
+        <dd>{item.impact || <Todo>adoption, retention, completion, time saved or support reduction</Todo>}</dd>
+      </div>
     </dl>
   )
 }
@@ -78,7 +83,7 @@ export default function CaseStudy({ index, item }) {
       <Reveal as="article" id={item.id} className="case flagship">
         <div className="flag-head">
           <div><Head index={index} item={item} big /></div>
-          <span className="flag-badge">Featured case study</span>
+          <span className="flag-badge">Featured project</span>
         </div>
         {item.cover
           ? <a href={item.href} className="flag-cover"><img src={item.cover} alt={`${item.product} shown on a laptop`} /></a>
@@ -90,7 +95,7 @@ export default function CaseStudy({ index, item }) {
             <p className="case-summary">{item.summary}</p>
             <Meta item={item} />
             <Tags items={item.capabilities} />
-            {item.href && <a href={item.href} className="btn case-cta">Read the case study →</a>}
+            {item.href && <a href={item.href} className="btn case-cta">See how it was built →</a>}
           </div>
           <div className="outcomes">
             {item.outcomes.map((o) => (
@@ -132,7 +137,7 @@ export default function CaseStudy({ index, item }) {
         <Statement item={item} />
         <Meta item={item} />
         <Tags items={item.capabilities} />
-        {item.href && <a href={item.href} className="btn case-cta">Read the case study →</a>}
+        {item.href && <a href={item.href} className="btn case-cta">See how it was built →</a>}
       </div>
     </Reveal>
   )

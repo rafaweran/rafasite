@@ -7,7 +7,10 @@ import MyClinic360 from './pages/MyClinic360'
 import Medco from './pages/Medco'
 import Uirajarr from './pages/Uirajarr'
 import About from './pages/About'
-import { profile, heroCapabilities, facts, cases, principles, process, domains, coreCapabilities, builds } from './data'
+import Experience from './pages/Experience'
+import Todo from './components/Todo'
+import { routes } from './seo'
+import { profile, heroCapabilities, facts, cases, principles, process, experience, builds } from './data'
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -20,15 +23,14 @@ function Nav() {
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <div className="wrap">
-        <a href="#top" className="mark" aria-label={profile.name}>Rafaelle <em>Weran</em></a>
+        <a href="/" className="mark" aria-label={profile.name}>Rafaelle <em>Weran</em></a>
         <div className="nav-right">
           <ul>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#/about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            {profile.resume && <li><a href={profile.resume}>Resume</a></li>}
+            <li><a href="/#work">Work</a></li>
+            <li><a href="/experience">Experience</a></li>
+            <li><a href="/about">About</a></li>
           </ul>
-          <a href="#contact" className="btn">Let's talk</a>
+          <a href="/#contact" className="btn">Let's talk</a>
         </div>
       </div>
     </nav>
@@ -39,23 +41,23 @@ function Hero() {
   return (
     <header className="hero wrap">
       <div className="hero-top">
-        <Reveal as="h1">I design clarity into <em>complex</em> products.</Reveal>
+        <Reveal as="h1"><em>Design Engineer</em> for complex products.</Reveal>
         <Reveal className="hero-cycle-wrap"><HeroCycle /></Reveal>
       </div>
       <div className="hero-foot">
         <Reveal>
-          <p className="hero-lead">
-            Senior Product Designer and Design Engineer working from product strategy and UX through
-            interface design and functional implementation.
-          </p>
-          <p className="hero-second">I design, prototype, and build digital products end-to-end.</p>
+          <p className="hero-lead">{profile.headline}</p>
+          <p className="hero-second">Healthcare, SaaS and public-sector products, from research to shipped interface.</p>
           <p className="hero-domains">{heroCapabilities.join(' · ')}</p>
         </Reveal>
         <Reveal className="facts">
           {facts.map((f) => (
             <div key={f.label}><b>{f.value}</b><span>{f.label}</span></div>
           ))}
-          <div><b className="loc">Edmonton, Canada</b><span>Remote worldwide</span></div>
+          <div>
+            <b className="loc">Edmonton, Canada</b>
+            <span>{profile.workEligibility || <Todo>work eligibility wording</Todo>}</span>
+          </div>
         </Reveal>
       </div>
     </header>
@@ -85,10 +87,15 @@ function Home() {
             {visibleCases.map((c, i) => <CaseStudy key={c.id} index={i} item={c} />)}
           </div>
 
-          <div id="builds" className="builds">
+        </div>
+      </section>
+
+      <section id="builds" className="builds-sec">
+        <div className="wrap">
+          <div className="builds">
             <div className="builds-head">
-              <Reveal as="h3">Selected Builds</Reveal>
-              <Reveal as="p">A selection of digital experiences I designed and implemented in code.</Reveal>
+              <Reveal as="h3">Shipped in code</Reveal>
+              <Reveal as="p">Websites I designed and implemented end to end, as proof of front-end delivery.</Reveal>
             </div>
             <div className="builds-grid">
               {builds.map((b) => (
@@ -142,6 +149,7 @@ function Home() {
         </div>
       </section>
 
+
       <section id="about">
         <div className="wrap about">
           <Reveal as="blockquote">
@@ -165,17 +173,17 @@ function Home() {
 
       <section id="experience">
         <div className="wrap">
-          <SectionHead title="Experience" />
-          <div className="exp">
-            <Reveal>
-              <p className="label">Domains</p>
-              <ul className="exp-list">{domains.map((d) => <li key={d}>{d}</li>)}</ul>
-            </Reveal>
-            <Reveal>
-              <p className="label">Core capabilities</p>
-              <ul className="exp-list">{coreCapabilities.map((c) => <li key={c}>{c}</li>)}</ul>
-            </Reveal>
-          </div>
+          <SectionHead title="Experience" meta="2010 to Present" />
+          <ul className="exp-sum">
+            {experience.filter((e) => !e.compact).map((e) => (
+              <Reveal as="li" key={e.org}>
+                <span className="exp-sum-period">{e.period}</span>
+                <span className="exp-sum-role">{e.role}</span>
+                <span className="exp-sum-org">{e.org}</span>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal as="a" href="/experience" className="exp-more">Full experience and CV →</Reveal>
         </div>
       </section>
 
@@ -185,14 +193,14 @@ function Home() {
             Have a complex product?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a>
           </Reveal>
           <Reveal as="p" className="contact-sub">
-            Open to Senior Product Design opportunities, product collaborations, and remote projects.
+            Open to full-time, in-house Design Engineer and Senior Product Designer roles.
           </Reveal>
           <Reveal><ContactLinks /></Reveal>
           <footer>
             <span>© 2026 {profile.name}</span>
             <ul>
               <li><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
-              {profile.resume && <li><a href={profile.resume}>Resume</a></li>}
+              <li><a href="/experience">Experience</a></li>
               <li><a href={`mailto:${profile.email}`}>Email</a></li>
             </ul>
           </footer>
@@ -202,26 +210,61 @@ function Home() {
   )
 }
 
-// Minimal hash router: "#/work/<id>" renders a case study; any other hash is a home anchor.
-const pages = { '#/work/myclinic360': MyClinic360, '#/work/medco': Medco, '#/work/uirajarr': Uirajarr, '#/about': About }
-const currentPage = () => pages[window.location.hash] || null
+// Minimal path router. Old "#/work/<id>" links are redirected to "/work/<id>"; "/#anchor" scrolls on the home page.
+const pages = {
+  '/work/myclinic360': MyClinic360, '/work/medco': Medco, '/work/uirajarr': Uirajarr,
+  '/about': About, '/experience': Experience,
+}
+const currentPath = () => window.location.pathname.replace(/\/+$/, '') || '/'
+
+function applyHead(path) {
+  const r = routes[path] || routes['/']
+  document.title = r.title
+  const set = (sel, v) => document.querySelector(sel)?.setAttribute(sel.startsWith('link') ? 'href' : 'content', v)
+  const url = `https://rafaelleweran.com${path === '/' ? '/' : path}`
+  set('meta[name="description"]', r.description)
+  set('meta[property="og:title"]', r.title)
+  set('meta[property="og:description"]', r.description)
+  set('meta[property="og:url"]', url)
+  set('link[rel="canonical"]', url)
+}
+
+if (window.location.hash.startsWith('#/')) {
+  window.history.replaceState(null, '', window.location.hash.slice(1))
+}
 
 export default function App() {
-  const [Page, setPage] = useState(() => currentPage())
+  const [path, setPath] = useState(currentPath)
+  const Page = pages[path] || null
 
   useEffect(() => {
-    const onHash = () => setPage(() => currentPage())
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
+    const sync = () => setPath(currentPath())
+    // Intercept same-origin links so navigation stays client-side.
+    const onClick = (e) => {
+      const a = e.target.closest('a')
+      if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || a.target || a.hasAttribute('download')) return
+      const url = new URL(a.href, window.location.href)
+      if (url.origin !== window.location.origin || /\.[a-z0-9]+$/i.test(url.pathname)) return
+      e.preventDefault()
+      const samePage = url.pathname === window.location.pathname
+      window.history.pushState(null, '', url.pathname + url.hash)
+      if (samePage && url.hash) document.getElementById(url.hash.slice(1))?.scrollIntoView({ behavior: 'smooth' })
+      else if (samePage) window.scrollTo({ top: 0, behavior: 'smooth' })
+      else sync()
+    }
+    window.addEventListener('popstate', sync)
+    document.addEventListener('click', onClick)
+    return () => { window.removeEventListener('popstate', sync); document.removeEventListener('click', onClick) }
   }, [])
 
-  // After switching views, jump to the anchor (home) or to the top (case study).
+  // After switching views, jump to the anchor (home) or to the top, and update head tags.
   useLayoutEffect(() => {
+    applyHead(Page ? path : '/')
     const hash = window.location.hash
-    const target = !Page && hash.length > 1 && !hash.startsWith('#/') && document.getElementById(hash.slice(1))
+    const target = hash.length > 1 && document.getElementById(hash.slice(1))
     if (target) target.scrollIntoView()
     else window.scrollTo(0, 0)
-  }, [Page])
+  }, [path])
 
   return (
     <>

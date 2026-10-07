@@ -534,16 +534,16 @@
 .md-verify-row.confirmed em { color: var(--iris); }
 .md-verify-row.tbc span { color: var(--subtle); }
 
-.md-evolution { list-style: none; display: grid; grid-template-columns: repeat(7, 1fr); position: relative; }
+.md-evolution { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: clamp(16px, 2vw, 28px); position: relative; }
 .md-evolution::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: var(--line); }
-.md-evolution li { position: relative; padding: 32px 16px 0 0; }
+.md-evolution li { position: relative; padding: 32px 0 0 0; min-width: 0; }
 .md-evolution li::before {
   content: ""; position: absolute; left: 0; top: 0; width: 13px; height: 13px; border-radius: 50%;
   background: var(--base); border: 1px solid var(--muted);
 }
 .md-evolution li.key::before { background: var(--rose); border-color: var(--rose); }
 .md-evolution li.key .label { color: var(--rose); }
-.md-evo-text { margin-top: 10px; font: 300 clamp(18px, 1.6vw, 22px)/1.3 var(--serif); }
+.md-evo-text { margin-top: 10px; font: 300 clamp(16px, 1.4vw, 20px)/1.35 var(--serif); overflow-wrap: break-word; hyphens: none; }
 
 .md-signals { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
 .md-signals > div { padding: 28px 20px 0 0; font-size: 17px; }
@@ -741,3 +741,21 @@
   .ab-meta, .ab-approach { grid-template-columns: 1fr; }
   .ab-caps ul { columns: 1; }
 }
+
+/* Ownership block */
+.cs-own { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 40px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cs-own .label { color: var(--iris); margin-bottom: 10px; }
+.cs-own p:not(.label), .cs-own li { font-size: 16px; color: var(--subtle); }
+@media (max-width: 860px) { .cs-own { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .cs-own { grid-template-columns: 1fr; } }
+
+/* UIRAJARR accreditation comparison */
+.uj-tradeoffs { margin-top: 16px; font: 400 13px/1.6 var(--mono); color: var(--muted); }
+.uj-tradeoffs.v2 { color: var(--rose); }
+.cs-flowblock { display: flex; flex-direction: column; }
+.cs-flowblock .shot { margin-top: auto; }
+.uj-why { position: relative; margin-top: 20px; padding: clamp(24px, 3vw, 36px); border: 1px solid var(--line); border-left: 2px solid var(--rose); border-radius: 12px; background: var(--surface); display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
+.uj-why::before { content: ""; position: absolute; left: 50%; top: -21px; width: 1px; height: 20px; background: var(--line); }
+.uj-why .label { color: var(--rose); }
+.uj-why .cs-prose p + p { margin-top: 12px; }
+@media (max-width: 760px) { .uj-why { grid-template-columns: 1fr; gap: 12px; } }
