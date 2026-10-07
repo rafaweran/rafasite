@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Rafaelle Weran',
   role: 'Senior Product Designer',
-  headline: 'Turning complex product problems into clear, working digital experiences.',
+  headline: 'Turning complex product problems into clear, intuitive and human experiences.',
   location: 'Edmonton, Canada · Remote worldwide',
   workEligibility: 'Eligible to work in Canada',
   email: 'rafaelle.rodrigues@gmail.com',

@@ -72,6 +72,7 @@ nav ul a:hover { color: var(--text); }
   max-width: 13ch;
 }
 .hero h1 em { font-style: italic; color: var(--rose); }
+.hero-name { display: block; margin-bottom: 0.5em; font: italic 300 0.3em/1.1 var(--serif); letter-spacing: -0.01em; color: var(--subtle); }
 .hero-foot {
   margin-top: clamp(48px, 7vw, 88px);
   display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end;

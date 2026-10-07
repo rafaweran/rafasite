@@ -41,7 +41,7 @@ function Hero() {
   return (
     <header className="hero wrap">
       <div className="hero-top">
-        <Reveal as="h1"><em>Senior Product Designer</em><span className="hero-sub-title">Design Engineer</span></Reveal>
+        <Reveal as="h1"><span className="hero-name">Hi, I’m Rafaelle.</span><em>Senior Product Designer</em><span className="hero-sub-title">Design Engineer</span></Reveal>
         <Reveal className="hero-cycle-wrap"><HeroCycle /></Reveal>
       </div>
       <div className="hero-foot">
