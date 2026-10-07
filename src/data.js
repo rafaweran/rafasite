@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Rafaelle Weran',
   role: 'Senior Product Designer',
-  headline: 'I take product decisions all the way to functional interfaces in code, working as a Design Engineer when the project calls for it.',
+  headline: 'Turning complex product problems into clear, working digital experiences.',
   location: 'Edmonton, Canada · Remote worldwide',
   workEligibility: 'Eligible to work in Canada',
   email: 'rafaelle.rodrigues@gmail.com',
@@ -11,7 +11,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/rafaweran/',
 }
 
-export const heroCapabilities = ['Product Design', 'Design Systems', 'Front-end Development', 'Product Strategy']
+export const heroCapabilities = ['Product Strategy', 'Systems Thinking', 'UX/UI', 'Design Engineering']
 
 export const facts = [
   { value: '10+', label: 'years in UX & Product Design' },
@@ -26,7 +26,7 @@ export const cases = [
     cover: `${import.meta.env.BASE_URL}images/myclinic360-cover.webp`,
     category: 'Healthcare SaaS',
     product: 'MyClinic360',
-    title: 'Turning complex clinical workflows into a clearer experience for pelvic physiotherapists.',
+    title: 'Designing a specialized clinical workflow for pelvic physiotherapy.',
     summary:
       'A specialized healthcare platform designed from initial discovery and MVP through post-launch evolution, supporting patient management, clinical assessments, scheduling, questionnaires, financial workflows, and ongoing care.',
     role: 'Senior Product Designer',
@@ -47,7 +47,7 @@ export const cases = [
     cover: `${import.meta.env.BASE_URL}images/medco-cover.webp`,
     category: 'Digital Health / Telemedicine',
     product: 'Med.co',
-    title: 'Rethinking how patients find and connect with the right physician.',
+    title: 'Designing a structured physician-patient communication and care experience.',
     summary:
       'A digital health experience created to improve communication between physicians and patients, later exploring AI-assisted intake, teleorientation, and telemedicine.',
     role: 'Senior Product Designer',
@@ -80,7 +80,7 @@ export const cases = [
     cover: `${import.meta.env.BASE_URL}images/uj-cover.webp`,
     category: 'GovTech · Public Sector',
     product: 'UIRAJARR · TJRR',
-    title: 'Turning a fragmented government travel process into one traceable digital workflow.',
+    title: 'Transforming a fragmented public-sector travel workflow into a traceable digital system.',
     summary:
       'A multi-role product for the Court of Justice of Roraima, covering travel requests, agency accreditation, sealed bidding windows, ticket issuance, and audit.',
     role: 'Product Designer',

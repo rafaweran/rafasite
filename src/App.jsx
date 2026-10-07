@@ -10,7 +10,7 @@ import About from './pages/About'
 import Experience from './pages/Experience'
 import NotFound from './pages/NotFound'
 import { routes } from './seo'
-import { profile, heroCapabilities, facts, cases, principles, process, experience, builds } from './data'
+import { profile, heroCapabilities, facts, cases, experience, builds } from './data'
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -41,13 +41,13 @@ function Hero() {
   return (
     <header className="hero wrap">
       <div className="hero-top">
-        <Reveal as="h1"><em>Senior Product Designer</em> for complex products.</Reveal>
+        <Reveal as="h1"><em>Senior Product Designer</em><span className="hero-sub-title">Design Engineer</span></Reveal>
         <Reveal className="hero-cycle-wrap"><HeroCycle /></Reveal>
       </div>
       <div className="hero-foot">
         <Reveal>
           <p className="hero-lead">{profile.headline}</p>
-          <p className="hero-second">Healthcare, SaaS and public-sector products, from research to shipped interface.</p>
+          <p className="hero-second">I bridge product strategy, systems thinking, UX/UI, and front-end implementation.</p>
           <p className="hero-domains">{heroCapabilities.join(' · ')}</p>
         </Reveal>
         <Reveal className="facts">
@@ -94,8 +94,8 @@ function Home() {
         <div className="wrap">
           <div className="builds">
             <div className="builds-head">
-              <Reveal as="h3">Shipped in code</Reveal>
-              <Reveal as="p">Websites I designed and implemented end to end, as proof of front-end delivery.</Reveal>
+              <Reveal as="h3">Other work</Reveal>
+              <Reveal as="p">Websites I designed and built in code, end to end.</Reveal>
             </div>
             <div className="builds-grid">
               {builds.map((b) => (
@@ -138,43 +138,6 @@ function Home() {
         </div>
       </section>
 
-      <section id="approach">
-        <div className="wrap">
-          <SectionHead title="How I work" />
-          <div className="caps">
-            {principles.map((c, i) => (
-              <Reveal key={c.title} className="cap">
-                <span className="label">{String(i + 1).padStart(2, '0')}</span>
-                <h4>{c.title}</h4>
-                <p>{c.text}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      <section id="about">
-        <div className="wrap about">
-          <Reveal as="blockquote">
-            The interface is only <em>one part</em> of the product.
-          </Reveal>
-          <Reveal className="body">
-            <p>
-              I work across the full product lifecycle, from discovery and product definition to UX/UI,
-              implementation, delivery, and continuous improvement.
-            </p>
-            <p>
-              My work often goes beyond Figma. I build functional interfaces and product experiences so
-              ideas can be tested, validated, and handed to engineering in a much more mature state.
-            </p>
-            <ol className="lifecycle">
-              {process.map((s) => <li key={s}>{s}</li>)}
-            </ol>
-          </Reveal>
-        </div>
-      </section>
-
       <section id="experience">
         <div className="wrap">
           <SectionHead title="Experience" meta="2010 to Present" />
@@ -194,10 +157,10 @@ function Home() {
       <section id="contact" className="contact">
         <div className="wrap">
           <Reveal as="h2">
-            Have a complex product?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a>
+            Looking for a Senior Product Designer?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a>
           </Reveal>
           <Reveal as="p" className="contact-sub">
-            Open to full-time, in-house Design Engineer and Senior Product Designer roles.
+            I take complex products from ambiguity to delivery. Open to full-time, in-house Senior Product Designer roles.
           </Reveal>
           <Reveal><ContactLinks /></Reveal>
           <footer>

@@ -10,10 +10,12 @@ const pct = (y) => `${((y - FROM) / (NOW - FROM)) * 100}%`
 const years = [2010, 2014, 2018, 2022, 2026]
 
 const aiFlow = [
-  { title: 'Specification', text: 'Product decisions, requirements, interaction rules, and implementation constraints.',
+  { title: 'Product decision', text: 'I define the problem, the interaction behavior, and what the interface must preserve.' },
+  { title: 'Specification', text: 'Requirements, interaction rules, and implementation constraints in a structured brief.',
     prompt: 'Build the property card using the existing design system. Preserve information hierarchy, responsive behavior and accessibility. Do not change business rules or data structure.' },
-  { title: 'AI-assisted implementation', text: 'Structured prompts and coding tools used to translate those decisions into front-end components.' },
-  { title: 'Review & iteration', text: 'Visual QA, responsive behavior, accessibility, and refinement against the original design intent.' },
+  { title: 'AI-assisted implementation', text: 'Structured prompts and coding tools translate the brief into front-end components.' },
+  { title: 'Review & QA', text: 'I review the code and check accessibility, responsive behavior, and visual quality against the design intent.' },
+  { title: 'Working interface', text: 'Refined until it matches the original product decision.' },
 ]
 
 function CvLink() {

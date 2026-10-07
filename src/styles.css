@@ -387,10 +387,6 @@ p.todo, div.todo { display: block; margin-top: 12px; }
   .ex-years { left: 0; right: 86px; }
 }
 
-/* Hero cycle: Build is the emphasized node */
-.hc-node.key { stroke: var(--rose); stroke-width: 1.5; fill: color-mix(in srgb, var(--rose) 12%, var(--surface)); }
-.hc-label.key { fill: var(--rose); font-size: 16px; }
-.hc-sub.key { fill: var(--rose); }
 .facts .todo b, .todo b { display: inline; font: 500 13px var(--mono); margin: 0; padding: 0; }
 
 /* Interface craft */
@@ -515,3 +511,15 @@ button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--iris);
 .nf-name { font: 300 clamp(24px, 2.4vw, 32px)/1.2 var(--serif); }
 .nf-cat { color: var(--muted); font-size: 15px; }
 @media (max-width: 720px) { .nf-list a { grid-template-columns: 1fr auto; } .nf-cat { display: none; } }
+.case-cta-sec h2 { font-size: clamp(30px, 3.6vw, 52px); max-width: 24ch; }
+.cf-shot { border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+.cf-shot img { height: auto; }
+.ex-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.ex-flow li { padding: 20px; }
+.ex-flow li + li::before { left: -14px; }
+.ex-flow h3 { font-size: 17px; }
+.ex-flow li:nth-child(2) { grid-column: span 1; }
+@media (max-width: 1100px) { .ex-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ex-flow li + li::before { display: none; } }
+@media (max-width: 640px) { .ex-flow { grid-template-columns: 1fr; } }
+.hero-sub-title { display: block; margin-top: 0.35em; font: 300 0.38em/1.1 var(--serif); letter-spacing: -0.01em; color: var(--subtle); }
+.hero-sub-title::before { content: "+ "; color: var(--iris); }

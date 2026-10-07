@@ -1,5 +1,6 @@
 import Reveal from '../components/Reveal'
 import Ownership from '../components/Ownership'
+import CaseCta from '../components/CaseCta'
 
 // Privacy: screenshots must use fictional demo data only (no real patients, records, exams, or physician data).
 
@@ -221,6 +222,14 @@ export default function Medco() {
       </div>
 
       {/* 01 Original problem */}
+      <div className="wrap md-phase">
+        <Reveal className="md-phase-inner">
+          <span className="label">Phase 1</span>
+          <p className="md-phase-title">V1 · Delivered</p>
+          <p className="md-phase-note">The original problem and the first version built to solve it.</p>
+        </Reveal>
+      </div>
+
       <Chapter id="problem" title="The product started with a very simple pain point.">
         <div className="cs-two">
           <Reveal className="cs-prose">
@@ -337,6 +346,14 @@ export default function Medco() {
       </Chapter>
 
       {/* 04 Expansion */}
+      <div className="wrap md-phase">
+        <Reveal className="md-phase-inner">
+          <span className="label">Phase 2</span>
+          <p className="md-phase-title">Product evolution · Launching and exploring</p>
+          <p className="md-phase-note">V2 is launching and already in use. Some capabilities below, such as AI-assisted intake and physician matching, are still being implemented or explored.</p>
+        </Reveal>
+      </div>
+
       <Chapter id="expansion" title="The product began evolving beyond chat.">
         <div className="cs-two">
           <Reveal className="cs-prose">
@@ -612,6 +629,8 @@ export default function Medco() {
           </Reveal>
         </div>
       </section>
+
+      <CaseCta />
 
       <section className="cs-nextnav">
         <div className="wrap">

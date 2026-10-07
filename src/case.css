@@ -759,3 +759,11 @@
 .uj-why .label { color: var(--rose); }
 .uj-why .cs-prose p + p { margin-top: 12px; }
 @media (max-width: 760px) { .uj-why { grid-template-columns: 1fr; gap: 12px; } }
+
+/* Med.co phase markers */
+.md-phase { padding-top: clamp(56px, 7vw, 96px); }
+.md-phase-inner { display: grid; grid-template-columns: 120px 1fr; column-gap: 32px; row-gap: 4px; padding: 20px 0; border-top: 2px solid var(--rose); }
+.md-phase-inner .label { color: var(--rose); font-family: var(--mono); grid-row: 1 / 3; padding-top: 6px; }
+.md-phase-title { font: 300 clamp(24px, 2.4vw, 34px)/1.2 var(--serif); }
+.md-phase-note { color: var(--muted); font-size: 15px; max-width: 64ch; }
+@media (max-width: 640px) { .md-phase-inner { grid-template-columns: 1fr; } .md-phase-inner .label { grid-row: auto; } }

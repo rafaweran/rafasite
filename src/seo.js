@@ -11,7 +11,7 @@ export const routes = {
   '/': {
     title: 'Rafaelle Weran · Senior Product Designer & Design Engineer',
     description:
-      'Senior Product Designer and Design Engineer in Edmonton, Canada. I take product decisions all the way to functional interfaces in code, across healthcare, SaaS and public-sector products.',
+      'Senior Product Designer in Edmonton, Canada, designing complex digital products from strategy to working interface, with front-end implementation when the project calls for it.',
   },
   '/work': {
     title: 'Work · Rafaelle Weran, Senior Product Designer & Design Engineer',

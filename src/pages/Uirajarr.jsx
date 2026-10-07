@@ -1,5 +1,6 @@
 import Reveal from '../components/Reveal'
 import Ownership from '../components/Ownership'
+import CaseCta from '../components/CaseCta'
 import { Shot } from '../components/CaseStudy'
 
 // Competition prototype.
@@ -577,6 +578,8 @@ export default function Uirajarr() {
           </Reveal>
         </div>
       </section>
+
+      <CaseCta />
 
       <section className="cs-nextnav">
         <div className="wrap">

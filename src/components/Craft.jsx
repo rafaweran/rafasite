@@ -1,21 +1,8 @@
 import Reveal from './Reveal'
 
-// Interface craft: evidence of how interfaces are structured. The field pattern follows the UIRAJARR accreditation
-// form, rebuilt in code for this page with demo data; tokens come from the Med.co Figma library; screens are real.
+// Interface craft: evidence from real products. Crops of UIRAJARR screens (demo data), tokens from the Med.co
+// Figma library, and live City Furnace screens.
 const img = (f) => `${import.meta.env.BASE_URL}images/${f}`
-
-function Field({ state = 'default', label = 'CNPJ (company tax ID)', value = '34.567.890/0001-30', help = 'Company data is pre-filled from the federal registry.' }) {
-  const msg = state === 'error' ? 'Check the 14 digits and try again.' : state === 'success' ? 'Company found. Details pre-filled.' : help
-  return (
-    <div className={`cf-field is-${state}`}>
-      <span className="cf-label">{label}</span>
-      <span className="cf-input">{value}</span>
-      <span className="cf-help">{msg}</span>
-    </div>
-  )
-}
-
-const states = ['default', 'hover', 'focus', 'error', 'disabled', 'success']
 
 // Med.co design system (Figma). Only values visible in the file.
 const themes = [
@@ -41,21 +28,15 @@ export default function Craft() {
         <div className="craft-copy">
           <p className="label">01 · Component anatomy</p>
           <p className="craft-desc">Reusable components structured around hierarchy, clarity, and predictable behavior.</p>
-          <p className="craft-note">Field pattern from the UIRAJARR accreditation flow, rebuilt in code for this page with demo data.</p>
+          <p className="craft-note">UIRAJARR accreditation, step 1. Demonstration data.</p>
         </div>
-        <div className="cf-anatomy">
-          <div className="cf-anatomy-ui">
-            <Field state="error" />
-            <span className="cf-btn">Continue</span>
-          </div>
-          <ol className="cf-callouts">
-            <li><b>Label</b> always visible, names the data</li>
-            <li><b>Field</b> one value, clear boundary</li>
-            <li><b>Helper text</b> context before the user errs</li>
-            <li><b>Validation state</b> color plus message, never color alone</li>
-            <li><b>Primary action</b> one per form, verb first</li>
-          </ol>
-        </div>
+        <figure className="cf-shot"><img src={img('craft-uj-anatomy.webp')} alt="UIRAJARR accreditation step 1: stepper, step heading, and pre-filled CNPJ and registry status fields" loading="lazy" /></figure>
+        <ol className="cf-callouts">
+          <li><b>Stepper</b> current, completed and upcoming steps read at a glance</li>
+          <li><b>Step header</b> position, title and one line on what this step is for</li>
+          <li><b>Field label</b> always visible, with the required marker</li>
+          <li><b>Pre-filled field</b> read-only style for data that comes from the federal registry</li>
+        </ol>
       </Reveal>
 
       {/* 2 States */}
@@ -63,15 +44,14 @@ export default function Craft() {
         <div className="craft-copy">
           <p className="label">02 · States</p>
           <p className="craft-desc">Every interaction is designed beyond the default state.</p>
+          <p className="craft-note">UIRAJARR accreditation, end of step 1. Demonstration data.</p>
         </div>
-        <div className="cf-states">
-          {states.map((s) => (
-            <div key={s}>
-              <p className="cf-state-name">{s}</p>
-              <Field state={s} help="Pre-filled when available." />
-            </div>
-          ))}
-        </div>
+        <figure className="cf-shot"><img src={img('craft-uj-states.webp')} alt="UIRAJARR accreditation: data source notice, selected and unselected options, secondary and primary actions" loading="lazy" /></figure>
+        <ul className="cf-a11y">
+          <li><b>Selected and unselected</b><span>The chosen option gets a filled check, tinted background and stronger border.</span></li>
+          <li><b>Primary and secondary</b><span>One filled primary action; saving for later stays available but quieter.</span></li>
+          <li><b>Data freshness</b><span>A notice shows when registry data was last updated and where it came from.</span></li>
+        </ul>
       </Reveal>
 
       {/* 3 Tokens */}

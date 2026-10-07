@@ -12,13 +12,7 @@ const approach = [
   { title: 'Learn from real usage', text: 'Support conversations, feedback, product behavior, and post-launch observation continue shaping my design decisions.' },
 ]
 
-const domains = ['Healthcare', 'Digital Health', 'SaaS', 'GovTech', 'Enterprise Systems', 'Real Estate', 'Community Platforms', 'AI-assisted Products']
 
-const workingStyle = [
-  { title: 'Collaborative', text: 'I work closely with stakeholders, subject-matter experts, and developers throughout the product process.' },
-  { title: 'Practical', text: 'I value research and process, but I also understand real constraints, deadlines, and the need to ship.' },
-  { title: 'Iterative', text: 'I treat launch as part of the learning process, not the end of it.' },
-]
 
 export default function About() {
   return (
@@ -117,50 +111,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Experience snapshot */}
-      <section className="cs-section">
-        <div className="wrap">
-          <Reveal className="cs-head">
-            <p className="cs-eyebrow">Experience snapshot</p>
-            <h2>Experience across complex digital products.</h2>
-          </Reveal>
-          <div className="ab-snapshot">
-            <Reveal className="ab-years">
-              <div><b>15+</b><span>years in technology</span></div>
-              <div><b>10+</b><span>years in UX & Product Design</span></div>
-            </Reveal>
-            <Reveal className="ab-domains">
-              <p className="label">Domains</p>
-              <ul>{domains.map((d) => <li key={d}>{d}</li>)}</ul>
-              <a href="/experience" className="ab-link">Full experience timeline →</a>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Why complex products */}
-      <section className="cs-section">
-        <div className="wrap cs-two">
-          <div>
-            <Reveal className="cs-head">
-              <p className="cs-eyebrow">Why complex products</p>
-              <h2>I'm drawn to products where the answer is not obvious.</h2>
-            </Reveal>
-            <Reveal className="cs-prose">
-              <p>
-                The projects I enjoy most usually involve multiple users, complex workflows, business rules, fragmented
-                information, or systems that have grown difficult to understand.
-              </p>
-              <p>I like turning that complexity into something people can actually use.</p>
-            </Reveal>
-          </div>
-          <Reveal as="blockquote" className="ab-pull">
-            Complexity can stay in the system.
-            <span>It doesn't have to stay in the user experience.</span>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Background */}
       <section className="cs-section">
         <div className="wrap ab-bg">
@@ -182,24 +132,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Working style */}
-      <section className="cs-section">
-        <div className="wrap">
-          <Reveal className="cs-head">
-            <p className="cs-eyebrow">Working style</p>
-            <h2>How I like to work.</h2>
-          </Reveal>
-          <div className="ab-style">
-            {workingStyle.map((w) => (
-              <Reveal key={w.title}>
-                <h3>{w.title}</h3>
-                <p>{w.text}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Currently */}
       <section className="cs-section">
         <div className="wrap ab-now">
@@ -218,6 +150,7 @@ export default function About() {
             <div className="ab-ctas">
               <a href={`mailto:${profile.email}`} className="btn">Let's talk</a>
               <a href="/#work" className="ab-link">View my work →</a>
+              <a href="/experience" className="ab-link">Experience →</a>
             </div>
           </Reveal>
         </div>

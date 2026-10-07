@@ -1,5 +1,6 @@
 import Reveal from '../components/Reveal'
 import Ownership from '../components/Ownership'
+import CaseCta from '../components/CaseCta'
 import { Shot, BrowserMockup } from '../components/CaseStudy'
 
 
@@ -652,6 +653,8 @@ export default function MyClinic360() {
           </Reveal>
         </div>
       </section>
+
+      <CaseCta />
 
       <section className="cs-nextnav">
         <div className="wrap">
