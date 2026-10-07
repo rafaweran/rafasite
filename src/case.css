@@ -767,3 +767,19 @@
 .md-phase-title { font: 300 clamp(24px, 2.4vw, 34px)/1.2 var(--serif); }
 .md-phase-note { color: var(--muted); font-size: 15px; max-width: 64ch; }
 @media (max-width: 640px) { .md-phase-inner { grid-template-columns: 1fr; } .md-phase-inner .label { grid-row: auto; } }
+
+/* MyClinic360 post-launch iterations */
+.mc-iterations { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.mc-iter { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(22px, 2.6vw, 32px); display: flex; flex-direction: column; gap: 10px; }
+.mc-iter-n { font: 400 13px var(--mono); color: var(--iris); }
+.mc-iter h3 { font: 500 21px/1.3 var(--sans); }
+.mc-iter p { color: var(--subtle); font-size: 16px; }
+.mc-iter-link { margin-top: auto; padding-top: 8px; color: var(--rose); font-weight: 500; font-size: 15px; }
+@media (max-width: 760px) { .mc-iterations { grid-template-columns: 1fr; } }
+#cs-assessments, #cs-scheduling { scroll-margin-top: 80px; }
+
+/* Med.co exploration chapters: marked, and visually quieter than delivered work */
+.md-explore-tag { margin-left: 12px; padding: 2px 8px; border: 1px dashed color-mix(in srgb, var(--iris) 60%, transparent); border-radius: 999px; font: 400 11px/1.4 var(--mono); font-style: normal; letter-spacing: .06em; text-transform: uppercase; color: var(--iris); vertical-align: middle; }
+.md-explore .md-phone-row .phone, .md-explore .md-phone-row > * { opacity: .92; }
+.md-explore-dot { font-style: normal; color: var(--muted); font-size: .85em; }
+.ab-aside { color: var(--muted); font-style: italic; }

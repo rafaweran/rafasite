@@ -9,13 +9,17 @@ const NOW = 2026.8
 const pct = (y) => `${((y - FROM) / (NOW - FROM)) * 100}%`
 const years = [2010, 2014, 2018, 2022, 2026]
 
+// Real example: this portfolio, built with AI-assisted coding from Rafaelle's own briefs (Med.co phase markers).
 const aiFlow = [
-  { title: 'Product decision', text: 'I define the problem, the interaction behavior, and what the interface must preserve.' },
-  { title: 'Specification', text: 'Requirements, interaction rules, and implementation constraints in a structured brief.',
-    prompt: 'Build the property card using the existing design system. Preserve information hierarchy, responsive behavior and accessibility. Do not change business rules or data structure.' },
-  { title: 'AI-assisted implementation', text: 'Structured prompts and coding tools translate the brief into front-end components.' },
-  { title: 'Review & QA', text: 'I review the code and check accessibility, responsive behavior, and visual quality against the design intent.' },
-  { title: 'Working interface', text: 'Refined until it matches the original product decision.' },
+  { title: 'Product decision', text: 'Recruiters must never mistake explored concepts in Med.co for launched features. Delivered and exploratory work need a visible split.' },
+  { title: 'Structured specification', kind: 'brief', excerpt: 'Make the distinction between what was delivered in V1 and what was later explored as product evolution completely clear. Do not make the exploratory section look more finished than the delivered product.' },
+  { title: 'AI-assisted implementation', kind: 'code', excerpt: `const explore =
+  EXPLORATION.includes(id)
+
+{explore && (
+  <em …>Exploration</em>
+)}` },
+  { title: 'Review and refinement', text: 'I review the implementation against the original product intent, checking interaction behavior, responsive layout, accessibility, and visual quality before considering the work complete.' },
 ]
 
 function CvLink() {
@@ -74,6 +78,7 @@ export default function Experience() {
                   <h2>{e.role} <span className="ex-org">· {e.org}</span></h2>
                   {e.kind && <p className="ex-kind">{e.kind}</p>}
                   {e.lines?.map((l) => <p key={l}>{l}</p>)}
+                  {e.note && <p className="ex-note">{e.note}</p>}
                   {e.clients && (
                     <ul className="ex-clients">
                       {e.clients.map((c) => (
@@ -112,11 +117,9 @@ export default function Experience() {
               <h2 className="ex-ai-title">From specification to <em>interface</em>.</h2>
             </Reveal>
             <Reveal className="ex-ai-copy">
-              <p>AI-assisted development is part of how I move from product decisions to working interfaces.</p>
               <p>
-                I use AI throughout the design-to-code workflow to explore solutions, translate design specifications into
-                front-end components, review implementation, and iterate quickly without losing control of UX,
-                accessibility, or visual quality.
+                AI-assisted development is part of how I move from product decisions to working interfaces. It speeds up
+                implementation; product decisions, UX, accessibility, and review stay with me.
               </p>
             </Reveal>
           </div>
@@ -125,16 +128,24 @@ export default function Experience() {
               <Reveal as="li" key={f.title}>
                 <span className="ex-flow-n">{String(i + 1).padStart(2, '0')}</span>
                 <h3>{f.title}</h3>
-                <p>{f.text}</p>
-                {f.prompt && <pre className="ex-prompt"><span>prompt</span>{f.prompt}</pre>}
+                {f.text && <p>{f.text}</p>}
+                {f.excerpt && <pre className="ex-prompt"><span>{f.kind === 'code' ? 'excerpt from the component' : 'from my brief'}</span>{f.excerpt}</pre>}
               </Reveal>
             ))}
           </ol>
-          <Reveal as="p" className="ex-ai-caption">
-            <span className="label">Nextlar</span>
-            A real example from Nextlar: requirements and interaction rules were translated into a structured
-            implementation brief, then developed and refined through AI-assisted coding and visual QA. AI speeds up the
-            work; product decisions, UX, design quality, and implementation review stay with me.
+          <Reveal as="figure" className="ex-ai-result">
+            <div className="ex-ai-frame">
+              <div className="mock-bar" aria-hidden="true">
+                <span className="mock-dots"><i /><i /><i /></span>
+                <span className="mock-url">rafaelleweran.com/work/medco</span>
+              </div>
+              <img src={`${import.meta.env.BASE_URL}images/ai-result-medco-phase.jpg`} alt="Result in the Med.co project page: a Phase 2 marker, Product evolution / Exploration, and an Exploration tag on the chapter" loading="lazy" />
+            </div>
+            <figcaption>
+              <span className="label">Result</span>
+              The Med.co page in this portfolio. The decision, the spec, and the review are mine; AI sped up the
+              implementation. <a href="/work/medco" className="ex-ai-live">See it live →</a>
+            </figcaption>
           </Reveal>
         </div>
       </section>
@@ -166,7 +177,7 @@ export default function Experience() {
 
       <section className="contact">
         <div className="wrap">
-          <Reveal as="h2">Hiring a Design Engineer?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a></Reveal>
+          <Reveal as="h2">Looking for a Senior Product Designer?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a></Reveal>
           <Reveal><ContactLinks /></Reveal>
         </div>
       </section>

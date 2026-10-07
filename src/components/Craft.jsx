@@ -1,7 +1,7 @@
 import Reveal from './Reveal'
 
-// Interface craft: evidence from real products. Crops of UIRAJARR screens (demo data), tokens from the Med.co
-// Figma library, and live City Furnace screens.
+// Interface craft: evidence from real products. A Nextlar dashboard component, UIRAJARR crops (demo data),
+// tokens from the Med.co Figma library, and live City Furnace screens.
 const img = (f) => `${import.meta.env.BASE_URL}images/${f}`
 
 // Med.co design system (Figma). Only values visible in the file.
@@ -12,12 +12,10 @@ const themes = [
 const dsFacts = [['186', 'tokens'], ['16', 'text styles'], ['5', 'elevations'], ['40', 'icons'], ['22', 'components'], ['2', 'theme modes']]
 
 const a11y = [
-  { title: 'Contrast', text: 'Body text at about 9:1, secondary text at about 6:1 on the base color.' },
-  { title: 'Visible focus', text: 'A 2px outline with offset on every interactive element.' },
-  { title: 'Clear labels', text: 'Labels sit above fields and never live only in placeholders.' },
-  { title: 'Error messages', text: 'Errors say what to do next, not only that something failed.' },
-  { title: 'Touch targets', text: 'Primary actions at 40px or taller, with spacing between them.' },
-  { title: 'Readable type', text: 'Body copy at 18px with 1.65 line height.' },
+  { src: 'craft-uj-a11y-label.webp', title: 'Visible labels', text: 'Labels sit above the field, with a required marker. Never placeholder-only.' },
+  { src: 'craft-uj-a11y-option.webp', title: 'Not color alone', text: 'Selection shows a check, a tinted background and a stronger border.' },
+  { src: 'craft-uj-a11y-notice.webp', title: 'Icon plus text', text: 'Status notices pair an icon with words and name the data source.' },
+  { src: 'craft-uj-a11y-actions.webp', title: 'Clear actions', text: 'Large targets, one filled primary action, the secondary kept visible but quieter.' },
 ]
 
 export default function Craft() {
@@ -28,14 +26,15 @@ export default function Craft() {
         <div className="craft-copy">
           <p className="label">01 · Component anatomy</p>
           <p className="craft-desc">Reusable components structured around hierarchy, clarity, and predictable behavior.</p>
-          <p className="craft-note">UIRAJARR accreditation, step 1. Demonstration data.</p>
+          <p className="craft-note">Nextlar dashboard, daily nudge card.</p>
         </div>
-        <figure className="cf-shot"><img src={img('craft-uj-anatomy.webp')} alt="UIRAJARR accreditation step 1: stepper, step heading, and pre-filled CNPJ and registry status fields" loading="lazy" /></figure>
+        <figure className="cf-shot"><img src={img('craft-nx-card.webp')} alt="Nextlar daily nudge card: icon, eyebrow, title, supporting text, primary action and dismiss" loading="lazy" /></figure>
         <ol className="cf-callouts">
-          <li><b>Stepper</b> current, completed and upcoming steps read at a glance</li>
-          <li><b>Step header</b> position, title and one line on what this step is for</li>
-          <li><b>Field label</b> always visible, with the required marker</li>
-          <li><b>Pre-filled field</b> read-only style for data that comes from the federal registry</li>
+          <li><b>Icon + eyebrow</b> context first: what kind of message this is</li>
+          <li><b>Title</b> the situation in one line</li>
+          <li><b>Supporting text</b> why it matters, without blame</li>
+          <li><b>Primary action</b> one clear next step</li>
+          <li><b>Dismiss</b> the user stays in control</li>
         </ol>
       </Reveal>
 
@@ -103,10 +102,16 @@ export default function Craft() {
           <p className="craft-desc">
             Accessibility is considered through contrast, hierarchy, labels, focus states, and usable touch targets.
           </p>
-          <p className="craft-note">Values as applied in the code of this portfolio.</p>
+          <p className="craft-note">UIRAJARR accreditation flow. Demonstration data.</p>
         </div>
-        <ul className="cf-a11y">
-          {a11y.map((a) => <li key={a.title}><b>{a.title}</b><span>{a.text}</span></li>)}
+        <ul className="cf-a11y-shots">
+          {a11y.map((a) => (
+            <li key={a.title}>
+              <figure className="cf-shot"><img src={img(a.src)} alt={`UIRAJARR example: ${a.title.toLowerCase()}`} loading="lazy" /></figure>
+              <b>{a.title}</b>
+              <span>{a.text}</span>
+            </li>
+          ))}
         </ul>
       </Reveal>
     </div>

@@ -25,21 +25,25 @@ export default function About() {
             : <div className="ab-portrait-empty"><span className="label">Photo</span><span>Portrait</span></div>}
         </Reveal>
         <div className="ab-hero-text">
-          <Reveal as="p" className="label ab-eyebrow">About</Reveal>
-          <Reveal as="h1">A product designer who takes decisions all the way to <em>working code</em>.</Reveal>
+          <Reveal as="p" className="label ab-eyebrow">About · Senior Product Designer</Reveal>
+          <Reveal as="h1">I design products by starting with how <em>people</em> think.</Reveal>
           <Reveal className="cs-prose">
             <p>
-              I'm a Senior Product Designer with a background in technology and more than a decade of experience designing
-              digital products. When a project calls for it, I also take the design into front-end code, working as a
-              Design Engineer.
+              I've always been curious about how people think, behave, and make decisions. That interest in human
+              behavior naturally shaped the way I approach product design.
             </p>
             <p>
-              I've always been curious about how people think, decide, and behave. That curiosity is what drew me to
-              product design: understanding users comes first, and the interface follows.
+              I enjoy understanding what users are trying to accomplish, but I also look at the business context,
+              technical constraints, and the system around the experience. For me, good product design happens when
+              those pieces work together.
             </p>
             <p>
-              I balance that with what the business needs and what is technically feasible, across healthcare, SaaS,
-              public-sector systems, and other complex products.
+              Over the years, I've worked across product design, UX/UI, systems, project delivery, and technology, which
+              gives me a practical perspective from early problem definition through implementation.
+            </p>
+            <p className="ab-aside">
+              Outside of product work, I'm especially interested in psychology, emerging technology, and the ways AI is
+              changing how we design and build digital products.
             </p>
           </Reveal>
           <Reveal as="dl" className="ab-meta">
@@ -111,27 +115,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Background */}
-      <section className="cs-section">
-        <div className="wrap ab-bg">
-          <Reveal className="cs-head">
-            <p className="cs-eyebrow">How my background shaped my work</p>
-            <h2>Technology came first. Product design gave it <em>direction</em>.</h2>
-          </Reveal>
-          <Reveal className="cs-prose ab-bg-body">
-            <p>I started my career in technology before moving deeper into UX and Product Design.</p>
-            <p>
-              That background shaped the way I work today. I naturally think beyond the interface and consider how the
-              product behaves, how information moves through the system, how decisions affect implementation, and how
-              the experience will work after it reaches real users.
-            </p>
-          </Reveal>
-          <Reveal className="ab-path" aria-hidden="true">
-            <span>Technology</span><i>→</i><span>Product thinking</span><i>→</i><span className="on">Design</span>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Currently */}
       <section className="cs-section">
         <div className="wrap ab-now">
@@ -140,8 +123,7 @@ export default function About() {
           </Reveal>
           <Reveal className="cs-prose ab-now-body">
             <p className="ab-lead">
-              I'm based in Edmonton, Canada, and open to full-time, in-house Design Engineer and Senior Product Designer
-              roles.
+              I'm based in Edmonton, Canada, and open to full-time, in-house Senior Product Designer roles.
             </p>
             <p>
               I'm especially interested in teams working on complex digital products where design can influence both the

@@ -89,14 +89,11 @@ const sealedShows = ['how many agencies were invited', 'how many proposals have 
 
 const accreditation = ['Agency registration', 'Professional / company documentation', 'Eligibility review', 'Document validity control', 'Accreditation status', 'Suspension when required', 'Requalification when needed']
 
-const traceFields = ['who performed the action', 'when it happened', 'what process it belonged to', 'what status changed', 'whether an exception occurred', 'the justification when required']
 const auditAreas = ['Process history', 'Audit trail', 'Fiscal documentation', 'Exception records', 'Issuance history']
 
 const privacy = ['LGPD awareness', 'Role-based permissions', 'Restricted access to sensitive data', 'Traceability of actions', 'Protection of personal information', 'Controlled document access']
 
 const translated = ['system structure', 'role-based navigation', 'user flows', 'interface hierarchy', 'business rules', 'statuses', 'actions', 'exception handling']
-
-const responsibilities = ['Product Design', 'UI Design', 'Workflow Design', 'Process Mapping', 'Systems Analysis', 'Business Analysis', 'Information Architecture', 'Role-Based UX', 'Business Rules', 'Prototype Design', 'Developer Collaboration']
 
 function Chapter({ id, title, children }) {
   const i = chapters.findIndex((c) => c.id === id)
@@ -220,12 +217,8 @@ export default function Uirajarr() {
         <div className="cs-two">
           <Reveal className="cs-prose">
             <p>
-              The institutional travel process involved multiple people, approvals, agencies, quotations, documents,
-              deadlines, financial responsibilities, and audit requirements.
-            </p>
-            <p>
-              Much of the existing process depended on manual coordination across paper, email, SEI (the
-              institution's electronic document system), and administrative follow-up.
+              Institutional travel involved approvals, agencies, quotations, documents, deadlines, and audit, coordinated
+              by hand across paper, email, and SEI (the institution's document system).
             </p>
             <p>
               <strong>
@@ -253,10 +246,6 @@ export default function Uirajarr() {
               <ul>{unclear.map((u) => <li key={u}>{u}</li>)}</ul>
             </div>
           </Reveal>
-          <Reveal as="p" className="cs-statement">
-            Different parts of the process lived in different places, requiring teams to manually reconstruct what had
-            happened and what still needed to happen.
-          </Reveal>
         </Beat>
       </Chapter>
 
@@ -264,8 +253,7 @@ export default function Uirajarr() {
       <Chapter id="process" title="Before designing screens, we had to understand the process.">
         <div className="cs-two">
           <Reveal className="cs-prose">
-            <p>The project began with stakeholder conversations focused on how the travel process worked in practice.</p>
-            <p>This was not a formal large-scale user research study. The goal was to understand the process well enough to design it.</p>
+            <p>Stakeholder conversations, not a formal research study, focused on how the process worked in practice.</p>
             <div className="uj-methods">
               <span>Stakeholder discovery</span><i>→</i><span>Process mapping</span><i>→</i><span>Business rules analysis</span><i>→</i><span>Workflow design</span>
             </div>
@@ -279,9 +267,6 @@ export default function Uirajarr() {
 
       {/* 03 Roles + principle */}
       <Chapter id="roles" title="One process. Multiple responsibilities.">
-        <Reveal className="cs-prose narrow">
-          <p>The travel workflow involved different actors with very different responsibilities.</p>
-        </Reveal>
         <Reveal className="uj-roles">
           {roles.map((r) => (
             <div key={r.name} className={`uj-role ${r.group}`}>
@@ -291,16 +276,15 @@ export default function Uirajarr() {
             </div>
           ))}
         </Reveal>
-        <Reveal as="p" className="cs-statement">
-          Each role needed visibility into the same process without being exposed to responsibilities that belonged
-          to someone else.
-        </Reveal>
 
         <Beat label="Design principle" title="Expose the process, not all of its complexity.">
           <div className="cs-two">
             <Reveal className="cs-prose">
-              <p>The system contains significant institutional complexity.</p>
-              <p>But every user does not need to see every rule, stage, exception, or responsibility.</p>
+              <p>
+                Role-based access decides what each person sees and can do. The requester gets a short request flow; the
+                bidding operator gets a dense operational dashboard. Each role sees the same process, without
+                responsibilities that belong to someone else.
+              </p>
               <p className="cs-statement small">Complex system.<br />Role-specific experience.</p>
             </Reveal>
             <Reveal className="cs-goals">
@@ -329,10 +313,9 @@ export default function Uirajarr() {
       <Chapter id="requester" title="The requester should not have to understand the entire procurement process.">
         <div className="cs-two">
           <Reveal className="cs-prose">
-            <p>For the person requesting travel, the product focuses on a much simpler set of needs.</p>
             <p>
-              The complexity of bidding, accreditation, fiscal review, and audit stays outside this experience unless it
-              directly affects the requester.
+              Bidding, accreditation, fiscal review, and audit stay out of this experience unless they directly affect
+              the requester.
             </p>
           </Reveal>
           <Reveal className="cs-goals">
@@ -348,8 +331,7 @@ export default function Uirajarr() {
       <Chapter id="operator" title="The same system becomes significantly more operational for the person conducting the bidding process.">
         <div className="cs-two">
           <Reveal className="cs-prose">
-            <p>The bidding operator manages a much broader operational context.</p>
-            <p>This dashboard intentionally contains more information because the role itself carries more responsibility.</p>
+            <p>This dashboard intentionally carries more information, because the role carries more responsibility.</p>
           </Reveal>
           <Reveal className="cs-goals">
             <p className="label">This role needs to monitor</p>
@@ -373,7 +355,6 @@ export default function Uirajarr() {
 
         <Beat label="Designing for attention" title="Not everything on the dashboard has the same urgency.">
           <Annotated shot={<Shot product="Dashboard for the person conducting the bidding process" src={img('uj-operator-dashboard.jpg')} ratio="2000 / 997" />} notes={operatorNotes} demo />
-          <Reveal as="p" className="cs-footnote">Numbers shown in the prototype are demonstration data, not TJRR production data.</Reveal>
         </Beat>
       </Chapter>
 
@@ -382,12 +363,8 @@ export default function Uirajarr() {
         <div className="cs-two">
           <Reveal className="cs-prose">
             <p>
-              One of the important product concepts was to create scheduled bidding windows in which accredited
-              agencies can participate.
-            </p>
-            <p>
-              Instead of handling each travel request through isolated manual coordination, eligible agencies can see
-              available opportunities and submit proposals within a defined window.
+              Instead of coordinating each request by hand, accredited agencies submit proposals within scheduled bidding
+              windows.
             </p>
           </Reveal>
           <Reveal className="cs-goals">
@@ -400,8 +377,7 @@ export default function Uirajarr() {
         <Beat label="Sealed proposals" title="Competition needed transparency without exposing proposals too early.">
           <div className="cs-two">
             <Reveal className="cs-prose">
-              <p>During the active bidding window, submitted proposals remain sealed.</p>
-              <p>The goal is to preserve the integrity of the process while keeping the operator aware of participation.</p>
+              <p>Proposals stay sealed during the window, keeping the process fair while the operator still sees participation.</p>
               <p className="label" style={{ marginTop: 8 }}>The interface communicates</p>
               <ul className="cs-ticks">{sealedShows.map((s) => <li key={s}>{s}</li>)}</ul>
             </Reveal>
@@ -469,9 +445,15 @@ export default function Uirajarr() {
 
         <Beat label="Traceability and audit" title="Every important decision needs a history.">
           <div className="cs-two">
-            <Reveal className="cs-goals">
-              <p className="label">Important actions are associated with</p>
-              <ul className="cs-ticks">{traceFields.map((t) => <li key={t}>{t}</li>)}</ul>
+            <Reveal className="cs-prose">
+              <p>
+                Simplifying the journey could not weaken governance. Public spending requires that approvals, exceptions,
+                and status changes can be explained later, and that someone is accountable for each of them.
+              </p>
+              <p>
+                So every important action keeps a history entry, and exceptions cannot move forward without a
+                justification.
+              </p>
             </Reveal>
             <Reveal className="uj-log" aria-label="Illustrative audit entry structure">
               <p className="label">Structure of a history entry</p>
@@ -504,7 +486,7 @@ export default function Uirajarr() {
               Designing the product required understanding how business rules, roles, approvals, bidding, agency
               eligibility, fiscal documentation, and audit requirements affected one another.
             </p>
-            <p><strong>The design work sat between product design, systems analysis, and business analysis.</strong></p>
+            <p><strong>My role combined product design, systems analysis, and business analysis.</strong></p>
           </Reveal>
           <Reveal className="cs-goals">
             <p className="label">Operational complexity translated into</p>
@@ -512,20 +494,6 @@ export default function Uirajarr() {
           </Reveal>
         </div>
 
-        <Beat label="My role" title="Translating institutional complexity into a usable product.">
-          <div className="cs-two">
-            <Reveal className="cs-prose">
-              <p>My role combined Product Design, Systems Analysis, and Business Analysis.</p>
-              <p>
-                I worked on understanding the current process, organizing business rules, defining role-based workflows,
-                and translating those requirements into the product experience and interface.
-              </p>
-            </Reveal>
-            <Reveal>
-              <ul className="tags">{responsibilities.map((r) => <li key={r}>{r}</li>)}</ul>
-            </Reveal>
-          </div>
-        </Beat>
       </Chapter>
 
       {/* 10 Competition + status */}
@@ -536,10 +504,7 @@ export default function Uirajarr() {
               The solution is being developed for the 5th Innovation Award of the Judiciary of Roraima, in the
               Technology Solution track.
             </p>
-            <p>
-              The competition is still in progress. The team is developing and refining the working solution for the
-              next stages, and it remains among the teams still competing.
-            </p>
+            <p>The competition is still in progress, and the team is refining the working solution for the next stages.</p>
             <div className="cs-badges"><span>Competition in progress</span><span>Working prototype</span></div>
           </Reveal>
           <Reveal className="uj-score">
@@ -549,22 +514,6 @@ export default function Uirajarr() {
         </div>
         <Reveal as="p" className="cs-footnote">A competition prototype, not a production system in use by TJRR.</Reveal>
 
-        <Beat label="What this project demonstrates" title="Designing for complexity without transferring that complexity to every user.">
-          <div className="cs-two">
-            <Reveal className="cs-prose">
-              <p>This project required a different type of Product Design work. The challenge was not primarily visual.</p>
-              <p>
-                It required understanding a multi-role institutional process, identifying responsibilities, mapping
-                business rules, simplifying workflows, and creating interfaces that expose the right information to the
-                right person at the right moment.
-              </p>
-            </Reveal>
-            <Reveal className="cs-reflection">
-              <p className="label">Reflection</p>
-              <p>A complex system does not require every user to experience the full complexity.</p>
-            </Reveal>
-          </div>
-        </Beat>
       </Chapter>
 
       <section className="cs-end">

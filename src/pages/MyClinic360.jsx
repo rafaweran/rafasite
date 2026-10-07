@@ -396,17 +396,12 @@ export default function MyClinic360() {
       </Chapter>
 
       {/* 05 Support as research */}
-      <Chapter id="support" title="The most valuable usability issues started appearing after launch.">
+      <Chapter id="support" title="From launch to continuous improvement.">
         <div className="cs-two">
           <Reveal className="cs-prose">
             <p>
-              Once professionals began using MyClinic360 in their real routines, I started following support much
-              more closely.
-            </p>
-            <p>This gave me direct access to recurring questions, confusion, and friction inside the product.</p>
-            <p>
-              When the same question appeared repeatedly, it became a signal that the product structure might not be
-              matching the user's mental model.
+              Launch was not the end of the design process. Ongoing support conversations became an important source of
+              product insight, revealing friction that was difficult to predict before real-world use.
             </p>
           </Reveal>
           <Reveal as="blockquote" className="cs-quote big">
@@ -414,7 +409,28 @@ export default function MyClinic360() {
             <span>It may be the product.</span>
           </Reveal>
         </div>
-        <Reveal as="p" className="cs-statement">Support became part of the research process.</Reveal>
+        <div className="mc-iterations">
+          <Reveal className="mc-iter">
+            <span className="mc-iter-n">01</span>
+            <h3>Finding clinical forms</h3>
+            <p>
+              Some physiotherapists struggled to locate previously completed clinical forms within the patient journey.
+              Support conversations exposed the issue, leading to navigation and screen adjustments that made clinical
+              records easier to find again.
+            </p>
+            <a href="#cs-assessments" className="mc-iter-link" onClick={(e) => { e.preventDefault(); document.getElementById('cs-assessments')?.scrollIntoView({ behavior: 'smooth' }) }}>See version 1 and version 2 ↓</a>
+          </Reveal>
+          <Reveal className="mc-iter">
+            <span className="mc-iter-n">02</span>
+            <h3>Simplifying scheduling</h3>
+            <p>
+              Scheduling and rescheduling required too many steps and unnecessary navigation. The flow was simplified so
+              common actions could be completed with fewer transitions and clearer next steps.
+            </p>
+            <a href="#cs-scheduling" className="mc-iter-link" onClick={(e) => { e.preventDefault(); document.getElementById('cs-scheduling')?.scrollIntoView({ behavior: 'smooth' }) }}>See before and after ↓</a>
+          </Reveal>
+        </div>
+        <Reveal as="p" className="cs-statement">These iterations reinforced a continuous product loop: launch, observe, learn, adjust.</Reveal>
       </Chapter>
 
       {/* 06 Story 01: Assessments */}

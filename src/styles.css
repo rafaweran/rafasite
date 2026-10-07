@@ -523,3 +523,19 @@ button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--iris);
 @media (max-width: 640px) { .ex-flow { grid-template-columns: 1fr; } }
 .hero-sub-title { display: block; margin-top: 0.35em; font: 300 0.38em/1.1 var(--serif); letter-spacing: -0.01em; color: var(--subtle); }
 .hero-sub-title::before { content: "+ "; color: var(--iris); }
+.cf-a11y-shots { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 28px; }
+.cf-a11y-shots li { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.cf-a11y-shots .cf-shot { margin-bottom: 8px; }
+.cf-a11y-shots b { font-weight: 500; }
+.cf-a11y-shots span { font-size: 15px; color: var(--subtle); }
+@media (max-width: 640px) { .cf-a11y-shots { grid-template-columns: 1fr; } }
+.ex-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ex-prompt { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 1100px) { .ex-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .ex-flow { grid-template-columns: 1fr; } }
+.ex-ai-frame { max-width: 760px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--base); box-shadow: 0 20px 50px -24px rgba(0,0,0,.6); }
+.ex-ai-frame .mock-bar { background: var(--overlay); }
+.ex-ai-frame img { border: 0; border-radius: 0; height: auto; display: block; }
+.ex-ai-live { color: var(--rose); font-weight: 500; white-space: nowrap; }
+.ex-what > p.ex-note { color: var(--muted); font-size: 15px; font-style: italic; margin-top: 8px; }
+.ex-what > p + p { margin-top: 10px; }

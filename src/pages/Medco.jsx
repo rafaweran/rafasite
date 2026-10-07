@@ -29,19 +29,17 @@ const team = ['Senior Product Designer (me, the only product designer)', '2 phys
 
 const v1Capabilities = [
   'Physician registration and verification',
-  'Patient invitation',
-  '30-day follow-up communication window',
-  'Text chat',
+  'Physician invites the patient',
+  'Structured physician-patient communication',
+  '30-day follow-up access',
+  'Chat',
   'File sharing',
-  'AI-assisted first interaction',
-  'Paid continuation when a new medical interaction was required after the follow-up period',
 ]
 
 const v1Journey = [
   { actor: 'Physician', steps: ['Registers', 'Professional verification', 'Invites patient'] },
-  { actor: 'Patient', steps: ['Accepts invitation', 'Accesses Med.co', 'AI-assisted first interaction', 'Communicates with physician', 'Shares files if needed'] },
-  { actor: 'Follow-up', steps: ['Up to 30 days', 'Teleorientation'] },
-  { actor: 'After the window', steps: ['New medical need', 'Paid medical interaction'] },
+  { actor: 'Patient', steps: ['Accepts invitation', 'Accesses Med.co', 'Communicates with physician', 'Shares files if needed'] },
+  { actor: 'Follow-up', steps: ['Up to 30 days', 'Chat and files in one place'] },
 ]
 
 const scattered = ['Paper', 'PDFs', 'Messaging apps', 'Email', 'Personal devices', 'Different providers']
@@ -103,13 +101,20 @@ const roleItems = [
   'supporting product decisions across V1 and V2',
 ]
 
+// Chapters after V1 describe product evolution and exploration, not V1 functionality.
+const EXPLORATION = ['expansion', 'shift', 'ai', 'care', 'service', 'evolution']
+
 function Chapter({ id, title, children, className = '' }) {
   const i = chapters.findIndex((c) => c.id === id)
+  const explore = EXPLORATION.includes(id)
   return (
-    <section id={`md-${id}`} className={`cs-section ${className}`}>
+    <section id={`md-${id}`} className={`cs-section ${explore ? 'md-explore' : ''} ${className}`}>
       <div className="wrap">
         <Reveal className="cs-head">
-          <p className="cs-eyebrow"><span>{String(i + 1).padStart(2, '0')}</span>{chapters[i].label}</p>
+          <p className="cs-eyebrow">
+            <span>{String(i + 1).padStart(2, '0')}</span>{chapters[i].label}
+            {explore && <em className="md-explore-tag">Exploration</em>}
+          </p>
           <h2>{title}</h2>
         </Reveal>
         {children}
@@ -209,6 +214,7 @@ export default function Medco() {
               document.getElementById(`md-${c.id}`)?.scrollIntoView({ behavior: 'smooth' })
             }}>
               <span>{String(i + 1).padStart(2, '0')}</span>{c.label}
+              {EXPLORATION.includes(c.id) && <em className="md-explore-dot" aria-label="exploration"> ·&nbsp;exploration</em>}
             </a>
           ))}
         </Reveal>
@@ -225,8 +231,8 @@ export default function Medco() {
       <div className="wrap md-phase">
         <Reveal className="md-phase-inner">
           <span className="label">Phase 1</span>
-          <p className="md-phase-title">V1 · Delivered</p>
-          <p className="md-phase-note">The original problem and the first version built to solve it.</p>
+          <p className="md-phase-title">V1 / Delivered</p>
+          <p className="md-phase-note">The original problem, the first version designed to solve it, and what it taught us.</p>
         </Reveal>
       </div>
 
@@ -267,6 +273,12 @@ export default function Medco() {
               to 30 days.
             </p>
             <p>The experience was intentionally simple.</p>
+            <p>
+              <strong>
+                V1 focused on creating a structured post-consultation channel between physicians and patients, replacing
+                the need to exchange personal WhatsApp numbers while preserving continuity of care.
+              </strong>
+            </p>
           </Reveal>
           <Reveal className="cs-goals">
             <p className="label">Core V1 capabilities</p>
@@ -279,7 +291,7 @@ export default function Medco() {
             {v1Journey.map((l) => (
               <div key={l.actor} className="md-lane">
                 <p className="md-lane-name">{l.actor}</p>
-                <Chain steps={l.steps} variant={l.actor === 'After the window' ? 'muted' : 'accent'} />
+                <Chain steps={l.steps} variant="accent" />
               </div>
             ))}
           </Reveal>
@@ -349,8 +361,11 @@ export default function Medco() {
       <div className="wrap md-phase">
         <Reveal className="md-phase-inner">
           <span className="label">Phase 2</span>
-          <p className="md-phase-title">Product evolution · Launching and exploring</p>
-          <p className="md-phase-note">V2 is launching and already in use. Some capabilities below, such as AI-assisted intake and physician matching, are still being implemented or explored.</p>
+          <p className="md-phase-title">Product evolution / Exploration</p>
+          <p className="md-phase-note">
+            As the product evolved, the team explored a broader healthcare experience beyond the original follow-up flow,
+            including AI-assisted intake, teleorientation, and more structured access to physicians.
+          </p>
         </Reveal>
       </div>
 
@@ -412,7 +427,7 @@ export default function Medco() {
           </div>
         </Reveal>
 
-        <Beat label="The V2 journey" title="From “I need a doctor” to a structured medical interaction.">
+        <Beat label="Explored V2 journey" title="From “I need a doctor” to a structured medical interaction.">
           <Reveal as="ol" className="md-journey">
             {v2Journey.map((s, i) => (
               <li key={s} className={i >= 2 && i <= 5 ? 'ai' : ''}>
@@ -430,12 +445,12 @@ export default function Medco() {
       </Chapter>
 
       {/* 06 AI role + matching */}
-      <Chapter id="ai" title="AI helps structure the beginning of the journey. It does not replace the physician.">
+      <Chapter id="ai" title="AI-assisted intake was explored to structure the start of the journey, not to replace the physician.">
         <div className="cs-two">
           <Reveal className="cs-goals">
-            <p className="label">The AI-assisted experience collects context before the physician interaction. Its role is to</p>
+            <p className="label">In this concept, AI-assisted intake would collect context before the physician interaction. Its role would be to</p>
             <ul className="cs-ticks">{aiRole.map((r) => <li key={r}>{r}</li>)}</ul>
-            <p className="md-scope-note">Designed as part of V2. Some of these capabilities are still being implemented and are not all live yet.</p>
+            <p className="md-scope-note">Product exploration. Not presented as launched functionality.</p>
           </Reveal>
           <Reveal className="md-guard">
             <p className="label">Design boundary</p>

@@ -208,7 +208,7 @@ export const experience = [
   },
   {
     role: 'Product & UX Design',
-    org: 'Independent contracts',
+    org: 'Independent Contracts',
     period: 'Mar 2016 to Dec 2023',
     start: 2016.17,
     end: 2024,
@@ -217,8 +217,8 @@ export const experience = [
     lines: [
       'Worked across independent digital projects for clients in Canada, Switzerland, Brazil, and other European markets, ranging from smaller websites to more complex digital products.',
       'This period strengthened my end-to-end practice across research, user flows, information architecture, interface design, prototyping, and front-end implementation, while also building experience adapting to different industries, business contexts, and levels of product maturity.',
-      'Selected work included corporate websites, service platforms, internal tools, and early-stage digital products across different industries.',
     ],
+    note: 'Selected work included corporate websites, service platforms, internal tools, and early-stage digital products across different industries.',
     track: 'ux',
   },
   {
