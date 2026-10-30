@@ -125,7 +125,7 @@ export default function Experience() {
                 <span className="ex-flow-n">{String(i + 1).padStart(2, '0')}</span>
                 <h3>{f.title}</h3>
                 {f.text && <p>{f.text}</p>}
-                {f.excerpt && <pre className="ex-prompt"><span>{f.kind === 'code' ? 'excerpt from the component' : 'from my brief'}</span>{f.excerpt}</pre>}
+                {f.excerpt && <pre className="ex-prompt"><span>{f.kind === 'code' ? 'excerpt from the component' : 'example specification'}</span>{f.excerpt}</pre>}
               </Reveal>
             ))}
           </ol>
