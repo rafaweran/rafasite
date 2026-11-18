@@ -1,0 +1,631 @@
+/* Redesign layer, loaded last.
+   One sans family, neutral greys, a single deep lilac for actions.
+   Fewer interface cues: no uppercase code labels, no colored words in headings,
+   small radii, no heavy shadows. Images and type carry the page. */
+
+:root {
+  --base: #ffffff;
+  --surface: #f5f5f4;
+  --overlay: #ededec;
+  --line: #e7e6e4;
+  --muted: #6f6e6b;
+  --subtle: #474644;
+  --text: #141413;
+  --rose: #553a85;
+  --iris: #553a85;
+  --gold: #8a5a12;
+  --pine: #2b6278;
+
+  --serif: "Inter", system-ui, sans-serif;
+  --sans: "Inter", system-ui, sans-serif;
+}
+
+body { font-size: 17px; line-height: 1.6; }
+::selection { background: #e3dcef; color: var(--text); }
+
+/* Headings: one family, medium weight, tight tracking, no accent words */
+h1, h2, h3, .sec-head h2, .case-title, .case-title.big, .tile-title {
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+}
+h1 em, h2 em, h3 em, p em, blockquote em {
+  font-style: normal !important;
+  color: inherit !important;
+}
+
+/* Labels read as captions, not as code */
+.label, .cs-eyebrow, .cs-beat-label, .ex-flow-n, .ex-prompt > span, .case-num, .cs-eyebrow span,
+.md-explore-tag, .exp-sum-period {
+  font-family: var(--sans) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--muted) !important;
+}
+
+/* Calmer surfaces */
+* { box-shadow: none !important; }
+img, video { border-radius: 2px; }
+
+/* Nav: name back as plain text on the left */
+nav { background: color-mix(in srgb, var(--base) 94%, transparent); border-bottom: 0 !important; }
+nav.scrolled { border-bottom: 1px solid var(--line) !important; }
+nav ul a { color: var(--subtle); font-size: 15px; }
+.btn { background: var(--text); color: var(--base); border-radius: 999px; }
+.btn:hover { background: var(--rose); }
+
+/* Sections: lighter dividers, less vertical drama */
+section { border-top: 0; padding: clamp(64px, 8vw, 120px) 0; }
+.sec-head { margin-bottom: clamp(32px, 4vw, 48px); }
+.sec-head h2 { font-size: clamp(28px, 3vw, 40px) !important; }
+
+/* Home hero */
+.hero { padding-top: clamp(64px, 9vw, 128px); padding-bottom: clamp(40px, 5vw, 64px); }
+.hero-statement {
+  font-size: clamp(36px, 5.2vw, 72px) !important;
+  line-height: 1.05;
+  max-width: 21ch;
+}
+.hero-intro { margin-top: 24px; font-size: 18px; color: var(--subtle); max-width: 60ch; }
+.hero-intro strong { color: var(--text); font-weight: 500; }
+.hero-intro a { color: var(--rose); font-weight: 500; }
+
+/* Selected work right under the hero */
+#work { padding-top: 0; }
+#work .sec-head { display: none; }
+.tile-img { background: var(--surface); border-radius: 2px; aspect-ratio: 4 / 5; }
+.tile-cap { margin-top: 14px; font-size: 14px; }
+.tile-title { font-size: 17px !important; line-height: 1.4; color: var(--subtle); margin-top: 6px; }
+.tile-more { color: var(--rose); font-size: 14px; }
+
+/* How I work band */
+.how { border-top: 1px solid var(--line); }
+.how-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+.how-label { font-size: 15px; color: var(--muted); }
+.how-text { font-size: clamp(26px, 3vw, 40px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; max-width: 24ch; }
+.how-facts { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 40px; }
+.how-facts dt { font-size: 28px; font-weight: 500; letter-spacing: -0.02em; }
+.how-facts dd { font-size: 14px; color: var(--muted); max-width: 18ch; }
+.how-caps { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 32px; list-style: none; font-size: 15px; color: var(--subtle); }
+@media (max-width: 760px) { .how-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+/* Other work, experience, contact: same quiet treatment */
+.builds-sec, #experience, .contact { border-top: 1px solid var(--line); }
+.contact h2 { font-size: clamp(32px, 4.4vw, 60px) !important; }
+.contact h2 a { color: var(--rose); }
+
+/* ---------- Case studies ---------- */
+
+/* Boxes become open blocks separated by a hairline */
+.cs-col, .cs-metric, .cs-reflection, .cs-flowblock, .cs-why, .cs-principle, .md-v, .mc-iter, .uj-log,
+.ex-flow li, .cs-goals {
+  background: none !important;
+  border: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  padding: 20px 0 0 !important;
+}
+.ex-flow li + li::before { display: none; }
+.ex-flow-n { color: var(--muted) !important; }
+
+/* Chips and pills read as plain text with arrows */
+.cs-chain span, .uj-chips li, .cs-badges span, .md-explore-tag, .cs-fragments li {
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+.cs-badges { gap: 6px 20px; }
+.cs-badges span { color: var(--subtle) !important; }
+.cs-fragments ul { display: flex; flex-wrap: wrap; gap: 6px 24px; list-style: none; }
+.cs-fragments li { margin: 0 !important; font-size: 18px; color: var(--subtle); }
+.md-explore-tag::before { content: "· "; }
+.md-lane-name { font: 500 15px var(--sans) !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--text) !important; }
+.uj-chips { gap: 6px 20px; }
+
+/* Chapter index: a plain list of links */
+.cs-arc { border: 0 !important; background: none !important; }
+.cs-arc a { border: 0 !important; background: none !important; padding: 4px 0 !important; margin-right: 18px; color: var(--subtle); }
+.cs-arc a span { font-family: var(--sans) !important; }
+.cs-arc a:hover { color: var(--rose); }
+
+/* Phones without a device bezel: the screen itself on a quiet grey board */
+.md-phone {
+  background: none !important; border: 0 !important; padding: 0 !important; border-radius: 0 !important;
+  aspect-ratio: 9 / 19.5;
+}
+.md-phone-screen { border-radius: 6px !important; border: 1px solid var(--line); }
+.md-phone-row {
+  background: var(--surface); padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 48px);
+  margin-top: clamp(40px, 5vw, 64px); gap: clamp(16px, 3vw, 40px);
+}
+.md-phone-row .md-phone:nth-child(2) { transform: none; }
+.md-hero-phones .back { transform: none; opacity: 1; }
+
+/* Before / after: plain screens on the grey board */
+.md-ba { background: var(--surface); padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 48px); }
+.md-ba-phone { border: 1px solid var(--line) !important; border-radius: 6px !important; }
+.md-ba-shot figcaption .label { color: var(--text) !important; }
+
+/* Pull statements: dark text, not purple */
+.cs-pull, .cs-quote, .cs-quote.big span, .cs-statement, .cs-end-statement, .cs-principle p + p {
+  color: var(--text) !important; font-style: normal !important;
+}
+.cs-pull-wrap { border: 0 !important; }
+
+/* Phase markers: quiet rule, no colored bar */
+.md-phase-inner { border-top: 1px solid var(--line) !important; }
+
+/* ---------- Global quieting ---------- */
+
+/* Code font only for real code; everything else is Inter, sentence case */
+:root { --mono: "Inter", system-ui, sans-serif; }
+.ex-prompt, .ex-prompt *, .uj-log, .uj-log * { font-family: "JetBrains Mono", ui-monospace, monospace !important; }
+* { text-transform: none !important; letter-spacing: 0; }
+
+/* Pills, tags and dashed boxes become plain text */
+.tags li, .flag-badge, .cs-balance li, .cs-story-tag, .cs-hypothesis, .cs-shift-list li, .uj-rank, .uj-live,
+.uj-frag-sources span, .uj-frag-unclear li, .ab-domains li, .uj-demo, .status {
+  background: none !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important;
+  color: var(--subtle) !important;
+}
+.tags, .cs-balance, .cs-shift-list, .uj-frag-unclear, .ab-domains, .uj-frag-sources { gap: 6px 20px !important; }
+.uj-demo { position: static !important; display: block; margin-top: 8px; font-size: 13px; }
+
+/* Remaining cards become open blocks */
+.build, .uj-score div, .uj-why, .md-guard, .craft-card, .cf-anatomy-ui {
+  background: none !important; border: 0 !important; border-top: 1px solid var(--line) !important;
+  border-radius: 0 !important; padding-left: 0 !important; padding-right: 0 !important;
+}
+.md-chat { border-radius: 6px !important; }
+.uj-bar span { background: var(--rose) !important; }
+
+/* Numbers and accents: dark, not purple */
+.mc-iter-n, .cs-insight-list .n, .ab-approach .n, .cap .label,
+.craft-card .label, .nf .label, .cs-why .label, .cs-principle .label, .md-phase-inner .label {
+  color: var(--muted) !important;
+}
+
+.cs-metric b, .cs-metric strong, .cs-big { color: var(--text) !important; font-family: var(--sans) !important; font-weight: 500 !important; }
+
+/* Statements and highlights in text color; purple only on links and markers */
+.cs-statement.small, .cs-statement.first, .cs-statement.accent, .cs-bigstat b, .cs-subhead, .cs-hypothesis p + p,
+.cs-research-side > div > b, .cs-shift > li:nth-child(3) .cs-shift-text, .md-v2 .md-v-title, .md-gap p:last-child,
+.md-evolution li.key .label, .uj-frag-result, .uj-tradeoffs.v2, .ab-years div:first-child b, .ab-pull span,
+.ab-path span.on, .cs-flow li.post span, .uj-role.external .label, .md-guard .label, .uj-why .label,
+.ex-prompt span, .md-ba-shot figcaption .label {
+  color: var(--text) !important; font-style: normal !important;
+}
+.cs-bigstat b, .cs-subhead, .cs-hypothesis p + p, .uj-frag-result, .ab-pull span { font-family: var(--sans) !important; font-weight: 500 !important; }
+.contact h2 a { font-style: normal; }
+
+/* ---------- Case pages: reading column + wide images ---------- */
+.cs-hero h1 { font-size: clamp(32px, 4vw, 52px) !important; line-height: 1.1 !important; max-width: 20ch; }
+.cs-head h2 { font-size: clamp(26px, 2.8vw, 36px) !important; line-height: 1.15 !important; max-width: 26ch; }
+.cs-beat-head h3 { font-size: clamp(20px, 2vw, 26px) !important; }
+.cs-section { padding: clamp(56px, 7vw, 96px) 0; border-top: 0 !important; }
+
+/* Text sits in one column; side-by-side text blocks stack */
+.cs-two { grid-template-columns: 1fr !important; gap: 32px !important; max-width: 720px; }
+.cs-prose, .cs-prose.narrow { max-width: 680px; }
+.cs-head, .cs-beat-head { max-width: 760px; }
+
+/* Images and screens get room and a grey board */
+.cs-canvas-img, .uj-screen, .shot, .mock-stage { background: var(--surface) !important; border: 0 !important; border-radius: 2px !important; }
+figure figcaption, .cs-caption { font-size: 14px; color: var(--muted); }
+
+.uj-methods span { background: none !important; border: 0 !important; padding: 0 !important; color: var(--subtle) !important; }
+.uj-methods { gap: 6px 12px !important; align-items: baseline; }
+.uj-frag-sources { align-items: baseline !important; }
+.uj-frag-sources span { transform: none !important; margin: 0 !important; }
+
+/* =================================================================
+   Minimal, elegant layer: white space, light type, one column of work
+   ================================================================= */
+:root {
+  --sans: "Instrument Sans", system-ui, sans-serif;
+  --serif: "Instrument Sans", system-ui, sans-serif;
+  --mono: "Instrument Sans", system-ui, sans-serif;
+}
+body { font-family: var(--sans); }
+
+nav .wrap { justify-content: space-between; height: 72px; }
+.nav-id { color: var(--text); text-decoration: none; font-size: 15px; font-weight: 500; }
+.nav-right { margin-left: 0; gap: 32px; }
+nav ul a { font-size: 14px; }
+nav .btn { background: none !important; color: var(--text) !important; padding: 0 !important; font-size: 14px; border-bottom: 1px solid var(--text); border-radius: 0; }
+nav .btn:hover { color: var(--rose) !important; border-color: var(--rose); }
+@media (max-width: 720px) { .nav-right { width: auto; gap: 18px; } nav ul { gap: 16px !important; } }
+
+/* Hero: role, one line, place */
+.hero { padding-top: clamp(96px, 14vw, 200px) !important; padding-bottom: clamp(96px, 12vw, 176px) !important; }
+.hero-role { font-size: 14px; color: var(--muted); }
+.hero-line {
+  margin-top: 20px;
+  font-size: clamp(34px, 4.6vw, 64px) !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+  max-width: 20ch !important;
+}
+.hero-meta { margin-top: 28px; font-size: 14px; color: var(--muted); }
+
+/* Work: one project per row, large image, small caption */
+.sec-label { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+.cases:has(.tile) { grid-template-columns: 1fr !important; gap: clamp(80px, 10vw, 140px) !important; }
+.tile-img { aspect-ratio: 16 / 9 !important; }
+.tile-cap { order: 2; display: flex !important; justify-content: space-between; gap: 16px; margin-top: 20px !important; font-size: 14px; color: var(--muted); }
+.tile-cap b { color: var(--text); font-weight: 500; }
+.tile-title { order: 3; margin-top: 6px !important; font-size: clamp(20px, 1.9vw, 26px) !important; font-weight: 400 !important; line-height: 1.3 !important; color: var(--text) !important; max-width: 36ch; letter-spacing: -0.015em !important; }
+.tile-link:hover .tile-img img { transform: scale(1.015); }
+
+/* Approach band */
+.approach { border-top: 1px solid var(--line); }
+.approach-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+.approach-text { font-size: clamp(24px, 2.6vw, 34px); font-weight: 400; line-height: 1.25; letter-spacing: -0.02em; max-width: 26ch; }
+.approach-facts { display: flex; gap: 48px; }
+.approach-facts dt { font-size: 32px; font-weight: 400; letter-spacing: -0.02em; }
+.approach-facts dd { font-size: 14px; color: var(--muted); max-width: 16ch; }
+@media (max-width: 860px) { .approach-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Kind words (shown only when testimonials exist) */
+.worked { border-top: 1px solid var(--line); }
+.worked-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px; }
+.worked blockquote { font-size: 20px; line-height: 1.5; font-weight: 400; }
+.worked figcaption { margin-top: 16px; display: grid; font-size: 14px; }
+.worked figcaption span { color: var(--muted); }
+@media (max-width: 760px) { .worked-grid { grid-template-columns: 1fr; } }
+
+/* Lighter headings everywhere */
+h1, h2, .sec-head h2, .cs-head h2 { font-weight: 400 !important; letter-spacing: -0.025em !important; }
+h3 { font-weight: 500 !important; }
+
+/* Case pages: single column header, centred reading column */
+.cs-hero h1 { font-size: clamp(32px, 4vw, 54px) !important; line-height: 1.1 !important; max-width: 20ch; }
+.cs-head, .cs-beat-head, .cs-prose, .cs-prose.narrow { margin-left: auto !important; margin-right: auto !important; }
+.cs-head, .cs-beat-head { max-width: 680px !important; }
+.cs-head h2 { max-width: none; }
+.cs-two { max-width: 680px !important; margin-left: auto !important; margin-right: auto !important; }
+.cs-two .cs-prose, .cs-two .cs-head { margin-left: 0 !important; margin-right: 0 !important; }
+
+/* =================================================================
+   Concept: black and white, and the colour belongs to the work.
+   Her portrait sets the palette; the product screens bring the colour.
+   Display type: Instrument Serif. Text: Instrument Sans.
+   ================================================================= */
+:root {
+  --display: "Instrument Serif", Georgia, serif;
+  --base: #fbfaf8;        /* warm white, like the sweater */
+  --surface: #f1efeb;     /* warm light grey for image boards */
+  --line: #e4e1db;
+}
+h1, .hero-line, .sec-head h2, .cs-hero h1, .cs-head h2, .tile-title, .approach-text, .contact h2, .ex-hero h1, .ab-hero h1, .nf h1 {
+  font-family: var(--display) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.015em !important;
+}
+h1 em, .hero-line em, .cs-hero h1 em, .ab-hero h1 em { font-style: italic !important; color: inherit !important; }
+
+/* Hero: text and portrait side by side, portrait in black and white */
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.hero.hero-grid { padding-top: clamp(40px, 6vw, 88px) !important; padding-bottom: clamp(64px, 8vw, 120px) !important; }
+.hero-line { font-size: clamp(40px, 5.4vw, 76px) !important; line-height: 1.02 !important; max-width: 14ch !important; margin-top: 24px; }
+.hero-sub { margin-top: 28px; font-size: 18px; line-height: 1.55; color: var(--subtle); max-width: 40ch; }
+.hero-meta { margin-top: 20px; }
+.hero-portrait { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 2px; background: var(--surface); }
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; filter: grayscale(1); }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-portrait { order: -1; aspect-ratio: 4 / 3; max-height: 60vh; }
+  .hero-portrait img { object-position: 50% 30%; }
+}
+
+/* Work: real product screens on a warm board, no device bezels */
+.tile-img { position: relative; display: flex !important; align-items: flex-start; justify-content: center; gap: 24px; padding: clamp(20px, 3.5vw, 56px) clamp(20px, 4vw, 72px) 0; background: var(--surface) !important; }
+.tile-img img { width: 100%; height: auto !important; object-fit: contain !important; border-radius: 6px 6px 0 0; box-shadow: 0 1px 0 var(--line) !important; }
+.board-desktop { aspect-ratio: 16 / 9 !important; }
+.board-desktop img { max-height: 100%; object-fit: cover !important; object-position: top !important; }
+.board-phone { aspect-ratio: 16 / 9 !important; align-items: flex-end; }
+.board-phone img { width: clamp(150px, 20%, 230px); border-radius: 18px 18px 0 0; }
+.board-phone img:last-child { transform: translateY(12%); }
+.tile-link:hover .tile-img img { transform: none; }
+
+/* Approach band */
+.approach-text { font-size: clamp(26px, 3vw, 40px) !important; line-height: 1.15 !important; }
+.approach-now { margin-top: 28px; font-size: 15px; line-height: 1.55; color: var(--muted); max-width: 44ch; }
+
+/* Case titles on the home and inside cases in the display face */
+.tile-title { font-size: clamp(22px, 2.2vw, 30px) !important; line-height: 1.2 !important; }
+.cs-hero h1 { font-size: clamp(36px, 4.6vw, 64px) !important; line-height: 1.04 !important; }
+.cs-head h2 { font-size: clamp(28px, 3.2vw, 42px) !important; line-height: 1.1 !important; }
+.contact h2 { font-size: clamp(36px, 5vw, 72px) !important; }
+
+/* Smaller portrait: a presence, not a poster */
+.hero-grid { grid-template-columns: 1fr clamp(240px, 26vw, 340px) !important; align-items: center; }
+.hero-portrait { aspect-ratio: 3 / 4 !important; justify-self: end; width: 100%; }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-portrait { order: -1; width: clamp(160px, 45vw, 220px); aspect-ratio: 3 / 4 !important; justify-self: start; max-height: none; }
+}
+
+/* Display face breathes: no negative tracking, taller lines */
+h1, .hero-line, .sec-head h2, .cs-hero h1, .cs-head h2, .tile-title, .approach-text, .contact h2, .ex-hero h1, .ab-hero h1, .nf h1 {
+  letter-spacing: 0.005em !important;
+  word-spacing: 0.04em;
+}
+.hero-line { line-height: 1.08 !important; }
+.approach-text { line-height: 1.22 !important; font-size: clamp(24px, 2.7vw, 36px) !important; }
+.cs-hero h1 { line-height: 1.1 !important; }
+.cs-head h2 { line-height: 1.16 !important; }
+.tile-title { line-height: 1.25 !important; }
+
+/* Display face: Newsreader, light, wide enough to breathe */
+:root { --display: "Newsreader", Georgia, serif; }
+h1, .hero-line, .sec-head h2, .cs-hero h1, .cs-head h2, .tile-title, .approach-text, .contact h2, .ex-hero h1, .ab-hero h1, .nf h1 {
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  word-spacing: 0;
+  font-variation-settings: "opsz" 72;
+}
+.hero-line { font-size: clamp(40px, 5.2vw, 72px) !important; line-height: 1.06 !important; }
+.approach-text { font-size: clamp(26px, 2.9vw, 38px) !important; line-height: 1.2 !important; }
+.ex-ai-title, .ex-craft-head h2 { font-family: var(--display) !important; font-weight: 300 !important; letter-spacing: -0.01em !important; font-size: clamp(30px, 3.4vw, 46px) !important; line-height: 1.1 !important; }
+.ex-ai-title em { font-style: italic !important; color: inherit !important; }
+
+/* Experience: companies and clients as quiet wordmarks */
+.ex-companies { border-top: 1px solid var(--line); }
+.ex-logos { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 40px; margin-top: 20px; }
+.ex-logos li { font-family: var(--display); font-size: clamp(22px, 2.2vw, 30px); font-weight: 300; color: var(--text); letter-spacing: -0.01em; }
+.ex-logos a { color: inherit; text-decoration: none; }
+.ex-logos a:hover { color: var(--rose); }
+.ex-linkedin { margin-top: 32px; font-size: 15px; color: var(--muted); }
+.ex-linkedin a { color: var(--text); font-weight: 500; }
+.ex-linkedin a:hover { color: var(--rose); }
+
+/* Hero portrait in dots: no frame, no background, sits on the baseline of the text block */
+.hero-grid { grid-template-columns: 1fr clamp(280px, 32vw, 420px) !important; align-items: end !important; }
+.hero-dots { aspect-ratio: 720 / 835 !important; background: none !important; overflow: visible !important; }
+.hero-dots canvas { display: block; width: 100%; height: auto; }
+@media (max-width: 860px) { .hero-dots { width: clamp(200px, 56vw, 280px); } }
+
+.hero-dots canvas { cursor: crosshair; touch-action: none; }
+
+/* Work tiles: header above the image, then title left and story right, with room between blocks */
+.tile-link { display: block !important; }
+.tile-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 18px; font-size: 15px; }
+.tile-num { color: var(--muted); font-variant-numeric: tabular-nums; }
+.tile-name { color: var(--text); font-weight: 500; }
+.tile-cat { margin-left: auto; color: var(--muted); }
+.tile-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px clamp(40px, 6vw, 96px); margin-top: 36px; align-items: start; }
+.tile-title { margin: 0 !important; font-size: clamp(24px, 2.4vw, 32px) !important; line-height: 1.2 !important; max-width: 18ch; }
+.tile-side { display: block; }
+.tile-brief { display: block; font-size: 17px; line-height: 1.6; color: var(--subtle); max-width: 52ch; }
+.tile-results { display: grid; gap: 10px; margin-top: 28px; font-size: 15px; line-height: 1.4; color: var(--text); }
+.tile-results span { position: relative; padding-left: 18px; }
+.tile-results span::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
+.tile-more {
+  display: inline-flex !important; align-items: center; gap: 10px; margin-top: 32px !important; opacity: 1 !important;
+  font-size: 16px; font-weight: 500; color: var(--text); border-bottom: 1px solid var(--text); padding-bottom: 3px;
+  transition: color .2s, border-color .2s, gap .2s;
+}
+.tile-more i { font-style: normal; }
+.tile-link:hover .tile-more { color: var(--rose); border-color: var(--rose); gap: 16px; }
+.cases:has(.tile) { gap: clamp(96px, 12vw, 176px) !important; }
+@media (max-width: 860px) {
+  .tile-body { grid-template-columns: 1fr; gap: 20px; margin-top: 24px; }
+  .tile-title { max-width: none; }
+}
+.tile-body > .tile-title { grid-column: 1 !important; grid-row: 1 !important; order: 0; }
+.tile-body > .tile-side { grid-column: 2 !important; grid-row: 1 !important; }
+.tile-side > * { grid-column: auto !important; grid-row: auto !important; }
+@media (max-width: 860px) { .tile-body > .tile-side { grid-column: 1 !important; grid-row: 2 !important; } }
+
+/* =================================================================
+   Case pages, one system.
+   1. One reading column (760px). Every text block starts at the same left edge.
+   2. Media breaks out of the column to a wider measure, centred.
+   3. One display face for headings and statements; one sans for text.
+   4. No fake browser chrome, no gold.
+   ================================================================= */
+:root { --serif: var(--display); --col: 760px; --wide: 1120px; }
+
+.cs .wrap, .cs-hero.wrap { max-width: calc(var(--col) + 2 * var(--gutter)) !important; }
+.cs-hero:not(.md-hero) { display: block !important; }
+.cs-head, .cs-beat-head, .cs-prose, .cs-prose.narrow, .cs-two, .cs-two .cs-prose, .cs-two .cs-head,
+.cs-intro, .cs-hero h1, .cs-subhead { margin-left: 0 !important; margin-right: 0 !important; max-width: none !important; }
+.cs-two { display: grid !important; grid-template-columns: 1fr !important; gap: 32px !important; }
+
+/* Wide media */
+.cs-canvas, .cs-clip, .mock-stage, .cs-mosaic, .cs-tile-img, .cs-ba, .cs-compare, .md-phone-row, .md-ba,
+.uj-screen, .uj-annotated, .uj-sealed, .cs-wide, .cs .wrap > .reveal > .mock-stage, .md-blueprint {
+  width: min(var(--wide), calc(100vw - 2 * var(--gutter))) !important;
+  max-width: none !important;
+  margin-left: calc(50% - min(var(--wide), calc(100vw - 2 * var(--gutter))) / 2) !important;
+}
+.cs-canvas { display: block !important; }
+.cs-canvas figcaption, .cs-clip figcaption { max-width: var(--col); margin: 20px auto 0 !important; display: block !important; }
+.cs-clip { display: block !important; }
+
+/* No browser chrome around screens */
+.mock-bar { display: none !important; }
+.mock-stage { padding: clamp(20px, 3vw, 48px) !important; background: var(--surface) !important; border-radius: 2px; }
+.mock-browser { border-radius: 4px !important; border: 1px solid var(--line) !important; }
+
+/* Hero */
+.cs-hero { padding-top: clamp(48px, 7vw, 96px) !important; }
+.cs-hero .case-kicker { margin-top: 32px; flex-wrap: wrap; }
+.cs-hero h1 { font-size: clamp(36px, 4.4vw, 58px) !important; line-height: 1.08 !important; margin-top: 8px; }
+.cs-subhead { font-family: var(--sans) !important; font-weight: 400 !important; font-size: 20px !important; line-height: 1.5 !important; color: var(--subtle) !important; margin-top: 20px !important; }
+.cs-intro { margin-top: 24px !important; }
+
+/* Headings and statements share the display face */
+.cs-head h2 { font-size: clamp(28px, 3vw, 40px) !important; line-height: 1.14 !important; }
+.cs-statement, .cs-statement.accent, .cs-statement.first, .cs-statement.small, .cs-hypothesis p + p,
+.cs-principle p + p, .cs-quote, .cs-quote.big, .cs-end-statement, .uj-frag-result, .md-ba-sum, .cs-story-title {
+  font-family: var(--display) !important; font-weight: 300 !important; font-style: normal !important;
+  letter-spacing: -0.01em !important; color: var(--text) !important;
+}
+.cs-statement, .cs-hypothesis p + p, .cs-principle p + p, .cs-quote, .cs-quote.big, .uj-frag-result {
+  font-size: clamp(24px, 2.4vw, 32px) !important; line-height: 1.25 !important;
+}
+.cs-quote span, .cs-quote.big span { display: inline !important; margin: 0 !important; font-style: italic !important; }
+.cs-end-statement { font-size: clamp(32px, 4vw, 52px) !important; line-height: 1.1 !important; }
+.cs-end-statement em { font-style: italic !important; }
+.cs-punch { font-size: 18px !important; }
+
+/* Numbers: display face, text colour */
+.gold, .cs-outcomes b, .cs-bigstat b, .uj-score b { color: var(--text) !important; font-family: var(--display) !important; font-weight: 300 !important; }
+.cs-outcomes, .cs-outcomes.three { grid-template-columns: repeat(3, 1fr) !important; gap: 24px !important; }
+.cs-outcomes b { font-size: clamp(30px, 3.2vw, 44px) !important; line-height: 1.05 !important; }
+@media (max-width: 760px) { .cs-outcomes, .cs-outcomes.three { grid-template-columns: 1fr !important; } }
+
+/* Project summary block: 2 x 2 inside the column */
+.cs-own { grid-template-columns: repeat(2, 1fr) !important; gap: 32px 40px !important; }
+@media (max-width: 760px) { .cs-own { grid-template-columns: 1fr !important; } }
+.cs-meta { grid-template-columns: repeat(2, 1fr) !important; }
+
+/* Side labels that hung in a left gutter now sit above their block */
+.cs-story-tag { display: block; margin-bottom: 16px; }
+
+/* Exceptions that need the wide measure */
+.cs-hero.md-hero { max-width: calc(var(--wide) + 2 * var(--gutter)) !important; grid-template-columns: 1.2fr 1fr !important; }
+.cs-hero.md-hero h1 { font-size: clamp(34px, 3.8vw, 52px) !important; }
+.md-ba-list, .uj-roles, .uj-score, .md-evolution, .md-lanes, .cs-outcomes, .mc-iterations, .ex-flow {
+  width: min(var(--wide), calc(100vw - 2 * var(--gutter))) !important;
+  max-width: none !important;
+  margin-left: calc(50% - min(var(--wide), calc(100vw - 2 * var(--gutter))) / 2) !important;
+}
+@media (max-width: 860px) { .cs-hero.md-hero { grid-template-columns: 1fr !important; } }
+.cs-beat-head h3, .cs-story-title { font-family: var(--display) !important; font-weight: 300 !important; font-size: clamp(22px, 2.2vw, 28px) !important; line-height: 1.2 !important; letter-spacing: -0.01em !important; }
+
+/* =================================================================
+   Case hierarchy, four clear levels.
+   L1 Chapter: a rule, the chapter number and name, then a large serif heading.
+   L2 Block:   small label, then a medium sans heading (family contrast, not size).
+   L3 Body:    sans, comfortable size, muted.
+   Emphasis:   statements are sans, medium weight, dark, with a short accent rule.
+   Serif is reserved for chapter headings, the case title and the closing line.
+   ================================================================= */
+
+/* L1 */
+.cs-section { padding: clamp(72px, 9vw, 128px) 0 !important; }
+.cs-section + .cs-section .cs-head { border-top: 1px solid var(--line); padding-top: 28px; }
+.cs-eyebrow { display: flex !important; gap: 10px !important; align-items: baseline; margin-bottom: 20px !important; font-size: 14px !important; color: var(--muted) !important; }
+.cs-eyebrow span { color: var(--text) !important; font-weight: 500 !important; }
+.cs-head { margin-bottom: clamp(32px, 4vw, 48px) !important; }
+.cs-head h2 { font-family: var(--display) !important; font-weight: 400 !important; font-size: clamp(32px, 3.6vw, 48px) !important; line-height: 1.1 !important; letter-spacing: -0.015em !important; color: var(--text) !important; }
+
+/* L2 */
+.cs-beat { margin-top: clamp(56px, 7vw, 88px) !important; }
+.cs-beat-head { margin-bottom: 20px !important; }
+.cs-beat-label { font-size: 14px !important; color: var(--muted) !important; margin-bottom: 8px !important; }
+.cs-beat-head h3, .cs-story-title {
+  font-family: var(--sans) !important; font-weight: 500 !important; font-size: clamp(20px, 1.8vw, 24px) !important;
+  line-height: 1.3 !important; letter-spacing: -0.01em !important; color: var(--text) !important;
+}
+
+/* L3 */
+.cs-prose, .cs-prose p { font-size: 18px !important; line-height: 1.65 !important; color: var(--subtle); }
+.cs-prose strong { color: var(--text) !important; font-weight: 500 !important; }
+
+/* Emphasis: one style for every statement and pull line */
+.cs-statement, .cs-statement.accent, .cs-statement.first, .cs-statement.small, .cs-hypothesis p + p,
+.cs-principle p + p, .cs-quote, .cs-quote.big, .uj-frag-result, .cs-punch {
+  font-family: var(--sans) !important; font-weight: 500 !important; font-style: normal !important;
+  font-size: clamp(20px, 1.9vw, 24px) !important; line-height: 1.4 !important; letter-spacing: -0.01em !important;
+  color: var(--text) !important;
+  position: relative; padding-left: 20px !important; margin-top: 40px !important; margin-bottom: 32px !important;
+}
+.cs-statement::before, .cs-hypothesis p + p::before, .cs-principle p + p::before, .cs-quote::before, .uj-frag-result::before, .cs-punch::before {
+  content: ""; position: absolute; left: 0; top: 0.25em; bottom: 0.25em; width: 2px; background: var(--rose);
+}
+.cs-quote span, .cs-quote.big span { font-style: normal !important; color: var(--muted) !important; }
+.cs-hypothesis, .cs-principle, .cs-why { margin-top: 40px !important; }
+.cs-hypothesis .label, .cs-principle .label, .cs-why .label { margin-bottom: 6px; }
+
+/* Closing line keeps the serif */
+.cs-end-statement { font-family: var(--display) !important; font-weight: 300 !important; padding-left: 0 !important; }
+.cs-end-statement::before { display: none; }
+
+/* Chapter index: lighter, it is navigation, not content */
+.cs-arc { gap: 4px 0 !important; margin-top: 40px !important; }
+.cs-arc a { font-size: 14px !important; color: var(--muted) !important; }
+.cs-arc a span { color: var(--muted) !important; margin-right: 6px; }
+.cs-statement, .cs-hypothesis p + p, .cs-principle p + p, .cs-quote, .uj-frag-result, .cs-punch { margin-bottom: 32px !important; }
+.cs-hypothesis p + p, .cs-principle p + p { margin-bottom: 0 !important; }
+html, body { overflow-x: clip; }
+
+/* =================================================================
+   Spacing scale, whole site.
+   --s-section: between sections / chapters
+   --s-block:   between blocks inside a section
+   --s-media:   around images and videos
+   No element keeps a trailing margin at the end of its section.
+   ================================================================= */
+:root {
+  --s-section: clamp(56px, 6.5vw, 96px);
+  --s-block: clamp(40px, 4.5vw, 64px);
+  --s-media: clamp(32px, 4vw, 56px);
+}
+
+/* Sections everywhere */
+section { padding: var(--s-section) 0 !important; }
+.hero.hero-grid { padding-bottom: var(--s-section) !important; }
+#work { padding-top: 0 !important; }
+.sec-head, .sec-label { margin-bottom: 28px !important; }
+
+/* Case chapters: space sits before the divider, not on both sides of it */
+.cs-section { padding: 0 0 var(--s-section) !important; }
+.cs-hero + .wrap { padding-bottom: var(--s-section); }
+.cs-section .cs-head { padding-top: 28px; border-top: 1px solid var(--line); }
+.cs-section .wrap > :last-child,
+.cs-section .cs-beat:last-child > :last-child,
+.cs-section .cs-two:last-child > :last-child,
+.cs-after-metrics, .cs-next-phase > :last-child { margin-bottom: 0 !important; }
+.cs-end, .case-cta-sec, .cs-nextnav { padding: var(--s-section) 0 !important; }
+
+/* Blocks inside a chapter */
+.cs-beat { margin-top: var(--s-block) !important; }
+.cs-two { gap: 28px !important; }
+.cs-head { margin-bottom: 28px !important; }
+.cs-statement, .cs-statement.first, .cs-statement.accent, .cs-hypothesis p + p, .cs-principle p + p, .cs-quote, .uj-frag-result, .cs-punch {
+  margin-top: 32px !important;
+}
+.cs-statement, .cs-statement.first, .cs-statement.accent, .cs-quote, .uj-frag-result, .cs-punch { margin-bottom: 0 !important; }
+.cs-statement + *, .cs-punch + *, .cs-quote + * { margin-top: 28px !important; }
+
+/* Media and their captions */
+.cs-clip, .cs-canvas, .mock-stage, .cs-mosaic, .cs-ba, .cs-compare, .md-phone-row, .md-ba, .uj-screen, .uj-annotated { margin-top: var(--s-media) !important; margin-bottom: 0 !important; }
+.cs-clip figcaption, .cs-canvas figcaption, figure figcaption { margin-top: 16px !important; }
+.cs-clip figcaption .label, .cs-canvas figcaption .label, figure figcaption .label { display: block; margin-bottom: 6px !important; }
+.cs-clip figcaption p:not(.label), .cs-canvas figcaption p:not(.label) { font-size: 16px !important; line-height: 1.55 !important; color: var(--subtle) !important; }
+
+/* About: same system as the cases */
+.ab-display { font-family: var(--display) !important; font-weight: 400 !important; font-size: clamp(32px, 3.6vw, 48px) !important; line-height: 1.1 !important; letter-spacing: -0.015em !important; }
+.ab-display em { font-style: italic !important; }
+.ab-hero h1 { font-family: var(--display) !important; font-weight: 400 !important; }
+.ab .cs-section { padding: var(--s-section) 0 0 !important; }
+.ab .cs-section + .cs-section { border-top: 1px solid var(--line); margin-top: var(--s-section); }
+.ab-final { margin-top: var(--s-section); }
+.ab-hero { padding-bottom: 0 !important; }
+
+/* Hero portrait: the real photo in a medium circle */
+.hero-grid { grid-template-columns: 1fr auto !important; align-items: center !important; }
+.hero-avatar { width: clamp(200px, 22vw, 300px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--surface); justify-self: end; }
+.hero-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; display: block; }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-avatar { order: -1; justify-self: start; width: clamp(120px, 34vw, 180px); }
+}
+
+/* Mobile nav: name and "Let's talk" on the first row, links on the second */
+@media (max-width: 720px) {
+  nav .wrap { flex-wrap: wrap !important; height: auto !important; padding-top: 14px; padding-bottom: 10px; row-gap: 6px; }
+  .nav-right { display: contents !important; }
+  nav .btn { order: 2; margin-left: auto; }
+  nav ul { order: 3; width: 100%; display: flex !important; gap: 20px !important; }
+  nav ul a { font-size: 14px; white-space: nowrap; padding: 8px 0; display: inline-block; }
+  .nav-id { white-space: nowrap; }
+}

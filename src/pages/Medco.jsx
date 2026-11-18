@@ -189,7 +189,7 @@ export default function Medco() {
             <span className="case-cat">Digital Health · Teleorientation · Telemedicine</span>
           </Reveal>
           <Reveal as="h1">
-            Designing a clearer path from patient need to the <em>right medical care</em>.
+            Designing a clearer path from patient need to the right medical care.
           </Reveal>
           <Reveal className="cs-prose cs-intro">
             <p>

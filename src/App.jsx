@@ -2,15 +2,15 @@ import { useEffect, useLayoutEffect, useState } from 'react'
 import Reveal from './components/Reveal'
 import CaseStudy from './components/CaseStudy'
 import ContactLinks from './components/ContactLinks'
-import HeroCycle from './components/HeroCycle'
 import MyClinic360 from './pages/MyClinic360'
 import Medco from './pages/Medco'
 import Uirajarr from './pages/Uirajarr'
 import About from './pages/About'
 import Experience from './pages/Experience'
+import HowIWork from './pages/HowIWork'
 import NotFound from './pages/NotFound'
 import { routes } from './seo'
-import { profile, heroCapabilities, facts, cases, experience, builds } from './data'
+import { profile, facts, cases, experience, builds, testimonials } from './data'
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -23,9 +23,11 @@ function Nav() {
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <div className="wrap">
+        <a href="/" className="nav-id">Rafaelle Weran</a>
         <div className="nav-right">
           <ul>
             <li><a href="/#work">Work</a></li>
+            <li><a href="/how-i-work">How I work</a></li>
             <li><a href="/experience">Experience</a></li>
             <li><a href="/about">About</a></li>
           </ul>
@@ -38,28 +40,57 @@ function Nav() {
 
 function Hero() {
   return (
-    <header className="hero wrap">
-      <div className="hero-top">
-        <Reveal as="h1"><span className="hero-name">Hi, I’m Rafaelle.</span><em>Senior Product Designer</em><span className="hero-sub-title">Design Engineer</span></Reveal>
-        <Reveal className="hero-cycle-wrap"><HeroCycle /></Reveal>
+    <header className="hero wrap hero-grid">
+      <div className="hero-text">
+        <Reveal as="p" className="hero-role">Engineering Design · Product Thinking · Implementation</Reveal>
+        <Reveal as="h1" className="hero-line">I turn complex problems into products that <em>work</em>.</Reveal>
+        <Reveal as="p" className="hero-sub">I design the product and build its front-end, handing working interfaces to back-end engineers. Engineering, design, and product thinking in one person, from strategy to implementation.</Reveal>
+        <Reveal as="p" className="hero-meta">Edmonton, Canada · Originally from Brazil · 15+ years in technology · {profile.workEligibility}</Reveal>
       </div>
-      <div className="hero-foot">
-        <Reveal>
-          <p className="hero-lead">{profile.headline}</p>
-          <p className="hero-second">I bridge product strategy, systems thinking, UX/UI, and front-end implementation.</p>
-          <p className="hero-domains">{heroCapabilities.join(' · ')}</p>
-        </Reveal>
-        <Reveal className="facts">
-          {facts.map((f) => (
-            <div key={f.label}><b>{f.value}</b><span>{f.label}</span></div>
-          ))}
-          <div>
-            <b className="loc">Edmonton, Canada</b>
-            <span>{profile.workEligibility}</span>
-          </div>
-        </Reveal>
-      </div>
+      <Reveal className="hero-avatar">
+        <img src={`${import.meta.env.BASE_URL}images/rafaelle-portrait.jpg`} alt="Rafaelle Weran" />
+      </Reveal>
     </header>
+  )
+}
+
+// One quiet band about how I work, using existing copy and facts.
+function Approach() {
+  return (
+    <section id="approach" className="approach">
+      <div className="wrap approach-grid">
+        <Reveal as="p" className="approach-text">
+          I bridge product strategy, systems thinking, UX/UI, and front-end implementation.
+        </Reveal>
+        <div>
+          <Reveal as="dl" className="approach-facts">
+            {facts.map((f) => <div key={f.label}><dt>{f.value}</dt><dd>{f.label}</dd></div>)}
+          </Reveal>
+          <Reveal as="p" className="approach-now">
+            Currently: an MBA in progress, and a growing interest in how AI is changing the way we design and build products.
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function WorkedWith() {
+  if (!testimonials.length) return null
+  return (
+    <section id="worked-with" className="worked">
+      <div className="wrap">
+        <Reveal as="p" className="sec-label">Kind words</Reveal>
+        <div className="worked-grid">
+          {testimonials.map((t) => (
+            <Reveal as="figure" key={t.name}>
+              <blockquote>{t.quote}</blockquote>
+              <figcaption><b>{t.name}</b><span>{t.role}</span></figcaption>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -81,13 +112,16 @@ function Home() {
 
       <section id="work">
         <div className="wrap">
-          <SectionHead title="Selected work" meta={`${visibleCases.length} projects`} />
+          <Reveal as="p" className="sec-label">Selected work</Reveal>
           <div className="cases">
             {visibleCases.map((c, i) => <CaseStudy key={c.id} index={i} item={c} />)}
           </div>
 
         </div>
       </section>
+
+      <Approach />
+      <WorkedWith />
 
       <section id="builds" className="builds-sec">
         <div className="wrap">
@@ -152,17 +186,16 @@ function Home() {
       <section id="contact" className="contact">
         <div className="wrap">
           <Reveal as="h2">
-            Looking for a Senior Product Designer?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a>
+            Have a complex product to build?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a>
           </Reveal>
           <Reveal as="p" className="contact-sub">
-            I take complex products from ambiguity to delivery. Open to full-time, in-house Senior Product Designer roles.
+            I take complex products from ambiguity to a working front-end. Open to full-time, in-house roles in engineering design and product design.
           </Reveal>
           <Reveal><ContactLinks /></Reveal>
           <footer>
             <span>© 2026 {profile.name}</span>
             <ul>
-              <li><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
-              <li><a href="/experience">Experience</a></li>
+                <li><a href="/experience">Experience</a></li>
               <li><a href={`mailto:${profile.email}`}>Email</a></li>
             </ul>
           </footer>
@@ -175,7 +208,7 @@ function Home() {
 // Minimal path router. Old "#/work/<id>" links are redirected to "/work/<id>"; "/#anchor" scrolls on the home page.
 const pages = {
   '/work/myclinic360': MyClinic360, '/work/medco': Medco, '/work/uirajarr': Uirajarr,
-  '/about': About, '/experience': Experience,
+  '/about': About, '/experience': Experience, '/how-i-work': HowIWork,
 }
 const currentPath = () => window.location.pathname.replace(/\/+$/, '') || '/'
 

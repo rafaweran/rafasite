@@ -1,21 +1,14 @@
 import Reveal from '../components/Reveal'
-import Craft from '../components/Craft'
 import ContactLinks from '../components/ContactLinks'
-import { profile, experience, education, domains, coreCapabilities } from '../data'
+import { profile, experience, education, companies } from '../data'
 
-// Year ruler: shows where the "15+ years in technology" and "10+ years in UX & Product Design" claims come from.
-const FROM = 2010
+// Year ruler, from the first technology role (2003) to now.
+const FROM = 2003
 const NOW = 2026.8
 const pct = (y) => `${((y - FROM) / (NOW - FROM)) * 100}%`
-const years = [2010, 2014, 2018, 2022, 2026]
+const years = [2003, 2008, 2013, 2018, 2023]
 
 // Real example: this portfolio, built with AI-assisted coding from Rafaelle's own briefs (Med.co phase markers).
-const aiFlow = [
-  { title: 'Product decision', text: 'I start by defining the problem, user need, business context, constraints, and what the experience needs to accomplish.' },
-  { title: 'Structured specification', text: 'I translate product decisions into clear flows, interaction rules, states, edge cases, accessibility requirements, and implementation guidance.', kind: 'brief', excerpt: 'Clearly distinguish what exists today from future exploration. Preserve the current user flow while making the new direction visible without implying that it has already shipped.' },
-  { title: 'AI-assisted implementation', text: 'I use AI-assisted development to turn specifications and design decisions into functional interfaces faster, iterate on interactions, and explore implementation possibilities.', kind: 'code', excerpt: 'const explore =\n  EXPLORATION.includes(id)' },
-  { title: 'Review and refinement', text: 'I review the implementation against the original product intent, validating interaction behavior, responsive layout, accessibility, edge cases, and visual quality before considering the work complete.' },
-]
 
 function CvLink() {
   return profile.resumeReady
@@ -34,7 +27,7 @@ export default function Experience() {
         <Reveal as="h1">Where and when I've <em>worked</em>.</Reveal>
         <Reveal className="ex-hero-row">
           <p className="ex-hero-sub">
-            {profile.role} and Design Engineer. {profile.location.split(' · ')[0]}.
+            Engineering design, product thinking, and implementation. {profile.location.split(' · ')[0]}.
           </p>
           <CvLink />
         </Reveal>
@@ -104,69 +97,27 @@ export default function Experience() {
         </div>
       </section>
 
-      <section className="ex-ai-sec">
+      <section className="ex-companies">
         <div className="wrap">
-          <div className="ex-ai-intro">
-            <Reveal>
-              <p className="label">How I use AI in delivery</p>
-              <h2 className="ex-ai-title">From product thinking to <em>working interface</em>.</h2>
-            </Reveal>
-            <Reveal className="ex-ai-copy">
-              <p>
-                AI-assisted development is part of my design workflow. I use it to move faster from product decisions and
-                structured specifications to working interfaces, while keeping product thinking, UX, accessibility, and
-                final review under my responsibility.
-              </p>
-            </Reveal>
-          </div>
-          <ol className="ex-flow">
-            {aiFlow.map((f, i) => (
-              <Reveal as="li" key={f.title}>
-                <span className="ex-flow-n">{String(i + 1).padStart(2, '0')}</span>
-                <h3>{f.title}</h3>
-                {f.text && <p>{f.text}</p>}
-                {f.excerpt && <pre className="ex-prompt"><span>{f.kind === 'code' ? 'excerpt from the component' : 'example specification'}</span>{f.excerpt}</pre>}
-              </Reveal>
+          <Reveal as="p" className="label">Companies and clients</Reveal>
+          <Reveal as="ul" className="ex-logos">
+            {companies.map((c) => (
+              <li key={c.name}>
+                {c.href
+                  ? <a href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">{c.name}</a>
+                  : <span>{c.name}</span>}
+              </li>
             ))}
-          </ol>
-          <Reveal as="figure" className="ex-ai-result">
-            <figcaption>
-              <span className="label">Result</span>
-              A working product experience built from my product decisions, specifications, and design direction, with AI
-              accelerating implementation and iteration. <a href="/work/medco" className="ex-ai-live">See it live →</a>
-            </figcaption>
           </Reveal>
-        </div>
-      </section>
-
-      <section id="craft">
-        <div className="wrap">
-          <Reveal className="ex-craft-head">
-            <p className="label">Interface craft</p>
-            <h2 className="ex-ai-title">Evidence from <em>real products</em>.</h2>
+          <Reveal as="p" className="ex-linkedin">
+            Full history and recommendations on <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn →</a>
           </Reveal>
-          <Craft />
-        </div>
-      </section>
-
-      <section>
-        <div className="wrap">
-          <div className="exp">
-            <Reveal>
-              <p className="label">Domains</p>
-              <ul className="exp-list">{domains.map((d) => <li key={d}>{d}</li>)}</ul>
-            </Reveal>
-            <Reveal>
-              <p className="label">Core capabilities</p>
-              <ul className="exp-list">{coreCapabilities.map((c) => <li key={c}>{c}</li>)}</ul>
-            </Reveal>
-          </div>
         </div>
       </section>
 
       <section className="contact">
         <div className="wrap">
-          <Reveal as="h2">Looking for a Senior Product Designer?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a></Reveal>
+          <Reveal as="h2">Have a complex product to build?<br /><a href={`mailto:${profile.email}`}>Let's talk.</a></Reveal>
           <Reveal><ContactLinks /></Reveal>
         </div>
       </section>

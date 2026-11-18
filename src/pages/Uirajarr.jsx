@@ -162,7 +162,7 @@ export default function Uirajarr() {
           <span className="case-cat">GovTech · Workflow Design · Public Sector</span>
         </Reveal>
         <Reveal as="h1">
-          Turning a fragmented government travel process into one <em>traceable</em> digital workflow.
+          Turning a fragmented government travel process into one traceable digital workflow.
         </Reveal>
         <Reveal className="uj-hero-badges">
           <span className="uj-rank"><b>1st place</b> Stage 1 · 9.85 score</span>

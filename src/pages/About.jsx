@@ -25,7 +25,7 @@ export default function About() {
             : <div className="ab-portrait-empty"><span className="label">Photo</span><span>Portrait</span></div>}
         </Reveal>
         <div className="ab-hero-text">
-          <Reveal as="p" className="label ab-eyebrow">About · Senior Product Designer</Reveal>
+          <Reveal as="p" className="label ab-eyebrow">About · Engineering Design</Reveal>
           <Reveal as="h1">I design products by starting with how <em>people</em> think.</Reveal>
           <Reveal className="cs-prose">
             <p>
@@ -123,7 +123,7 @@ export default function About() {
           </Reveal>
           <Reveal className="cs-prose ab-now-body">
             <p className="ab-lead">
-              I'm based in Edmonton, Canada, and open to full-time, in-house Senior Product Designer roles.
+              I'm based in Edmonton, Canada, and open to full-time, in-house roles in engineering design and product design.
             </p>
             <p>
               I'm especially interested in teams working on complex digital products where design can influence both the

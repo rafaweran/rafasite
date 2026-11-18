@@ -369,7 +369,7 @@
 .cs-tile p strong { display: block; color: var(--text); font-weight: 500; font-size: 16px; margin-bottom: 2px; }
 .cs-tile-img {
   flex: 1; min-height: 0; border-radius: 8px; overflow: hidden; background: #f4f6f8;
-  border: 1px solid var(--line); box-shadow: 0 20px 50px -25px rgba(0,0,0,.6);
+  border: 1px solid var(--line); box-shadow: 0 20px 50px -25px rgba(31,29,46,.16);
 }
 .cs-tile-img img { width: 100%; height: 100%; object-fit: cover; object-position: left top; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
 .cs-tile:hover .cs-tile-img img { transform: scale(1.03); }
@@ -415,7 +415,7 @@
 
 /* Figma canvas figure (MVP chapter) */
 .cs-canvas { display: grid; grid-template-columns: 1.7fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: center; margin-top: clamp(56px, 7vw, 96px); }
-.cs-canvas-img { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #1e1e1e; box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); }
+.cs-canvas-img { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #1e1e1e; box-shadow: 0 30px 80px -30px rgba(31,29,46,.16); }
 .cs-canvas-img img { height: auto; }
 .cs-canvas figcaption .label { color: var(--iris); }
 .cs-canvas-lead { margin-top: 12px; font: 300 clamp(22px, 2.2vw, 28px)/1.3 var(--serif); }
@@ -453,7 +453,7 @@
 .md-phone {
   width: clamp(190px, 18vw, 260px); aspect-ratio: 9 / 19.5; border-radius: 36px; padding: 10px;
   background: #0f0e17; border: 1px solid color-mix(in srgb, var(--iris) 30%, var(--line));
-  box-shadow: 0 40px 80px -30px rgba(0,0,0,.7);
+  box-shadow: 0 40px 80px -30px rgba(31,29,46,.16);
 }
 .md-phone-screen { width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #fff; position: relative; }
 .md-phone-screen img { object-fit: cover; object-position: top; }
@@ -587,7 +587,7 @@
 .uj-rank b { font-weight: 700; margin-right: 4px; }
 .uj-live { color: var(--iris); border: 1px dashed color-mix(in srgb, var(--iris) 55%, transparent); }
 
-.uj-screen { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); }
+.uj-screen { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 30px 80px -30px rgba(31,29,46,.16); }
 .uj-screen .shot { border: 0; border-radius: 0; }
 .uj-demo { position: absolute; right: 12px; bottom: 12px; font-size: 12px; font-weight: 500; color: var(--base); background: var(--gold); padding: 4px 10px; border-radius: 999px; }
 
@@ -783,3 +783,4 @@
 .md-explore .md-phone-row .phone, .md-explore .md-phone-row > * { opacity: .92; }
 .md-explore-dot { font-style: normal; color: var(--muted); font-size: .85em; }
 .ab-aside { color: var(--muted); font-style: italic; }
+

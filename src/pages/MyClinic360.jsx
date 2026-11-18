@@ -179,7 +179,7 @@ export default function MyClinic360() {
           <span className="case-cat">0→1 Product · MVP · Post-launch evolution</span>
         </Reveal>
         <Reveal as="h1">
-          Designing a <em>specialized</em> clinical platform for pelvic physiotherapists.
+          Designing a specialized clinical platform for pelvic physiotherapists.
         </Reveal>
         <Reveal as="p" className="cs-subhead">
           Turning fragmented clinical workflows into a more continuous patient experience.

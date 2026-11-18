@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Rafaelle Weran',
-  role: 'Senior Product Designer',
+  role: 'Design Engineer',
   headline: 'Turning complex product problems into clear, intuitive and human experiences.',
   location: 'Edmonton, Canada · Remote worldwide',
   workEligibility: 'Eligible to work in Canada',
@@ -23,9 +23,12 @@ export const cases = [
     id: 'myclinic360',
     layout: 'flagship',
     href: '/work/myclinic360',
-    cover: `${import.meta.env.BASE_URL}images/myclinic360-cover.webp`,
+    cover: `${import.meta.env.BASE_URL}images/myclinic360-home.jpg`, board: 'desktop',
     category: 'Healthcare SaaS',
     product: 'MyClinic360',
+    story: 'The brief was a questionnaire library. Research showed a fragmented clinical workflow. I designed the platform instead.',
+    brief: 'The brief was a questionnaire library. Research with pelvic physiotherapists showed a fragmented clinical workflow, so I designed a platform that connects records, assessments, scheduling, and finance.',
+    results: ['300+ registered professionals', 'Scheduling flow cut from 5 steps to 2', 'In use and evolving since launch'],
     title: 'Designing a specialized clinical workflow for pelvic physiotherapy.',
     summary:
       'A specialized healthcare platform designed from initial discovery and MVP through post-launch evolution, supporting patient management, clinical assessments, scheduling, questionnaires, financial workflows, and ongoing care.',
@@ -44,9 +47,12 @@ export const cases = [
     id: 'medico',
     layout: 'split',
     href: '/work/medco',
-    cover: `${import.meta.env.BASE_URL}images/medco-cover.webp`,
+    cover: `${import.meta.env.BASE_URL}images/medco-home-after.webp`, board: 'phone', cover2: `${import.meta.env.BASE_URL}images/medco-physician-home.webp`,
     category: 'Digital Health / Telemedicine',
     product: 'Med.co',
+    story: 'Physicians were giving patients their personal WhatsApp. I designed a dedicated space for follow-up, then helped it grow into a care experience.',
+    brief: 'Physicians were sharing their personal WhatsApp with patients. As the only product designer, I designed a dedicated follow-up channel, then helped the product grow into a broader care experience.',
+    results: ['V1 delivered and in use', 'V2 entering launch', 'Explorations in AI-assisted intake and teleorientation'],
     title: 'Designing a structured physician-patient communication and care experience.',
     summary:
       'A digital health experience created to improve communication between physicians and patients, later exploring AI-assisted intake, teleorientation, and telemedicine.',
@@ -77,9 +83,12 @@ export const cases = [
     id: 'uirajarr',
     layout: 'split',
     href: '/work/uirajarr',
-    cover: `${import.meta.env.BASE_URL}images/uj-cover.webp`,
+    cover: `${import.meta.env.BASE_URL}images/uj-new-request.webp`, board: 'desktop',
     category: 'GovTech · Public Sector',
     product: 'UIRAJARR · TJRR',
+    story: 'Government travel ran on paper, email and SEI. I mapped the whole process and turned it into one traceable workflow.',
+    brief: 'Court travel ran on paper, email, and SEI. As product designer and systems analyst, I mapped the whole process and turned requests, approvals, bidding, and audit into one traceable workflow.',
+    results: ['1st place in Stage 1 of the TJRR Innovation Award, 9.85 score', 'Competition in progress'],
     title: 'Transforming a fragmented public-sector travel workflow into a traceable digital system.',
     summary:
       'A multi-role product for the Court of Justice of Roraima, covering travel requests, agency accreditation, sealed bidding windows, ticket issuance, and audit.',
@@ -195,8 +204,8 @@ export const experience = [
   {
     role: 'Project Manager',
     org: 'Spieker Point',
-    period: 'Mar 2023 to Sep 2024',
-    start: 2023.17,
+    period: 'Jan 2023 to Sep 2024',
+    start: 2023,
     end: 2024.75,
     place: 'Edmonton, Alberta',
     kind: 'In-house',
@@ -244,6 +253,39 @@ export const experience = [
     compact: true,
     track: 'tech',
   },
+  {
+    role: 'Senior Systems Analyst',
+    org: 'Secretariat of Planning and Management, State of Ceará',
+    period: 'Jun 2007 to Jun 2010',
+    start: 2007.42,
+    end: 2010.42,
+    place: 'Fortaleza, Brazil',
+    kind: 'Public sector',
+    lines: [
+      'Helped build Servidor Online, a self-service system for 150,000+ state employees, delivered in three months and recognized with an internal state award for usability.',
+    ],
+    track: 'tech',
+  },
+  {
+    role: 'Computer Network Administrator',
+    org: 'Secretariat of Planning and Management, State of Ceará',
+    period: 'Jun 2005 to Jun 2007',
+    start: 2005.42,
+    end: 2007.42,
+    place: 'Fortaleza, Brazil',
+    compact: true,
+    track: 'tech',
+  },
+  {
+    role: 'Network Analyst',
+    org: 'Farmácias Pague Menos',
+    period: 'Sep 2003 to Aug 2005',
+    start: 2003.67,
+    end: 2005.58,
+    place: 'Fortaleza, Brazil',
+    compact: true,
+    track: 'tech',
+  },
 ]
 
 export const education = [
@@ -252,4 +294,21 @@ export const education = [
   { name: 'UX Design', org: 'Design Circuit', year: '2021' },
   { name: 'Management in Information Security Systems / Information Assurance', org: 'UNI7, Centro Universitário 7 de Setembro', year: '2007 to 2008' },
   { name: 'Faculdade de Ciências Tecnológicas de Fortaleza', org: null, year: '2001 to 2004' },
+]
+
+export const testimonials = []
+
+// Companies and clients, for the Experience page. Text wordmarks until logo files are provided. No invented URLs.
+export const companies = [
+  { name: 'Aya Studio', note: 'Employer' },
+  { name: 'Spieker Point', note: 'Employer' },
+  { name: 'SEPLAG Ceará', note: 'Employer' },
+  { name: 'Farmácias Pague Menos', note: 'Employer' },
+  { name: 'MyClinic360', href: '/work/myclinic360', note: 'Client' },
+  { name: 'Med.co', href: '/work/medco', note: 'Client' },
+  { name: 'TJRR', href: '/work/uirajarr', note: 'Client' },
+  { name: 'Entre Nós', href: 'https://www.entrenos.ca/', note: 'Client' },
+  { name: 'City Furnace', href: 'https://www.cfmmechanical.ca/', note: 'Client' },
+  { name: 'Maysfield Appliances', note: 'Client' },
+  { name: 'Nextlar', href: 'https://nextlar.app/', note: 'Own product' },
 ]

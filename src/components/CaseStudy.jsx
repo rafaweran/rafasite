@@ -79,6 +79,37 @@ function Meta({ item }) {
 export { Shot, Tags, BrowserMockup }
 
 export default function CaseStudy({ index, item }) {
+  // Gallery tile: product name above the image, then the story in two columns with room to breathe.
+  if (item.href && item.cover) {
+    return (
+      <Reveal as="article" id={item.id} className="case tile">
+        <a href={item.href} className="tile-link">
+          <span className="tile-head">
+            <span className="tile-num">{String(index + 1).padStart(2, '0')}</span>
+            <span className="tile-name">{item.product}</span>
+            <span className="tile-cat">{item.category}</span>
+          </span>
+          <span className={`tile-img board-${item.board || 'desktop'}`}>
+            <img src={item.cover} alt={`${item.product} product screen`} />
+            {item.cover2 && <img src={item.cover2} alt="" />}
+          </span>
+          <span className="tile-body">
+            <span className="tile-title">{item.title}</span>
+            <span className="tile-side">
+              {item.brief && <span className="tile-brief">{item.brief}</span>}
+              {item.results && (
+                <span className="tile-results">
+                  {item.results.map((r) => <span key={r}>{r}</span>)}
+                </span>
+              )}
+              <span className="tile-more">Read the case<i aria-hidden="true">→</i></span>
+            </span>
+          </span>
+        </a>
+      </Reveal>
+    )
+  }
+
   if (item.layout === 'flagship') {
     return (
       <Reveal as="article" id={item.id} className="case flagship">
