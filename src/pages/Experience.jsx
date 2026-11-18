@@ -39,12 +39,12 @@ export default function Experience() {
             <div className="ex-track">
               <span className="ex-track-name">Technology</span>
               <span className="ex-bar tech" style={{ left: pct(firstTech), right: 0 }} />
-              <span className="ex-track-total">{Math.floor(NOW - firstTech)} years</span>
+              <span className="ex-track-total">15+ years</span>
             </div>
             <div className="ex-track">
               <span className="ex-track-name">UX & Product Design</span>
               <span className="ex-bar ux" style={{ left: pct(firstUx), right: 0 }} />
-              <span className="ex-track-total">{Math.floor(NOW - firstUx)} years</span>
+              <span className="ex-track-total">10+ years</span>
             </div>
             <div className="ex-years" aria-hidden="true">
               {years.map((y) => <span key={y} style={{ left: pct(y) }}>{y}</span>)}
